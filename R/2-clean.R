@@ -21,3 +21,6 @@ visits<-namcs %>%
               Medicare_visits=sum(PAYMCARE,na.rm=T)*mean(PATWT,na.rm=T),
               Medicaid_visits=sum(PAYMCAID,na.rm=T)*mean(PATWT,na.rm=T))
     
+namcs<-left_join(namcs,visits)
+
+

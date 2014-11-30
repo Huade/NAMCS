@@ -1,26 +1,35 @@
+# Clean the data set
 source("R/1-load.R")
 library(dplyr)
 
-namcs<-namcs %>%
-    # Remove record from 2007
-    filter(VYEAR!=2007) %>%
-    # Generate dummy variables for EMR and EBILL
-    mutate(full_EMR=ifelse(EMEDREC==1,1,0)) %>%
-    mutate(part_EMR=ifelse(EMEDREC==2,1,0)) %>%
-    mutate(full_EBILL=ifelse(EBILLREC==1,1,0)) %>%
-    mutate(part_EBILL=ifelse(EBILLREC==2,1,0)) %>%
-    # Generate dummy variables for HITECH Act passage
-    mutate(HITECH_pass=ifelse(VYEAR==2009 & VMONTH>=2 | VYEAR==2010,1,0)) %>%
-    mutate(HITECH_pass_after=ifelse(VYEAR==2009 & VMONTH>=8 | VYEAR==2010,1,0)) %>%
-    mutate(HITECH_pass_before=ifelse(VYEAR==2009 & VMONTH==1 | VYEAR==2008,1,0))
+namcs <- namcs
 
-# Calculate visits by payment type
-visits<-namcs %>%
+physician <- namcs %>%
+    filter(VYEAR!=2007) %>%
     group_by(VYEAR,PHYCODE) %>%
-    summarise(Private_visits=sum(PAYPRIV,na.rm=T)*mean(PATWT,na.rm=T),
-              Medicare_visits=sum(PAYMCARE,na.rm=T)*mean(PATWT,na.rm=T),
-              Medicaid_visits=sum(PAYMCAID,na.rm=T)*mean(PATWT,na.rm=T))
-    
+    summarise(Private_visits=sum(PAYPRIV,na.rm=T),
+              Medicare_visits=sum(PAYMCARE,na.rm=T),
+              Medicaid_visits=sum(PAYMCAID,na.rm=T),
+              # Survey
+              PATWT=sum(PATWT,na.rm=T),
+              CSTRATM=mean(CSTRATM,na.rm=T),
+              PHYSWT=head(PHYSWT,1),
+              CPSUM=mean(CPSUM,na.rm=T),
+              # Treatment
+              EMEDREC=mean(EMEDREC,na.rm=T),
+              # Physician Information
+              OWNS=mean(OWNS,na.rm=T),
+              MSA=mean(MSA,na.rm=T),
+              MANCAREC=mean(MANCAREC,na.rm=T),
+              SPECR=mean(SPECR,na.rm=T),
+              REGION=mean(REGION,na.rm=T),
+              # Patient Information
+              Avg_Patient_Age=mean(AGE,na.rm=T),
+              TIMEMD=mean(TIMEMD,na.rm=T))
+
+
+
+# Merge visits data and original dataset
 namcs<-left_join(namcs,visits)
 
 

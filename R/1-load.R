@@ -1,7 +1,7 @@
 # Load Data Set
 # namcs.csv is a combined data set for NAMCS 2008, 2009, and 2010
 library(data.table)
-namcs<-fread("Data/namcs.csv")
+namcs<-fread("Data/NAMCS.csv")
 
 # Replace -9, -8, -7 to NA
 for (col in names(namcs)){

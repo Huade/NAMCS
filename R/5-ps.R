@@ -1,7 +1,16 @@
 library(twang)
 
-physician.ps <- mnps(EMEDREC ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+ REGION + NOCHRON_pct + TOTCHRON_mean + Avg_Patient_Age + PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + PAYSELF_pct,data=physician_mi_complete, stop.method="ks.max")
-bal.table(physician.ps)
+# Estimate propensity score with GBM
+physician.ps <- mnps(EMEDREC ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+ 
+                         REGION + NOCHRON_pct + TOTCHRON_mean + Avg_Patient_Age + 
+                         PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + 
+                         PAYSELF_pct,data=physician_mi_complete,
+                     interaction.depth = 5,
+                     bag.fraction = 0.5,
+                     stop.method="ks.max")
+
+# Access balance
+bal.table(physician.ps,collapse.to = "stop.method")
 
 summary(physician.ps)
 # Overlap of propensity score
@@ -22,13 +31,13 @@ physician_mi_complete$psweight <- get.weights(physician.ps, stop.method="ks.max"
 
 design.ps.mn <- svydesign(ids=~1, weights=~psweight, data=physician_mi_complete)
 
-glm_HealthEdu_pct_mn <- svyglm(HealthEdu_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+PAYSELF_pct+factor(MANCAREC), design=design.ps.mn)
+glm_HealthEdu_pct_mn <- svyglm(HealthEdu_pct ~ factor(EMEDREC)+SOLO+factor(OWNS), design=design.ps.mn)
 summary(glm_HealthEdu_pct_mn)
 
-glm_TIMEMD <- svyglm(TIMEMD ~ factor(EMEDREC)+SOLO+factor(OWNS)+PAYSELF_pct+factor(MANCAREC), design=design.ps.mn)
+glm_TIMEMD <- svyglm(TIMEMD ~ factor(EMEDREC)+SOLO+factor(OWNS), design=design.ps.mn)
 summary(glm_TIMEMD)
 
-glm_RETAPPT_pct <- svyglm(RETAPPT_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC), design=design.ps.mn)
+glm_RETAPPT_pct <- svyglm(RETAPPT_pct ~ factor(EMEDREC)+SOLO+factor(OWNS), design=design.ps.mn)
 summary(glm_RETAPPT_pct)
 
 

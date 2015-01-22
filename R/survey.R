@@ -1,3 +1,3 @@
 library(survey)
-namcs_svy <- svydesign(id = ~CPSUM, weights = ~PATWT, data = namcs, strata = ~CSTRATM,nest=T)
-svymean(~full_EMR, namcs_svy)
+physician_svy <- svydesign(id = ~1, weights = ~PHYSWT, data = physician)
+svymean(~SOLO, physician_svy,na.rm=T)

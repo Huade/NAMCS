@@ -13,7 +13,7 @@ library(mi)
 library(twang)
 library(stargazer)
 
-
+set.seed(1)
 namcs<-fread("Data/namcs.csv")
 
 # Replace -9, -8, -7 to NA
@@ -102,24 +102,26 @@ physician_mi_complete$REGION=as.factor(physician_mi_complete$REGION)
 physician_mi_complete$VYEAR=as.factor(physician_mi_complete$VYEAR)
 
 physician_mi_full_EMR <- physician_mi_complete[physician_mi_complete$EMEDREC!=2,]
-
+physician_mi_full_EMR$FullEMR <- ifelse(physician_mi_full_EMR$EMEDREC==1,1,0)
 
 physician_mi_part_EMR <- physician_mi_complete[physician_mi_complete$EMEDREC!=1,]
 physician_mi_part_EMR[physician_mi_part_EMR$EMEDREC==2,]$EMEDREC <- 1
-
+physician_mi_part_EMR$PartEMR <- ifelse(physician_mi_part_EMR$EMEDREC==1,1,0)
 
 # Estimate propensity score with GBM
-physician.ps.full <- ps(EMEDREC ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+ 
+physician.ps.full <- ps(FullEMR ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+ 
                          REGION + NOCHRON_pct + TOTCHRON_mean + Avg_Patient_Age + 
                          PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + 
                          PAYSELF_pct+VYEAR,data=physician_mi_full_EMR,
-                     interaction.depth = 3)
+                     interaction.depth = 3,
+                     verbose = F)
 
-physician.ps.part <- ps(EMEDREC ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+ 
+physician.ps.part <- ps(PartEMR ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+ 
                             REGION + NOCHRON_pct + TOTCHRON_mean + Avg_Patient_Age + 
                             PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + 
                             PAYSELF_pct+VYEAR,data=physician_mi_part_EMR,
-                        interaction.depth = 3)
+                        interaction.depth = 3,
+                        verbose =F)
 
 # Access balance
 bal.table(physician.ps.full)
@@ -142,14 +144,6 @@ plot(physician.ps.part,plot=4)
 plot(physician.ps.part,plot=5)
 plot(physician.ps.part,plot=6)
 
-# Build balance table for confounding variables
-library(xtable)
-balance_table <- bal.table(physician.ps)
-descriptive_table <- balance_table$unw[,c("tx.mn","ct.mn","stat","p")]
-xtable(descriptive_table,
-       caption="Balance of the treatment and comparison groups",
-       label="tab.1")
-
 # Estimate regression model with ps weighting
 library(survey)
 physician_mi_full_EMR$psweight <- get.weights(physician.ps.full, stop.method="es.mean")
@@ -160,18 +154,18 @@ design.ps.part <- svydesign(ids=~1, weights=~psweight, data=physician_mi_part_EM
 
 
 
-glm_HealthEdu_pct_full <- svyglm(HealthEdu_pct ~ factor(EMEDREC)+SOLO+factor(OWNS), design=design.ps.full)
-glm_HealthEdu_pct_part <- svyglm(HealthEdu_pct ~ factor(EMEDREC)+SOLO+factor(OWNS), design=design.ps.part)
+glm_HealthEdu_pct_full <- svyglm(HealthEdu_pct ~ FullEMR+SOLO+factor(OWNS), design=design.ps.full)
+glm_HealthEdu_pct_part <- svyglm(HealthEdu_pct ~ PartEMR+SOLO+factor(OWNS), design=design.ps.part)
 summary(glm_HealthEdu_pct_full)
 summary(glm_HealthEdu_pct_part)
 
-glm_TIMEMD_full <- svyglm(TIMEMD ~ factor(EMEDREC)+SOLO+factor(OWNS), design=design.ps.full)
-glm_TIMEMD_part <- svyglm(TIMEMD ~ factor(EMEDREC)+SOLO+factor(OWNS), design=design.ps.part)
+glm_TIMEMD_full <- svyglm(TIMEMD ~ FullEMR+SOLO+factor(OWNS), design=design.ps.full)
+glm_TIMEMD_part <- svyglm(TIMEMD ~ PartEMR+SOLO+factor(OWNS), design=design.ps.part)
 summary(glm_TIMEMD_full)
 summary(glm_TIMEMD_part)
 
-glm_RETAPPT_pct_full <- svyglm(RETAPPT_pct ~ factor(EMEDREC)+SOLO+factor(OWNS), design=design.ps.full)
-glm_RETAPPT_pct_part <- svyglm(RETAPPT_pct ~ factor(EMEDREC)+SOLO+factor(OWNS), design=design.ps.part)
+glm_RETAPPT_pct_full <- svyglm(RETAPPT_pct ~ FullEMR+SOLO+factor(OWNS), design=design.ps.full)
+glm_RETAPPT_pct_part <- svyglm(RETAPPT_pct ~ PartEMR+SOLO+factor(OWNS), design=design.ps.part)
 summary(glm_RETAPPT_pct_full)
 summary(glm_RETAPPT_pct_part)
 

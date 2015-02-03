@@ -41,11 +41,7 @@ physician <- namcs[VYEAR!=2007,
                    list(TIMEMD=mean(TIMEMD,na.rm=T),
                         RETAPPT_pct=mean(RETAPPT,na.rm=T),
                         # Survey
-                        PATWT=mean(PATWT,na.rm=T),
-                        PATWT_total=sum(PATWT,na.rm=T),
-                        CSTRATM=mean(CSTRATM,na.rm=T),
                         PHYSWT=head(PHYSWT,1),
-                        CPSUM=mean(CPSUM,na.rm=T),
                         # Treatment
                         EMEDREC=Mode(EMEDREC),
                         # Physician Information
@@ -89,12 +85,16 @@ physician_cc <- physician[complete.cases(physician),]
 # Keep only physicians with weight higher than zero
 physician_cc <- physician_cc[physician_cc$PHYSWT>0,]
 
+# Descriptive statistics
+
+
 # Multinomial propensity score estimation
 physician.ps.mnps <- mnps(EMEDREC ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+ 
                             REGION + NOCHRON_pct + TOTCHRON_mean + Avg_Patient_Age + 
                             PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + 
                             PAYSELF_pct+VYEAR,data=physician_cc,
                         interaction.depth = 3,
+                        sampw = physician_cc$PHYSWT,
                         verbose = F)
 
 bal.table(physician.ps.mnps)
@@ -108,6 +108,8 @@ glm_RETAPPT_pct_mnps <- svyglm(RETAPPT_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+f
 stargazer(glm_HealthEdu_pct_mnps,glm_TIMEMD_mnps,glm_RETAPPT_pct_mnps,
           title="Estimated effect of EMR adoption with multinomial 
           propensity score weighted OLS models",align=T)
+
+
 
 # Sensitive analysis
 

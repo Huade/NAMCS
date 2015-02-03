@@ -97,9 +97,11 @@ physician.ps.mnps <- mnps(EMEDREC ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+
                         sampw = physician_cc$PHYSWT,
                         verbose = F)
 
+physician_cc$psweight <- get.weights(physician.ps.mnps, stop.method="es.max")
+save(physician_cc,file="Data/physician_cc_w_psw.Rda")
+
 bal.table(physician.ps.mnps)
 
-physician_cc$psweight <- get.weights(physician.ps.mnps, stop.method="es.max")
 design.mnps <- svydesign(ids=~1, weights=~psweight, data=physician_cc)
 glm_HealthEdu_pct_mnps <- svyglm(HealthEdu_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC), design=design.mnps)
 glm_TIMEMD_mnps <- svyglm(TIMEMD ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC), design=design.mnps)
@@ -204,6 +206,9 @@ grid.arrange(plot.part.1,plot.part.2,plot.part.3,
 
 physician_cc_full_EMR$psweight <- get.weights(physician.ps.full, stop.method="es.mean")
 physician_cc_part_EMR$psweight <- get.weights(physician.ps.part, stop.method="es.mean")
+
+save(physician_cc_full_EMR,file="Data/physician_cc_full_EMR_w_psw.Rda")
+save(physician_cc_part_EMR,file="Data/physician_cc_part_EMR_w_psw.Rda")
 
 design.ps.full <- svydesign(ids=~1, weights=~psweight, data=physician_cc_full_EMR)
 design.ps.part <- svydesign(ids=~1, weights=~psweight, data=physician_cc_part_EMR)

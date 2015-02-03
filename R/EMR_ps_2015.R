@@ -97,6 +97,7 @@ tableNominal(vars = physician_tableNominal,
 physician_tableContinuous <- physician_cc[, !c("EMEDREC","PHYSWT","PHYCODE","Data","VYEAR","OWNS","MSA","MANCAREC","SPECR","REGION","SOLO"), with=F]
 tableContinuous(vars = physician_tableContinuous,
                 group = physician_cc$EMEDREC, 
+                stats = c("n", "mean", "s", "min", "median", "max"),
                 cap = "Discriptive Statistics", lab = "tab_descriptive_2",
                 weights = physician_cc$PHYSWT,
                 longtable = F)

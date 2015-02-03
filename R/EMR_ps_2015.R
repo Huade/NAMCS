@@ -6,12 +6,14 @@
 
 # Load Data Set
 # namcs.csv is a combined data set for NAMCS 2008, 2009, and 2010
-library(data.table)
-library(MatchIt)
-library(twang)
-library(stargazer)
-library(survey)
-library(gridExtra)
+library(data.table) # Enhanced data.frame
+library(MatchIt) # Matching Software for Causal Inference
+library(twang) # Toolkit for Weighting and Analysis of Nonequivalent Groups
+library(stargazer) # beautiful LATEX tables from R statistical output
+library(survey) # Survey-weighted generalised linear models
+library(gridExtra) # high-level functions for Grid graphics
+library(xtable) # Create Export Tables
+library(reporttools) # Functions to display descriptive statistics
 
 set.seed(1)
 namcs<-fread("Data/namcs.csv")
@@ -86,6 +88,18 @@ physician_cc <- physician[complete.cases(physician),]
 physician_cc <- physician_cc[physician_cc$PHYSWT>0,]
 
 # Descriptive statistics
+physician_tableNominal <- physician_cc[, c("VYEAR","OWNS","MSA","MANCAREC","SPECR","REGION","SOLO"), with=F]
+physician_tableNominal$EMEDREC
+tableNominal(vars = physician_tableNominal, 
+             group = physician_cc$EMEDREC, print.pval = "chi2", 
+             cap = "Discriptive Statistics", lab = "tab_descriptive_1",
+             longtable = F)
+physician_tableContinuous <- physician_cc[, !c("EMEDREC","PHYSWT","PHYCODE","Data","VYEAR","OWNS","MSA","MANCAREC","SPECR","REGION","SOLO"), with=F]
+tableContinuous(vars = physician_tableContinuous,
+                group = physician_cc$EMEDREC, 
+                cap = "Discriptive Statistics", lab = "tab_descriptive_2",
+                weights = physician_cc$PHYSWT,
+                longtable = F)
 
 
 # Multinomial propensity score estimation
@@ -100,7 +114,8 @@ physician.ps.mnps <- mnps(EMEDREC ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+
 physician_cc$psweight <- get.weights(physician.ps.mnps, stop.method="es.max")
 save(physician_cc,file="Data/physician_cc_w_psw.Rda")
 
-bal.table(physician.ps.mnps)
+mnps_balance <- bal.table(physician.ps.mnps)
+
 
 design.mnps <- svydesign(ids=~1, weights=~psweight, data=physician_cc)
 glm_HealthEdu_pct_mnps <- svyglm(HealthEdu_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC), design=design.mnps)

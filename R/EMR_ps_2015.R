@@ -7,9 +7,7 @@
 # Load Data Set
 # namcs.csv is a combined data set for NAMCS 2008, 2009, and 2010
 library(data.table)
-library(doMC)
-registerDoMC(8)
-library(mi)
+library(MatchIt)
 library(twang)
 library(stargazer)
 library(survey)
@@ -84,46 +82,30 @@ physician$EMEDREC=as.factor(physician$EMEDREC)
 
 physician$SOLO[physician$SOLO==2] <- 0
 
+# Keep only complete cases
+sum(!complete.cases(physician)) # incomplete cases
+physician_cc <- physician[complete.cases(physician),]
 
-# Multiple imputation
-physician_mi_info <- mi.info(physician)
-physician_mi <- mi(physician, info=physician_mi_info, max.minutes=40)
-physician_mi_complete <- as.data.frame(mi.completed(physician_mi)[1])
+physician_cc <- physician_cc[physician_cc$PHYSWT>0,]
 
-write.csv(physician_mi_complete,"Data/physician_mi_complete.csv")
+physician_cc_full_EMR <- physician_cc[physician_cc$EMEDREC!=2,]
+physician_cc_full_EMR$FullEMR <- ifelse(physician_cc_full_EMR$EMEDREC==1,1,0)
 
-
-# Load MI data from a csv
-physician_mi_complete <- read.csv("Data/physician_mi_complete.csv")
-
-physician_mi_complete$OWNS=as.factor(physician_mi_complete$OWNS)
-physician_mi_complete$MSA=as.factor(physician_mi_complete$MSA)
-physician_mi_complete$MANCAREC=as.factor(physician_mi_complete$MANCAREC)
-physician_mi_complete$SPECR=as.factor(physician_mi_complete$SPECR)
-physician_mi_complete$REGION=as.factor(physician_mi_complete$REGION)
-physician_mi_complete$VYEAR=as.factor(physician_mi_complete$VYEAR)
-
-physician_mi_complete <- physician_mi_complete[physician_mi_complete$PHYSWT>0,]
-
-physician_mi_full_EMR <- physician_mi_complete[physician_mi_complete$EMEDREC!=2,]
-physician_mi_full_EMR$FullEMR <- ifelse(physician_mi_full_EMR$EMEDREC==1,1,0)
-
-physician_mi_part_EMR <- physician_mi_complete[physician_mi_complete$EMEDREC!=1,]
-physician_mi_part_EMR[physician_mi_part_EMR$EMEDREC==2,]$EMEDREC <- 1
-physician_mi_part_EMR$PartEMR <- ifelse(physician_mi_part_EMR$EMEDREC==1,1,0)
+physician_cc_part_EMR <- physician_cc[physician_cc$EMEDREC!=1,]
+physician_cc_part_EMR$PartEMR <- ifelse(physician_cc_part_EMR$EMEDREC==2,1,0)
 
 # Estimate propensity score with GBM
 physician.ps.full <- ps(FullEMR ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+ 
                          REGION + NOCHRON_pct + TOTCHRON_mean + Avg_Patient_Age + 
                          PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + 
-                         PAYSELF_pct+VYEAR,data=physician_mi_full_EMR,
+                         PAYSELF_pct+VYEAR,data=physician_cc_full_EMR,
                      interaction.depth = 3,
                      verbose = F)
 
 physician.ps.part <- ps(PartEMR ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+ 
                             REGION + NOCHRON_pct + TOTCHRON_mean + Avg_Patient_Age + 
                             PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + 
-                            PAYSELF_pct+VYEAR,data=physician_mi_part_EMR,
+                            PAYSELF_pct+VYEAR,data=physician_cc_part_EMR,
                         interaction.depth = 3,
                         verbose =F)
 
@@ -156,11 +138,11 @@ grid.arrange(plot.part.1,plot.part.2,plot.part.3,
 
 # Estimate regression model with ps weighting
 
-physician_mi_full_EMR$psweight <- get.weights(physician.ps.full, stop.method="es.mean")
-physician_mi_part_EMR$psweight <- get.weights(physician.ps.part, stop.method="es.mean")
+physician_cc_full_EMR$psweight <- get.weights(physician.ps.full, stop.method="es.mean")
+physician_cc_part_EMR$psweight <- get.weights(physician.ps.part, stop.method="es.mean")
 
-design.ps.full <- svydesign(ids=~1, weights=~psweight, data=physician_mi_full_EMR)
-design.ps.part <- svydesign(ids=~1, weights=~psweight, data=physician_mi_part_EMR)
+design.ps.full <- svydesign(ids=~1, weights=~psweight, data=physician_cc_full_EMR)
+design.ps.part <- svydesign(ids=~1, weights=~psweight, data=physician_cc_part_EMR)
 
 
 
@@ -179,6 +161,81 @@ glm_RETAPPT_pct_part <- svyglm(RETAPPT_pct ~ PartEMR+SOLO+factor(OWNS), design=d
 summary(glm_RETAPPT_pct_full)
 summary(glm_RETAPPT_pct_part)
 
-stargazer(glm_HealthEdu_pct_full,glm_HealthEdu_pct_part,align=T)
-stargazer(glm_TIMEMD_full,glm_TIMEMD_part,align=T)
-stargazer(glm_RETAPPT_pct_full,glm_RETAPPT_pct_part,align=T)
+stargazer(glm_HealthEdu_pct_full,glm_HealthEdu_pct_part, 
+          title="Estimated effect of EMR adoption on health education prescription",align=T)
+stargazer(glm_TIMEMD_full,glm_TIMEMD_part,
+          title="Estimated effect of EMR adoption on time spent with MD",align=T)
+stargazer(glm_RETAPPT_pct_full,glm_RETAPPT_pct_part,
+          title="Estimated effect of EMR adoption on returned appointment",align=T)
+
+
+## Multinomial propensity score estimation
+physician.ps.mnps <- mnps(EMEDREC ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+ 
+                            REGION + NOCHRON_pct + TOTCHRON_mean + Avg_Patient_Age + 
+                            PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + 
+                            PAYSELF_pct+VYEAR,data=physician_cc,
+                        interaction.depth = 3,
+                        verbose = F)
+
+bal.table(physician.ps.mnps)
+
+physician_cc$psweight <- get.weights(physician.ps.mnps, stop.method="es.max")
+design.mnps <- svydesign(ids=~1, weights=~psweight, data=physician_cc)
+glm_HealthEdu_pct_mnps <- svyglm(HealthEdu_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC), design=design.mnps)
+glm_TIMEMD_mnps <- svyglm(TIMEMD ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC), design=design.mnps)
+glm_RETAPPT_pct_mnps <- svyglm(RETAPPT_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC), design=design.mnps)
+
+stargazer(glm_HealthEdu_pct_mnps,glm_TIMEMD_mnps,glm_RETAPPT_pct_mnps,
+          title="Estimated effect of EMR adoption with multinomial 
+          propensity score weighted OLS models",align=T)
+
+# Sensitive analysis
+## Includes no control variable
+glm_HealthEdu_pct_mnps_nocontrol <- svyglm(HealthEdu_pct ~ factor(EMEDREC), design=design.mnps)
+glm_TIMEMD_mnps_nocontrol <- svyglm(TIMEMD ~ factor(EMEDREC), design=design.mnps)
+glm_RETAPPT_pct_mnps_nocontrol <- svyglm(RETAPPT_pct ~ factor(EMEDREC), design=design.mnps)
+
+stargazer(glm_HealthEdu_pct_mnps_nocontrol,glm_TIMEMD_mnps_nocontrol,
+          glm_RETAPPT_pct_mnps_nocontrol,
+          title="Estimated effect of EMR adoption with multinomial 
+          propensity score weighted OLS models (without covariate controls)",align=T)
+
+## Includes all control variables
+glm_HealthEdu_pct_mnps_allcontrols <- svyglm(HealthEdu_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MSA) + factor(MANCAREC) + factor(SPECR)+ factor(REGION) + NOCHRON_pct + TOTCHRON_mean + Avg_Patient_Age + PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + PAYSELF_pct + factor(VYEAR), design=design.mnps)
+glm_TIMEMD_mnps_allcontrols <- svyglm(TIMEMD ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MSA) + factor(MANCAREC) + factor(SPECR)+ factor(REGION) + NOCHRON_pct + TOTCHRON_mean + Avg_Patient_Age + PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + PAYSELF_pct + factor(VYEAR), design=design.mnps)
+glm_RETAPPT_pct_mnps_allcontrols <- svyglm(RETAPPT_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MSA) + factor(MANCAREC) + factor(SPECR)+ factor(REGION) + NOCHRON_pct + TOTCHRON_mean + Avg_Patient_Age + PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + PAYSELF_pct + factor(VYEAR), design=design.mnps)
+
+stargazer(glm_HealthEdu_pct_mnps_allcontrols,glm_TIMEMD_mnps_allcontrols,glm_RETAPPT_pct_mnps_allcontrols,
+          title="Estimated effect of EMR adoption with multinomial 
+          propensity score weighted OLS models (with all covariate controls)",align=T)
+
+## PS matching
+physician.match.r.full<- 
+    matchit(FullEMR ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+ 
+                REGION + NOCHRON_pct + TOTCHRON_mean + Avg_Patient_Age + 
+                PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + 
+                PAYSELF_pct+VYEAR,data=physician_cc_full_EMR,
+            method = "nearest", 
+            distance=physician_cc_full_EMR$psweight)
+
+ physician.match.r.part<- 
+    matchit(PartEMR ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+ 
+                REGION + NOCHRON_pct + TOTCHRON_mean + Avg_Patient_Age + 
+                PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + 
+                PAYSELF_pct+VYEAR,data=physician_cc_part_EMR,
+            method = "nearest", 
+            distance=physician_cc_part_EMR$psweight)
+
+physician_full_matched <- match.data(physician.match.r.full)
+physician_part_matched <- match.data(physician.match.r.part)
+
+lm_HealthEdu_pct_matched_f <- lm(HealthEdu_pct ~ FullEMR+SOLO+factor(OWNS), physician_full_matched)
+lm_TIMEMD_matched_f <- lm(TIMEMD ~ FullEMR+SOLO+factor(OWNS), physician_full_matched)
+lm_RETAPPT_pct_matched_f <- lm(RETAPPT_pct ~ FullEMR+SOLO+factor(OWNS), physician_full_matched)
+
+lm_HealthEdu_pct_matched_p <- lm(HealthEdu_pct ~ PartEMR+SOLO+factor(OWNS), physician_part_matched)
+lm_TIMEMD_matched_p <- lm(TIMEMD ~ PartEMR+SOLO+factor(OWNS), physician_part_matched)
+lm_RETAPPT_pct_matched_p <- lm(RETAPPT_pct ~ PartEMR+SOLO+factor(OWNS), physician_part_matched)
+
+stargazer(lm_HealthEdu_pct_matched_f,lm_TIMEMD_matched_f,lm_RETAPPT_pct_matched_f,align=T)
+stargazer(lm_HealthEdu_pct_matched_p,lm_TIMEMD_matched_p,lm_RETAPPT_pct_matched_p,align=T)

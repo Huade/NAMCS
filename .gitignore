@@ -12,3 +12,5 @@
 .csv
 .Rproj.user
 packrat/lib*/
+
+*.csv

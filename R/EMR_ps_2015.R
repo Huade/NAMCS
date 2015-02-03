@@ -12,6 +12,8 @@ registerDoMC(8)
 library(mi)
 library(twang)
 library(stargazer)
+library(survey)
+library(gridExtra)
 
 set.seed(1)
 namcs<-fread("Data/namcs.csv")
@@ -101,6 +103,8 @@ physician_mi_complete$SPECR=as.factor(physician_mi_complete$SPECR)
 physician_mi_complete$REGION=as.factor(physician_mi_complete$REGION)
 physician_mi_complete$VYEAR=as.factor(physician_mi_complete$VYEAR)
 
+physician_mi_complete <- physician_mi_complete[physician_mi_complete$PHYSWT>0,]
+
 physician_mi_full_EMR <- physician_mi_complete[physician_mi_complete$EMEDREC!=2,]
 physician_mi_full_EMR$FullEMR <- ifelse(physician_mi_full_EMR$EMEDREC==1,1,0)
 
@@ -129,23 +133,29 @@ bal.table(physician.ps.part)
 
 summary(physician.ps.full)
 # Graphic check for fully adoption
-plot(physician.ps.full,plot=1)
-plot(physician.ps.full,plot=2)
-plot(physician.ps.full,plot=3)
-plot(physician.ps.full,plot=4)
-plot(physician.ps.full,plot=5)
-plot(physician.ps.full,plot=6)
+plot.full.1 <- plot(physician.ps.full,plot=1)
+plot.full.2 <- plot(physician.ps.full,plot=2)
+plot.full.3 <- plot(physician.ps.full,plot=3)
+plot.full.4 <- plot(physician.ps.full,plot=4)
+plot.full.5 <- plot(physician.ps.full,plot=5)
+plot.full.6 <- plot(physician.ps.full,plot=6)
+
+grid.arrange(plot.full.1,plot.full.2,plot.full.3,
+             plot.full.4,plot.full.5,plot.full.6, ncol=2)
 
 # Graphic check for partially adoption
-plot(physician.ps.part,plot=1)
-plot(physician.ps.part,plot=2)
-plot(physician.ps.part,plot=3)
-plot(physician.ps.part,plot=4)
-plot(physician.ps.part,plot=5)
-plot(physician.ps.part,plot=6)
+plot.part.1 <- plot(physician.ps.part, plot=1)
+plot.part.2 <- plot(physician.ps.part, plot=2)
+plot.part.3 <- plot(physician.ps.part, plot=3)
+plot.part.4 <- plot(physician.ps.part, plot=4)
+plot.part.5 <- plot(physician.ps.part, plot=5)
+plot.part.6 <- plot(physician.ps.part, plot=6)
+
+grid.arrange(plot.part.1,plot.part.2,plot.part.3,
+             plot.part.4,plot.part.5,plot.part.6,ncol=2)
 
 # Estimate regression model with ps weighting
-library(survey)
+
 physician_mi_full_EMR$psweight <- get.weights(physician.ps.full, stop.method="es.mean")
 physician_mi_part_EMR$psweight <- get.weights(physician.ps.part, stop.method="es.mean")
 

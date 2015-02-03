@@ -162,6 +162,7 @@ physician.ps.full <- ps(FullEMR ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+
                             PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + 
                             PAYSELF_pct+VYEAR,data=physician_cc_full_EMR,
                         interaction.depth = 3,
+                        sampw = physician_cc_full_EMR$PHYSWT,
                         verbose = F)
 
 physician.ps.part <- ps(PartEMR ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+ 
@@ -169,6 +170,7 @@ physician.ps.part <- ps(PartEMR ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+
                             PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + 
                             PAYSELF_pct+VYEAR,data=physician_cc_part_EMR,
                         interaction.depth = 3,
+                        sampw = physician_cc_part_EMR$PHYSWT,
                         verbose =F)
 
 ### Access balance

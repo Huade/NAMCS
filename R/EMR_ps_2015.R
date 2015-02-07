@@ -105,7 +105,7 @@ tableContinuous(vars = physician_tableContinuous,
 
 # Multinomial propensity score estimation
 physician.ps.mnps <- mnps(EMEDREC ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+ 
-                            REGION + NOCHRON_pct + TOTCHRON_mean + Avg_Patient_Age + 
+                            REGION  + TOTCHRON_mean + Avg_Patient_Age + 
                             PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + 
                             PAYSELF_pct+VYEAR,data=physician_cc,
                         interaction.depth = 3,
@@ -123,11 +123,29 @@ glm_HealthEdu_pct_mnps <- svyglm(HealthEdu_pct ~ factor(EMEDREC)+SOLO+factor(OWN
 glm_TIMEMD_mnps <- svyglm(TIMEMD ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC), design=design.mnps)
 glm_RETAPPT_pct_mnps <- svyglm(RETAPPT_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC), design=design.mnps)
 
+dep_label_mnps <- c("Health Education","Time Spent with MD","Returned Appointment Rate")
+indep_label_mnps <- c("Full EMR",
+                      "Partial EMR",
+                      "SOLO",
+                      "HMO",
+                      "Community health center",
+                      "Medical/academic health center",
+                      "Other hospital",
+                      "Other health care corporation",
+                      "Other owner type",
+                      "MCC <3",
+                      "MCC 3-10",
+                      "MCC >10")
+
+mnps_results <- file("Outputs/LaTeX/mnps_results.txt",open="wt")
+sink(mnps_results)
 stargazer(glm_HealthEdu_pct_mnps,glm_TIMEMD_mnps,glm_RETAPPT_pct_mnps,
           title="Estimated effect of EMR adoption with multinomial 
-          propensity score weighted OLS models",align=T)
-
-
+          propensity score weighted OLS models",align=T,
+          dep.var.labels=dep_label_mnps,
+          covariate.labels = indep_label_mnps,
+          label = "tab:mnps")
+close(mnps_results)
 
 # Sensitive analysis
 
@@ -136,35 +154,86 @@ glm_HealthEdu_pct_mnps_nocontrol <- svyglm(HealthEdu_pct ~ factor(EMEDREC), desi
 glm_TIMEMD_mnps_nocontrol <- svyglm(TIMEMD ~ factor(EMEDREC), design=design.mnps)
 glm_RETAPPT_pct_mnps_nocontrol <- svyglm(RETAPPT_pct ~ factor(EMEDREC), design=design.mnps)
 
+dep_label_mnps_nocov <- c("Health Education","Time Spent with MD","Returned Appointment Rate")
+indep_label_mnps_nocov <- c("Full EMR","Partial EMR")
+
+mnps_no_cov <- file("Outputs/LaTeX/mnps_no_cov_results.txt",open="wt")
+sink(mnps_no_cov)
 stargazer(glm_HealthEdu_pct_mnps_nocontrol,glm_TIMEMD_mnps_nocontrol,
           glm_RETAPPT_pct_mnps_nocontrol,
           title="Estimated effect of EMR adoption with multinomial 
-          propensity score weighted OLS models (without covariate controls)",align=T)
+          propensity score weighted OLS models (without covariate controls)",
+          align=T,
+          dep.var.labels= dep_label_mnps_nocov,
+          covariate.labels = indep_label_mnps_nocov,
+          label = "tab:mnps.nocov")
+close(mnps_no_cov)
 
 ## Includes all control variables
 glm_HealthEdu_pct_mnps_allcontrols <- 
     svyglm(HealthEdu_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MSA) + 
-               factor(MANCAREC) + factor(SPECR)+ factor(REGION) + NOCHRON_pct + 
+               factor(MANCAREC) + factor(SPECR)+ factor(REGION)  + 
                TOTCHRON_mean + Avg_Patient_Age + PAYPRIV_pct + PAYMCARE_pct + 
                PAYMCAID_pct + PAYWKCMP_pct + PAYSELF_pct + factor(VYEAR), 
            design=design.mnps)
 glm_TIMEMD_mnps_allcontrols <- 
     svyglm(TIMEMD ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MSA) + 
-               factor(MANCAREC) + factor(SPECR)+ factor(REGION) + NOCHRON_pct + 
+               factor(MANCAREC) + factor(SPECR)+ factor(REGION)  + 
                TOTCHRON_mean + Avg_Patient_Age + PAYPRIV_pct + PAYMCARE_pct + 
                PAYMCAID_pct + PAYWKCMP_pct + PAYSELF_pct + factor(VYEAR), 
            design=design.mnps)
 glm_RETAPPT_pct_mnps_allcontrols <- 
     svyglm(RETAPPT_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MSA) + 
-               factor(MANCAREC) + factor(SPECR)+ factor(REGION) + NOCHRON_pct + 
+               factor(MANCAREC) + factor(SPECR)+ factor(REGION)  + 
                TOTCHRON_mean + Avg_Patient_Age + PAYPRIV_pct + PAYMCARE_pct + 
                PAYMCAID_pct + PAYWKCMP_pct + PAYSELF_pct + factor(VYEAR), 
            design=design.mnps)
 
+dep_label_mnps_allcov <- c("Health Education","Time Spent with MD",
+                           "Returned Appointment Rate")
+indep_label_mnps_allcov <- c("Full EMR",
+                             "Partial EMR",
+                             "SOLO",
+                             "HMO",
+                             "Community health center",
+                             "Medical/academic health center",
+                             "Other hospital",
+                             "Other health care corporation",
+                             "Other owner type",
+                             "Non-MSA",
+                             "MCC <3",
+                             "MCC 3-10",
+                             "MCC >10",
+                             "Internal medicine",
+                             "Pediatrics",
+                             "General surgery",
+                             "Obstetrics and gynecology",
+                             "Orthopedic surgery",
+                             "Cardiovascular diseases",
+                             "Dermatology",
+                             "Urology",
+                             "Psychiatry",
+                             "Neurology",
+                             "Ophthalmology",
+                             "Otolaryngology",
+                             "Other specialties",
+                             "Oncology",
+                             "Midwest",
+                             "South",
+                             "West",
+                             "Avg. Pat. Total Chronic Conds.")
+
+mnps_no_cov <- file("Outputs/LaTeX/mnps_all_cov_results.txt",open="wt")
+sink(mnps_all_cov)
 stargazer(glm_HealthEdu_pct_mnps_allcontrols,glm_TIMEMD_mnps_allcontrols,
           glm_RETAPPT_pct_mnps_allcontrols,
           title="Estimated effect of EMR adoption with multinomial 
-          propensity score weighted OLS models (with all covariate controls)",align=T)
+          propensity score weighted OLS models (with all covariate controls)",
+          align=T,
+          dep.var.labels= dep_label_mnps_allcov,
+          covariate.labels = indep_label_mnps_allcov,
+          label = "tab:mnps.nocov")
+close(mnps_all_cov)
 
 ## Single treatment
 ### Separate to two data sets
@@ -176,7 +245,7 @@ physician_cc_part_EMR$PartEMR <- ifelse(physician_cc_part_EMR$EMEDREC==2,1,0)
 
 ### Estimate propensity score with GBM
 physician.ps.full <- ps(FullEMR ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+ 
-                            REGION + NOCHRON_pct + TOTCHRON_mean + Avg_Patient_Age + 
+                            REGION  + TOTCHRON_mean + Avg_Patient_Age + 
                             PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + 
                             PAYSELF_pct+VYEAR,data=physician_cc_full_EMR,
                         interaction.depth = 3,
@@ -184,7 +253,7 @@ physician.ps.full <- ps(FullEMR ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+
                         verbose = F)
 
 physician.ps.part <- ps(PartEMR ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+ 
-                            REGION + NOCHRON_pct + TOTCHRON_mean + Avg_Patient_Age + 
+                            REGION  + TOTCHRON_mean + Avg_Patient_Age + 
                             PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + 
                             PAYSELF_pct+VYEAR,data=physician_cc_part_EMR,
                         interaction.depth = 3,
@@ -269,7 +338,7 @@ stargazer(glm_RETAPPT_pct_full,glm_RETAPPT_pct_part,
 ## PS matching
 physician.match.r.full<- 
     matchit(FullEMR ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+ 
-                REGION + NOCHRON_pct + TOTCHRON_mean + Avg_Patient_Age + 
+                REGION  + TOTCHRON_mean + Avg_Patient_Age + 
                 PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + 
                 PAYSELF_pct+VYEAR,data=physician_cc_full_EMR,
             method = "nearest", 
@@ -277,7 +346,7 @@ physician.match.r.full<-
 
  physician.match.r.part<- 
     matchit(PartEMR ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+ 
-                REGION + NOCHRON_pct + TOTCHRON_mean + Avg_Patient_Age + 
+                REGION  + TOTCHRON_mean + Avg_Patient_Age + 
                 PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + 
                 PAYSELF_pct+VYEAR,data=physician_cc_part_EMR,
             method = "nearest", 

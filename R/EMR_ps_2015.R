@@ -221,9 +221,16 @@ indep_label_mnps_allcov <- c("Full EMR",
                              "Midwest",
                              "South",
                              "West",
-                             "Avg. Pat. Total Chronic Conds.")
+                             "Avg. Pat. Total Chronic Conds.",
+                             "Avg. Pat. Age",
+                             "Private Insured Pat. Pct",
+                             "Medicare Pat. Pct",
+                             "Medicaid Pat. Pct",
+                             "Workers Compensation Pat. Pct",
+                             "2009",
+                             "2010")
 
-mnps_no_cov <- file("Outputs/LaTeX/mnps_all_cov_results.txt",open="wt")
+mnps_all_cov <- file("Outputs/LaTeX/mnps_all_cov_results.txt",open="wt")
 sink(mnps_all_cov)
 stargazer(glm_HealthEdu_pct_mnps_allcontrols,glm_TIMEMD_mnps_allcontrols,
           glm_RETAPPT_pct_mnps_allcontrols,

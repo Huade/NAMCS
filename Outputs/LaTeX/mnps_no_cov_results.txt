@@ -1,6 +1,6 @@
 
 % Table created by stargazer v.5.1 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Sat, Feb 07, 2015 - 13:33:17
+% Date and time: Sat, Feb 07, 2015 - 14:08:09
 % Requires LaTeX packages: dcolumn 
 \begin{table}[!htbp] \centering 
   \caption{Estimated effect of EMR adoption with multinomial 
@@ -14,19 +14,19 @@
 \\[-1.8ex] & \multicolumn{1}{c}{Health Education} & \multicolumn{1}{c}{Time Spent with MD} & \multicolumn{1}{c}{Returned Appointment Rate} \\ 
 \\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)}\\ 
 \hline \\[-1.8ex] 
- Full EMR & 0.040^{**} & 0.031 & -0.033^{**} \\ 
-  & (0.018) & (0.535) & (0.014) \\ 
+ Full EMR & 0.037^{**} & -0.038 & -0.035^{**} \\ 
+  & (0.018) & (0.538) & (0.014) \\ 
   & & & \\ 
- Partial EMR & 0.034^{*} & 0.142 & -0.009 \\ 
-  & (0.020) & (0.593) & (0.017) \\ 
+ Partial EMR & 0.034^{*} & 0.054 & -0.011 \\ 
+  & (0.020) & (0.593) & (0.018) \\ 
   & & & \\ 
- Constant & 0.400^{***} & 21.767^{***} & 0.718^{***} \\ 
-  & (0.010) & (0.337) & (0.009) \\ 
+ Constant & 0.401^{***} & 21.821^{***} & 0.719^{***} \\ 
+  & (0.010) & (0.345) & (0.009) \\ 
   & & & \\ 
 \hline \\[-1.8ex] 
 Observations & \multicolumn{1}{c}{3,619} & \multicolumn{1}{c}{3,619} & \multicolumn{1}{c}{3,619} \\ 
-Log Likelihood & \multicolumn{1}{c}{-2,066.376} & \multicolumn{1}{c}{-14,308.850} & \multicolumn{1}{c}{-1,418.143} \\ 
-Akaike Inf. Crit. & \multicolumn{1}{c}{4,138.752} & \multicolumn{1}{c}{28,623.700} & \multicolumn{1}{c}{2,842.287} \\ 
+Log Likelihood & \multicolumn{1}{c}{-2,072.498} & \multicolumn{1}{c}{-14,331.300} & \multicolumn{1}{c}{-1,423.651} \\ 
+Akaike Inf. Crit. & \multicolumn{1}{c}{4,150.996} & \multicolumn{1}{c}{28,668.600} & \multicolumn{1}{c}{2,853.302} \\ 
 \hline 
 \hline \\[-1.8ex] 
 \textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 

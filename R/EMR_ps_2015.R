@@ -293,13 +293,14 @@ lm_RETAPPT_pct_matched_p <-
        physician_part_matched)
 
 # Result reporting
+# find -E . -regex '.*results.txt' -exec cat {} + > all_outputs.txt
 
 ## Descriptive statistics
 physician_tableNominal <- 
     physician_cc[, c("VYEAR","OWNS","MSA",
                      "MANCAREC","SPECR","REGION","SOLO"), with=F]
 
-desc_des<- file("Outputs/LaTeX/desc_des_results.txt",open="wt")
+desc_des<- file("Outputs/LaTeX/01_desc_des_results.txt",open="wt")
 sink(desc_des)
 tableNominal(vars = physician_tableNominal, 
              group = physician_cc$EMEDREC, print.pval = "chi2", 
@@ -315,7 +316,7 @@ physician_tableContinuous <-
                       "VYEAR","OWNS","MSA","MANCAREC","SPECR","REGION","SOLO"), 
                  with=F]
 
-desc_cont <- file("Outputs/LaTeX/desc_cont_results.txt",open="wt")
+desc_cont <- file("Outputs/LaTeX/02_desc_cont_results.txt",open="wt")
 sink(desc_cont)
 tableContinuous(vars = physician_tableContinuous,
                 group = physician_cc$EMEDREC, 
@@ -343,7 +344,7 @@ indep_label_mnps <- c("Full EMR",
                       "MCC 3-10",
                       "MCC greater than 10")
 
-mnps_results <- file("Outputs/LaTeX/mnps_results.txt",open="wt")
+mnps_results <- file("Outputs/LaTeX/03_mnps_results.txt",open="wt")
 sink(mnps_results)
 stargazer(glm_HealthEdu_pct_mnps,glm_TIMEMD_mnps,glm_RETAPPT_pct_mnps,
           title="Estimated effect of EMR adoption with multinomial 
@@ -360,7 +361,7 @@ dep_label_mnps_nocov <- c("Health Education","Time Spent with MD",
                           "Returned Appointment Rate")
 indep_label_mnps_nocov <- c("Full EMR","Partial EMR")
 
-mnps_no_cov <- file("Outputs/LaTeX/mnps_no_cov_results.txt",open="wt")
+mnps_no_cov <- file("Outputs/LaTeX/04_mnps_no_cov_results.txt",open="wt")
 sink(mnps_no_cov)
 stargazer(glm_HealthEdu_pct_mnps_nocontrol,glm_TIMEMD_mnps_nocontrol,
           glm_RETAPPT_pct_mnps_nocontrol,
@@ -416,7 +417,7 @@ indep_label_mnps_allcov <- c("Full EMR",
                              "2009",
                              "2010")
 
-mnps_all_cov <- file("Outputs/LaTeX/mnps_all_cov_results.txt",open="wt")
+mnps_all_cov <- file("Outputs/LaTeX/05_mnps_all_cov_results.txt",open="wt")
 sink(mnps_all_cov)
 stargazer(glm_HealthEdu_pct_mnps_allcontrols,glm_TIMEMD_mnps_allcontrols,
           glm_RETAPPT_pct_mnps_allcontrols,
@@ -456,7 +457,7 @@ indep_label_sep_part <- c("Partial EMR",
                           "MCC 3-10",
                           "MCC greater than 10")
 
-ps_sep_full <- file("Outputs/LaTeX/ps_sep_full_results.txt",open="wt")
+ps_sep_full <- file("Outputs/LaTeX/06_ps_sep_full_results.txt",open="wt")
 sink(ps_sep_full)
 stargazer(glm_HealthEdu_pct_full,glm_TIMEMD_full,
           glm_RETAPPT_pct_full,
@@ -470,7 +471,7 @@ stargazer(glm_HealthEdu_pct_full,glm_TIMEMD_full,
           label = "tab:ps.sep.full")
 close(ps_sep_full)
 
-ps_sep_part <- file("Outputs/LaTeX/ps_sep_part_results.txt",open="wt")
+ps_sep_part <- file("Outputs/LaTeX/07_ps_sep_part_results.txt",open="wt")
 sink(ps_sep_part)
 stargazer(glm_HealthEdu_pct_part,glm_TIMEMD_part,
           glm_RETAPPT_pct_part,
@@ -511,7 +512,7 @@ indep_label_psm_part <- c("Partial EMR",
                           "MCC 3-10",
                           "MCC greater than 10")
 
-ps_psm_full <- file("Outputs/LaTeX/ps_psm_full_results.txt",open="wt")
+ps_psm_full <- file("Outputs/LaTeX/08_ps_psm_full_results.txt",open="wt")
 sink(ps_psm_full)
 stargazer(lm_HealthEdu_pct_matched_f,lm_TIMEMD_matched_f,
           lm_RETAPPT_pct_matched_f,
@@ -524,7 +525,7 @@ stargazer(lm_HealthEdu_pct_matched_f,lm_TIMEMD_matched_f,
           label = "tab:ps.psm.full")
 close(ps_psm_full)
 
-ps_psm_part <- file("Outputs/LaTeX/ps_psm_part_results.txt",open="wt")
+ps_psm_part <- file("Outputs/LaTeX/09_ps_psm_part_results.txt",open="wt")
 sink(ps_psm_part)
 stargazer(lm_HealthEdu_pct_matched_p,lm_TIMEMD_matched_p,
           lm_RETAPPT_pct_matched_p,

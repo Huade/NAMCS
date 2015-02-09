@@ -1,0 +1,61 @@
+
+% Table created by stargazer v.5.1 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Mon, Feb 09, 2015 - 09:30:37
+% Requires LaTeX packages: dcolumn 
+\begin{table}[!htbp] \centering 
+  \caption{Estimated effect of full EMR adoption with 
+          propensity score weighted OLS models} 
+  \label{tab:ps.sep.full} 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & \multicolumn{1}{c}{Health Education} & \multicolumn{1}{c}{Time Spent with MD} & \multicolumn{1}{c}{Returned Appointment Rate} \\ 
+\\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)}\\ 
+\hline \\[-1.8ex] 
+ Full EMR & 0.045^{**} & 0.312 & -0.029^{*} \\ 
+  & (0.019) & (0.566) & (0.015) \\ 
+  & & & \\ 
+ SOLO & 0.005 & 2.401^{***} & 0.029^{*} \\ 
+  & (0.021) & (0.622) & (0.017) \\ 
+  & & & \\ 
+ HMO & 0.049 & 0.636 & -0.099^{**} \\ 
+  & (0.043) & (1.229) & (0.049) \\ 
+  & & & \\ 
+ Community health center & -0.010 & -2.933^{***} & 0.006 \\ 
+  & (0.029) & (0.928) & (0.031) \\ 
+  & & & \\ 
+ Medical/academic health center & 0.044 & 4.526^{*} & 0.061 \\ 
+  & (0.056) & (2.582) & (0.039) \\ 
+  & & & \\ 
+ Other hospital & -0.010 & -0.963 & 0.018 \\ 
+  & (0.042) & (0.903) & (0.036) \\ 
+  & & & \\ 
+ Other health care corporation & 0.025 & 0.406 & -0.071^{**} \\ 
+  & (0.039) & (0.826) & (0.032) \\ 
+  & & & \\ 
+ Other owner type & 0.037 & 4.267^{*} & -0.015 \\ 
+  & (0.055) & (2.413) & (0.065) \\ 
+  & & & \\ 
+ MCC less than 3 & 0.006 & -3.636^{**} & -0.006 \\ 
+  & (0.045) & (1.592) & (0.033) \\ 
+  & & & \\ 
+ MCC 3-10 & -0.037 & -5.195^{***} & -0.017 \\ 
+  & (0.039) & (1.504) & (0.028) \\ 
+  & & & \\ 
+ MCC greater than 10 & -0.080^{**} & -6.270^{***} & -0.023 \\ 
+  & (0.038) & (1.464) & (0.028) \\ 
+  & & & \\ 
+ Constant & 0.443^{***} & 25.762^{***} & 0.723^{***} \\ 
+  & (0.034) & (1.363) & (0.026) \\ 
+  & & & \\ 
+\hline \\[-1.8ex] 
+Observations & \multicolumn{1}{c}{2,999} & \multicolumn{1}{c}{2,999} & \multicolumn{1}{c}{2,999} \\ 
+Log Likelihood & \multicolumn{1}{c}{-1,624.108} & \multicolumn{1}{c}{-11,843.780} & \multicolumn{1}{c}{-1,110.281} \\ 
+Akaike Inf. Crit. & \multicolumn{1}{c}{3,272.216} & \multicolumn{1}{c}{23,711.550} & \multicolumn{1}{c}{2,244.561} \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 

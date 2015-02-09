@@ -115,6 +115,8 @@ physician.ps.mnps <- mnps(EMEDREC ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+
 physician_cc$psweight <- get.weights(physician.ps.mnps, stop.method="es.max")
 save(physician_cc,file="Data/physician_cc_w_psw.Rda")
 
+load("Data/physician_cc_w_psw.Rda")
+
 mnps_balance <- bal.table(physician.ps.mnps)
 
 
@@ -140,9 +142,9 @@ indep_label_mnps <- c("Full EMR",
                       "Other hospital",
                       "Other health care corporation",
                       "Other owner type",
-                      "MCC <3",
+                      "MCC less than 3",
                       "MCC 3-10",
-                      "MCC >10")
+                      "MCC greater than 10")
 
 mnps_results <- file("Outputs/LaTeX/mnps_results.txt",open="wt")
 sink(mnps_results)
@@ -214,9 +216,9 @@ indep_label_mnps_allcov <- c("Full EMR",
                              "Other health care corporation",
                              "Other owner type",
                              "Non-MSA",
-                             "MCC <3",
+                             "MCC less than 3",
                              "MCC 3-10",
-                             "MCC >10",
+                             "MCC greater than 10",
                              "Internal medicine",
                              "Pediatrics",
                              "General surgery",
@@ -317,6 +319,9 @@ physician_cc_part_EMR$psweight <-
 save(physician_cc_full_EMR,file="Data/physician_cc_full_EMR_w_psw.Rda")
 save(physician_cc_part_EMR,file="Data/physician_cc_part_EMR_w_psw.Rda")
 
+load("Data/physician_cc_full_EMR_w_psw.Rda")
+load("Data/physician_cc_part_EMR_w_psw.Rda")
+
 design.ps.full <- 
     svydesign(ids=~1, weights=~psweight, data=physician_cc_full_EMR)
 design.ps.part <- 
@@ -349,15 +354,55 @@ glm_RETAPPT_pct_part <-
 summary(glm_RETAPPT_pct_full)
 summary(glm_RETAPPT_pct_part)
 
-stargazer(glm_HealthEdu_pct_full,glm_HealthEdu_pct_part, 
-          title="Estimated effect of EMR adoption on health education prescription",
-          align=T)
-stargazer(glm_TIMEMD_full,glm_TIMEMD_part,
-          title="Estimated effect of EMR adoption on time spent with MD",
-          align=T)
-stargazer(glm_RETAPPT_pct_full,glm_RETAPPT_pct_part,
-          title="Estimated effect of EMR adoption on returned appointment",
-          align=T)
+### Output EMR result (separated model)
+dep_label_sep <- c("Health Education","Time Spent with MD",
+                          "Returned Appointment Rate")
+indep_label_sep_full <- c("Full EMR",
+                          "SOLO",
+                          "HMO",
+                          "Community health center",
+                          "Medical/academic health center",
+                          "Other hospital",
+                          "Other health care corporation",
+                          "Other owner type",
+                          "MCC less than 3",
+                          "MCC 3-10",
+                          "MCC greater than 10")
+indep_label_sep_part <- c("Partial EMR",
+                          "SOLO",
+                          "HMO",
+                          "Community health center",
+                          "Medical/academic health center",
+                          "Other hospital",
+                          "Other health care corporation",
+                          "Other owner type",
+                          "MCC less than 3",
+                          "MCC 3-10",
+                          "MCC greater than 10")
+
+ps_sep_full <- file("Outputs/LaTeX/ps_sep_full_results.txt",open="wt")
+sink(ps_sep_full)
+stargazer(glm_HealthEdu_pct_full,glm_TIMEMD_full,
+          glm_RETAPPT_pct_full,
+          title="Estimated effect of full EMR adoption with 
+          propensity score weighted OLS models",
+          align=T,
+          dep.var.labels= dep_label_sep,
+          covariate.labels = indep_label_sep_full,
+          label = "tab:ps.sep.full")
+close(ps_sep_full)
+
+ps_sep_part <- file("Outputs/LaTeX/ps_sep_part_results.txt",open="wt")
+sink(ps_sep_part)
+stargazer(glm_HealthEdu_pct_part,glm_TIMEMD_part,
+          glm_RETAPPT_pct_part,
+          title="Estimated effect of partial EMR adoption with 
+          propensity score weighted OLS models",
+          align=T,
+          dep.var.labels= dep_label_sep,
+          covariate.labels = indep_label_sep_part,
+          label = "tab:ps.sep.part")
+close(ps_sep_part)
 
 ## PS matching
 physician.match.r.full<- 
@@ -399,11 +444,50 @@ lm_RETAPPT_pct_matched_p <-
     lm(RETAPPT_pct ~ PartEMR+SOLO+factor(OWNS)+factor(MANCAREC),
        physician_part_matched)
 
+### PSM result output
+dep_label_psm <- c("Health Education","Time Spent with MD",
+                   "Returned Appointment Rate")
+indep_label_psm_full <- c("Full EMR",
+                          "SOLO",
+                          "HMO",
+                          "Community health center",
+                          "Medical/academic health center",
+                          "Other hospital",
+                          "Other health care corporation",
+                          "Other owner type",
+                          "MCC less than 3",
+                          "MCC 3-10",
+                          "MCC greater than 10")
+indep_label_psm_part <- c("Partial EMR",
+                          "SOLO",
+                          "HMO",
+                          "Community health center",
+                          "Medical/academic health center",
+                          "Other hospital",
+                          "Other health care corporation",
+                          "Other owner type",
+                          "MCC less than 3",
+                          "MCC 3-10",
+                          "MCC greater than 10")
+
+ps_psm_full <- file("Outputs/LaTeX/ps_psm_full_results.txt",open="wt")
+sink(ps_psm_full)
 stargazer(lm_HealthEdu_pct_matched_f,lm_TIMEMD_matched_f,
           lm_RETAPPT_pct_matched_f,
           title="Effect of fully EMR adoption on health care outcomes (PSM)",
-          align=T)
+          align=T,
+          dep.var.labels= dep_label_psm,
+          covariate.labels = indep_label_psm_full,
+          label = "tab:ps.psm.full")
+close(ps_psm_full)
+
+ps_psm_part <- file("Outputs/LaTeX/ps_psm_part_results.txt",open="wt")
+sink(ps_psm_part)
 stargazer(lm_HealthEdu_pct_matched_p,lm_TIMEMD_matched_p,
           lm_RETAPPT_pct_matched_p,
           title="Effect of partially EMR adoption on health care outcomes (PSM)",
-          align=T)
+          align=T,
+          dep.var.labels= dep_label_psm,
+          covariate.labels = indep_label_psm_part,
+          label = "tab:ps.psm.part")
+close(ps_psm_part)

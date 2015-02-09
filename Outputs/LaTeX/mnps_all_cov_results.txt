@@ -1,6 +1,6 @@
 
 % Table created by stargazer v.5.1 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Sat, Feb 07, 2015 - 14:10:02
+% Date and time: Mon, Feb 09, 2015 - 09:31:04
 % Requires LaTeX packages: dcolumn 
 \begin{table}[!htbp] \centering 
   \caption{Estimated effect of EMR adoption with multinomial 
@@ -44,13 +44,13 @@
  Non-MSA & 0.035 & 1.624^{**} & -0.035 \\ 
   & (0.026) & (0.723) & (0.022) \\ 
   & & & \\ 
- MCC <3 & -0.029 & 0.218 & 0.036 \\ 
+ MCC less than 3 & -0.029 & 0.218 & 0.036 \\ 
   & (0.037) & (1.015) & (0.029) \\ 
   & & & \\ 
  MCC 3-10 & -0.071^{**} & -1.206 & 0.012 \\ 
   & (0.029) & (0.793) & (0.026) \\ 
   & & & \\ 
- MCC >10 & -0.076^{***} & -2.233^{***} & -0.007 \\ 
+ MCC greater than 10 & -0.076^{***} & -2.233^{***} & -0.007 \\ 
   & (0.029) & (0.769) & (0.027) \\ 
   & & & \\ 
  Internal medicine & 0.005 & 2.115^{***} & -0.004 \\ 

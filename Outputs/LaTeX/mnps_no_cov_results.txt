@@ -1,11 +1,12 @@
 
 % Table created by stargazer v.5.1 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Mon, Feb 09, 2015 - 09:31:14
+% Date and time: Mon, Feb 09, 2015 - 09:59:28
 % Requires LaTeX packages: dcolumn 
 \begin{table}[!htbp] \centering 
   \caption{Estimated effect of EMR adoption with multinomial 
           propensity score weighted OLS models (without covariate controls)} 
   \label{tab:mnps.nocov} 
+\footnotesize 
 \begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
@@ -16,14 +17,11 @@
 \hline \\[-1.8ex] 
  Full EMR & 0.037^{**} & -0.038 & -0.035^{**} \\ 
   & (0.018) & (0.538) & (0.014) \\ 
-  & & & \\ 
- Partial EMR & 0.034^{*} & 0.054 & -0.011 \\ 
+  Partial EMR & 0.034^{*} & 0.054 & -0.011 \\ 
   & (0.020) & (0.593) & (0.018) \\ 
-  & & & \\ 
- Constant & 0.401^{***} & 21.821^{***} & 0.719^{***} \\ 
+  Constant & 0.401^{***} & 21.821^{***} & 0.719^{***} \\ 
   & (0.010) & (0.345) & (0.009) \\ 
-  & & & \\ 
-\hline \\[-1.8ex] 
+ \hline \\[-1.8ex] 
 Observations & \multicolumn{1}{c}{3,619} & \multicolumn{1}{c}{3,619} & \multicolumn{1}{c}{3,619} \\ 
 Log Likelihood & \multicolumn{1}{c}{-2,072.498} & \multicolumn{1}{c}{-14,331.300} & \multicolumn{1}{c}{-1,423.651} \\ 
 Akaike Inf. Crit. & \multicolumn{1}{c}{4,150.996} & \multicolumn{1}{c}{28,668.600} & \multicolumn{1}{c}{2,853.302} \\ 

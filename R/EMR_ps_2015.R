@@ -87,22 +87,6 @@ physician_cc <- physician[complete.cases(physician),]
 # Keep only physicians with weight higher than zero
 physician_cc <- physician_cc[physician_cc$PHYSWT>0,]
 
-# Descriptive statistics
-physician_tableNominal <- physician_cc[, c("VYEAR","OWNS","MSA","MANCAREC","SPECR","REGION","SOLO"), with=F]
-physician_tableNominal$EMEDREC
-tableNominal(vars = physician_tableNominal, 
-             group = physician_cc$EMEDREC, print.pval = "chi2", 
-             cap = "Discriptive Statistics", lab = "tab_descriptive_1",
-             longtable = F)
-physician_tableContinuous <- physician_cc[, !c("EMEDREC","PHYSWT","PHYCODE","Data","VYEAR","OWNS","MSA","MANCAREC","SPECR","REGION","SOLO"), with=F]
-tableContinuous(vars = physician_tableContinuous,
-                group = physician_cc$EMEDREC, 
-                stats = c("n", "mean", "s", "min", "median", "max"),
-                cap = "Discriptive Statistics", lab = "tab_descriptive_2",
-                weights = physician_cc$PHYSWT,
-                longtable = F)
-
-
 # Multinomial propensity score estimation
 physician.ps.mnps <- mnps(EMEDREC ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+ 
                             REGION  + TOTCHRON_mean + Avg_Patient_Age + 
@@ -131,30 +115,7 @@ glm_RETAPPT_pct_mnps <-
     svyglm(RETAPPT_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC), 
            design=design.mnps)
 
-dep_label_mnps <- c("Health Education","Time Spent with MD",
-                    "Returned Appointment Rate")
-indep_label_mnps <- c("Full EMR",
-                      "Partial EMR",
-                      "SOLO",
-                      "HMO",
-                      "Community health center",
-                      "Medical/academic health center",
-                      "Other hospital",
-                      "Other health care corporation",
-                      "Other owner type",
-                      "MCC less than 3",
-                      "MCC 3-10",
-                      "MCC greater than 10")
 
-mnps_results <- file("Outputs/LaTeX/mnps_results.txt",open="wt")
-sink(mnps_results)
-stargazer(glm_HealthEdu_pct_mnps,glm_TIMEMD_mnps,glm_RETAPPT_pct_mnps,
-          title="Estimated effect of EMR adoption with multinomial 
-          propensity score weighted OLS models",align=T,
-          dep.var.labels=dep_label_mnps,
-          covariate.labels = indep_label_mnps,
-          label = "tab:mnps")
-close(mnps_results)
 
 # Sensitive analysis
 
@@ -166,21 +127,7 @@ glm_TIMEMD_mnps_nocontrol <-
 glm_RETAPPT_pct_mnps_nocontrol <- 
     svyglm(RETAPPT_pct ~ factor(EMEDREC), design=design.mnps)
 
-dep_label_mnps_nocov <- c("Health Education","Time Spent with MD",
-                          "Returned Appointment Rate")
-indep_label_mnps_nocov <- c("Full EMR","Partial EMR")
 
-mnps_no_cov <- file("Outputs/LaTeX/mnps_no_cov_results.txt",open="wt")
-sink(mnps_no_cov)
-stargazer(glm_HealthEdu_pct_mnps_nocontrol,glm_TIMEMD_mnps_nocontrol,
-          glm_RETAPPT_pct_mnps_nocontrol,
-          title="Estimated effect of EMR adoption with multinomial 
-          propensity score weighted OLS models (without covariate controls)",
-          align=T,
-          dep.var.labels= dep_label_mnps_nocov,
-          covariate.labels = indep_label_mnps_nocov,
-          label = "tab:mnps.nocov")
-close(mnps_no_cov)
 
 ## Includes all control variables
 glm_HealthEdu_pct_mnps_allcontrols <- 
@@ -204,58 +151,7 @@ glm_RETAPPT_pct_mnps_allcontrols <-
                PAYMCAID_pct + PAYWKCMP_pct + PAYSELF_pct + factor(VYEAR), 
            design=design.mnps)
 
-dep_label_mnps_allcov <- c("Health Education","Time Spent with MD",
-                           "Returned Appointment Rate")
-indep_label_mnps_allcov <- c("Full EMR",
-                             "Partial EMR",
-                             "SOLO",
-                             "HMO",
-                             "Community health center",
-                             "Medical/academic health center",
-                             "Other hospital",
-                             "Other health care corporation",
-                             "Other owner type",
-                             "Non-MSA",
-                             "MCC less than 3",
-                             "MCC 3-10",
-                             "MCC greater than 10",
-                             "Internal medicine",
-                             "Pediatrics",
-                             "General surgery",
-                             "Obstetrics and gynecology",
-                             "Orthopedic surgery",
-                             "Cardiovascular diseases",
-                             "Dermatology",
-                             "Urology",
-                             "Psychiatry",
-                             "Neurology",
-                             "Ophthalmology",
-                             "Otolaryngology",
-                             "Other specialties",
-                             "Oncology",
-                             "Midwest",
-                             "South",
-                             "West",
-                             "Avg. Pat. Total Chronic Conds.",
-                             "Avg. Pat. Age",
-                             "Private Insured Pat. Pct",
-                             "Medicare Pat. Pct",
-                             "Medicaid Pat. Pct",
-                             "Workers Compensation Pat. Pct",
-                             "2009",
-                             "2010")
 
-mnps_all_cov <- file("Outputs/LaTeX/mnps_all_cov_results.txt",open="wt")
-sink(mnps_all_cov)
-stargazer(glm_HealthEdu_pct_mnps_allcontrols,glm_TIMEMD_mnps_allcontrols,
-          glm_RETAPPT_pct_mnps_allcontrols,
-          title="Estimated effect of EMR adoption with multinomial 
-          propensity score weighted OLS models (with all covariate controls)",
-          align=T,
-          dep.var.labels= dep_label_mnps_allcov,
-          covariate.labels = indep_label_mnps_allcov,
-          label = "tab:mnps.nocov")
-close(mnps_all_cov)
 
 ## Single treatment
 ### Separate to two data sets
@@ -354,55 +250,7 @@ glm_RETAPPT_pct_part <-
 summary(glm_RETAPPT_pct_full)
 summary(glm_RETAPPT_pct_part)
 
-### Output EMR result (separated model)
-dep_label_sep <- c("Health Education","Time Spent with MD",
-                          "Returned Appointment Rate")
-indep_label_sep_full <- c("Full EMR",
-                          "SOLO",
-                          "HMO",
-                          "Community health center",
-                          "Medical/academic health center",
-                          "Other hospital",
-                          "Other health care corporation",
-                          "Other owner type",
-                          "MCC less than 3",
-                          "MCC 3-10",
-                          "MCC greater than 10")
-indep_label_sep_part <- c("Partial EMR",
-                          "SOLO",
-                          "HMO",
-                          "Community health center",
-                          "Medical/academic health center",
-                          "Other hospital",
-                          "Other health care corporation",
-                          "Other owner type",
-                          "MCC less than 3",
-                          "MCC 3-10",
-                          "MCC greater than 10")
 
-ps_sep_full <- file("Outputs/LaTeX/ps_sep_full_results.txt",open="wt")
-sink(ps_sep_full)
-stargazer(glm_HealthEdu_pct_full,glm_TIMEMD_full,
-          glm_RETAPPT_pct_full,
-          title="Estimated effect of full EMR adoption with 
-          propensity score weighted OLS models",
-          align=T,
-          dep.var.labels= dep_label_sep,
-          covariate.labels = indep_label_sep_full,
-          label = "tab:ps.sep.full")
-close(ps_sep_full)
-
-ps_sep_part <- file("Outputs/LaTeX/ps_sep_part_results.txt",open="wt")
-sink(ps_sep_part)
-stargazer(glm_HealthEdu_pct_part,glm_TIMEMD_part,
-          glm_RETAPPT_pct_part,
-          title="Estimated effect of partial EMR adoption with 
-          propensity score weighted OLS models",
-          align=T,
-          dep.var.labels= dep_label_sep,
-          covariate.labels = indep_label_sep_part,
-          label = "tab:ps.sep.part")
-close(ps_sep_part)
 
 ## PS matching
 physician.match.r.full<- 
@@ -444,7 +292,200 @@ lm_RETAPPT_pct_matched_p <-
     lm(RETAPPT_pct ~ PartEMR+SOLO+factor(OWNS)+factor(MANCAREC),
        physician_part_matched)
 
-### PSM result output
+# Result reporting
+
+## Descriptive statistics
+physician_tableNominal <- 
+    physician_cc[, c("VYEAR","OWNS","MSA",
+                     "MANCAREC","SPECR","REGION","SOLO"), with=F]
+
+desc_des<- file("Outputs/LaTeX/desc_des_results.txt",open="wt")
+sink(desc_des)
+tableNominal(vars = physician_tableNominal, 
+             group = physician_cc$EMEDREC, print.pval = "chi2", 
+             cap = "Discriptive Statistics by Treatment Groups (Categorical variables)", 
+             lab = "tab:descriptive.1",
+             font.size = "footnotesize",
+             weights = physician_cc$PHYSWT,
+             longtable = F)
+close(desc_des)
+
+physician_tableContinuous <- 
+    physician_cc[, !c("EMEDREC","PHYSWT","PHYCODE","Data",
+                      "VYEAR","OWNS","MSA","MANCAREC","SPECR","REGION","SOLO"), 
+                 with=F]
+
+desc_cont <- file("Outputs/LaTeX/desc_cont_results.txt",open="wt")
+sink(desc_cont)
+tableContinuous(vars = physician_tableContinuous,
+                group = physician_cc$EMEDREC, 
+                stats = c("n", "mean", "s", "min", "median", "max"),
+                cap = "Discriptive Statistics by Treatment Groups (Continuous variables)", 
+                lab = "tab:descriptive.2",
+                weights = physician_cc$PHYSWT,
+                font.size = "footnotesize",
+                longtable = F)
+close(desc_cont)
+
+## mnps result
+dep_label_mnps <- c("Health Education","Time Spent with MD",
+                    "Returned Appointment Rate")
+indep_label_mnps <- c("Full EMR",
+                      "Partial EMR",
+                      "SOLO",
+                      "HMO",
+                      "Community health center",
+                      "Medical/academic health center",
+                      "Other hospital",
+                      "Other health care corporation",
+                      "Other owner type",
+                      "MCC less than 3",
+                      "MCC 3-10",
+                      "MCC greater than 10")
+
+mnps_results <- file("Outputs/LaTeX/mnps_results.txt",open="wt")
+sink(mnps_results)
+stargazer(glm_HealthEdu_pct_mnps,glm_TIMEMD_mnps,glm_RETAPPT_pct_mnps,
+          title="Estimated effect of EMR adoption with multinomial 
+          propensity score weighted OLS models",align=T,
+          dep.var.labels=dep_label_mnps,
+          covariate.labels = indep_label_mnps,
+          no.space = T,
+          font.size = "footnotesize",
+          label = "tab:mnps")
+close(mnps_results)
+
+## mnps with no covariates
+dep_label_mnps_nocov <- c("Health Education","Time Spent with MD",
+                          "Returned Appointment Rate")
+indep_label_mnps_nocov <- c("Full EMR","Partial EMR")
+
+mnps_no_cov <- file("Outputs/LaTeX/mnps_no_cov_results.txt",open="wt")
+sink(mnps_no_cov)
+stargazer(glm_HealthEdu_pct_mnps_nocontrol,glm_TIMEMD_mnps_nocontrol,
+          glm_RETAPPT_pct_mnps_nocontrol,
+          title="Estimated effect of EMR adoption with multinomial 
+          propensity score weighted OLS models (without covariate controls)",
+          align=T,
+          dep.var.labels= dep_label_mnps_nocov,
+          covariate.labels = indep_label_mnps_nocov,
+          no.space = T,
+          font.size = "footnotesize",
+          label = "tab:mnps.nocov")
+close(mnps_no_cov)
+
+## mnps with all covariates
+dep_label_mnps_allcov <- c("Health Education","Time Spent with MD",
+                           "Returned Appointment Rate")
+indep_label_mnps_allcov <- c("Full EMR",
+                             "Partial EMR",
+                             "SOLO",
+                             "HMO",
+                             "Community health center",
+                             "Medical/academic health center",
+                             "Other hospital",
+                             "Other health care corporation",
+                             "Other owner type",
+                             "Non-MSA",
+                             "MCC less than 3",
+                             "MCC 3-10",
+                             "MCC greater than 10",
+                             "Internal medicine",
+                             "Pediatrics",
+                             "General surgery",
+                             "Obstetrics and gynecology",
+                             "Orthopedic surgery",
+                             "Cardiovascular diseases",
+                             "Dermatology",
+                             "Urology",
+                             "Psychiatry",
+                             "Neurology",
+                             "Ophthalmology",
+                             "Otolaryngology",
+                             "Other specialties",
+                             "Oncology",
+                             "Midwest",
+                             "South",
+                             "West",
+                             "Avg. Pat. Total Chronic Conds.",
+                             "Avg. Pat. Age",
+                             "Private Insured Pat. Pct",
+                             "Medicare Pat. Pct",
+                             "Medicaid Pat. Pct",
+                             "Workers Compensation Pat. Pct",
+                             "2009",
+                             "2010")
+
+mnps_all_cov <- file("Outputs/LaTeX/mnps_all_cov_results.txt",open="wt")
+sink(mnps_all_cov)
+stargazer(glm_HealthEdu_pct_mnps_allcontrols,glm_TIMEMD_mnps_allcontrols,
+          glm_RETAPPT_pct_mnps_allcontrols,
+          title="Estimated effect of EMR adoption with multinomial 
+          propensity score weighted OLS models (with all covariate controls)",
+          align=T,
+          dep.var.labels= dep_label_mnps_allcov,
+          covariate.labels = indep_label_mnps_allcov,
+          no.space = T,
+          font.size = "footnotesize",
+          label = "tab:mnps.nocov")
+close(mnps_all_cov)
+
+## Separated model
+dep_label_sep <- c("Health Education","Time Spent with MD",
+                   "Returned Appointment Rate")
+indep_label_sep_full <- c("Full EMR",
+                          "SOLO",
+                          "HMO",
+                          "Community health center",
+                          "Medical/academic health center",
+                          "Other hospital",
+                          "Other health care corporation",
+                          "Other owner type",
+                          "MCC less than 3",
+                          "MCC 3-10",
+                          "MCC greater than 10")
+indep_label_sep_part <- c("Partial EMR",
+                          "SOLO",
+                          "HMO",
+                          "Community health center",
+                          "Medical/academic health center",
+                          "Other hospital",
+                          "Other health care corporation",
+                          "Other owner type",
+                          "MCC less than 3",
+                          "MCC 3-10",
+                          "MCC greater than 10")
+
+ps_sep_full <- file("Outputs/LaTeX/ps_sep_full_results.txt",open="wt")
+sink(ps_sep_full)
+stargazer(glm_HealthEdu_pct_full,glm_TIMEMD_full,
+          glm_RETAPPT_pct_full,
+          title="Estimated effect of full EMR adoption with 
+          propensity score weighted OLS models",
+          align=T,
+          dep.var.labels= dep_label_sep,
+          covariate.labels = indep_label_sep_full,
+          no.space = T,
+          font.size = "footnotesize",
+          label = "tab:ps.sep.full")
+close(ps_sep_full)
+
+ps_sep_part <- file("Outputs/LaTeX/ps_sep_part_results.txt",open="wt")
+sink(ps_sep_part)
+stargazer(glm_HealthEdu_pct_part,glm_TIMEMD_part,
+          glm_RETAPPT_pct_part,
+          title="Estimated effect of partial EMR adoption with 
+          propensity score weighted OLS models",
+          align=T,
+          dep.var.labels= dep_label_sep,
+          covariate.labels = indep_label_sep_part,
+          no.space = T,
+          font.size = "footnotesize",
+          label = "tab:ps.sep.part")
+close(ps_sep_part)
+
+
+## PSM result output
 dep_label_psm <- c("Health Education","Time Spent with MD",
                    "Returned Appointment Rate")
 indep_label_psm_full <- c("Full EMR",
@@ -478,6 +519,8 @@ stargazer(lm_HealthEdu_pct_matched_f,lm_TIMEMD_matched_f,
           align=T,
           dep.var.labels= dep_label_psm,
           covariate.labels = indep_label_psm_full,
+          no.space = T,
+          font.size = "footnotesize",
           label = "tab:ps.psm.full")
 close(ps_psm_full)
 
@@ -489,5 +532,7 @@ stargazer(lm_HealthEdu_pct_matched_p,lm_TIMEMD_matched_p,
           align=T,
           dep.var.labels= dep_label_psm,
           covariate.labels = indep_label_psm_part,
+          no.space = T,
+          font.size = "footnotesize",
           label = "tab:ps.psm.part")
 close(ps_psm_part)

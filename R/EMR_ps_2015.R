@@ -304,7 +304,7 @@ desc_des<- file("Outputs/LaTeX/01_desc_des_results.txt",open="wt")
 sink(desc_des)
 tableNominal(vars = physician_tableNominal, 
              group = physician_cc$EMEDREC, print.pval = "chi2", 
-             cap = "Discriptive Statistics by Treatment Groups (Categorical variables)", 
+             cap = "Descriptive Statistics by Treatment Groups (Categorical variables)", 
              lab = "tab:descriptive.1",
              font.size = "footnotesize",
              weights = physician_cc$PHYSWT,
@@ -321,7 +321,7 @@ sink(desc_cont)
 tableContinuous(vars = physician_tableContinuous,
                 group = physician_cc$EMEDREC, 
                 stats = c("n", "mean", "s", "min", "median", "max"),
-                cap = "Discriptive Statistics by Treatment Groups (Continuous variables)", 
+                cap = "Descriptive Statistics by Treatment Groups (Continuous variables)", 
                 lab = "tab:descriptive.2",
                 weights = physician_cc$PHYSWT,
                 font.size = "footnotesize",

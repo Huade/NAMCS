@@ -119,11 +119,18 @@ mnps_balance <- bal.table(physician.ps.mnps)
 
 
 design.mnps <- svydesign(ids=~1, weights=~psweight, data=physician_cc)
-glm_HealthEdu_pct_mnps <- svyglm(HealthEdu_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC), design=design.mnps)
-glm_TIMEMD_mnps <- svyglm(TIMEMD ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC), design=design.mnps)
-glm_RETAPPT_pct_mnps <- svyglm(RETAPPT_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC), design=design.mnps)
+glm_HealthEdu_pct_mnps <- 
+    svyglm(HealthEdu_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC), 
+           design=design.mnps)
+glm_TIMEMD_mnps <- 
+    svyglm(TIMEMD ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC), 
+           design=design.mnps)
+glm_RETAPPT_pct_mnps <- 
+    svyglm(RETAPPT_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC), 
+           design=design.mnps)
 
-dep_label_mnps <- c("Health Education","Time Spent with MD","Returned Appointment Rate")
+dep_label_mnps <- c("Health Education","Time Spent with MD",
+                    "Returned Appointment Rate")
 indep_label_mnps <- c("Full EMR",
                       "Partial EMR",
                       "SOLO",
@@ -150,11 +157,15 @@ close(mnps_results)
 # Sensitive analysis
 
 ## Includes no control variable
-glm_HealthEdu_pct_mnps_nocontrol <- svyglm(HealthEdu_pct ~ factor(EMEDREC), design=design.mnps)
-glm_TIMEMD_mnps_nocontrol <- svyglm(TIMEMD ~ factor(EMEDREC), design=design.mnps)
-glm_RETAPPT_pct_mnps_nocontrol <- svyglm(RETAPPT_pct ~ factor(EMEDREC), design=design.mnps)
+glm_HealthEdu_pct_mnps_nocontrol <- 
+    svyglm(HealthEdu_pct ~ factor(EMEDREC), design=design.mnps)
+glm_TIMEMD_mnps_nocontrol <- 
+    svyglm(TIMEMD ~ factor(EMEDREC), design=design.mnps)
+glm_RETAPPT_pct_mnps_nocontrol <- 
+    svyglm(RETAPPT_pct ~ factor(EMEDREC), design=design.mnps)
 
-dep_label_mnps_nocov <- c("Health Education","Time Spent with MD","Returned Appointment Rate")
+dep_label_mnps_nocov <- c("Health Education","Time Spent with MD",
+                          "Returned Appointment Rate")
 indep_label_mnps_nocov <- c("Full EMR","Partial EMR")
 
 mnps_no_cov <- file("Outputs/LaTeX/mnps_no_cov_results.txt",open="wt")
@@ -176,12 +187,14 @@ glm_HealthEdu_pct_mnps_allcontrols <-
                TOTCHRON_mean + Avg_Patient_Age + PAYPRIV_pct + PAYMCARE_pct + 
                PAYMCAID_pct + PAYWKCMP_pct + PAYSELF_pct + factor(VYEAR), 
            design=design.mnps)
+
 glm_TIMEMD_mnps_allcontrols <- 
     svyglm(TIMEMD ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MSA) + 
                factor(MANCAREC) + factor(SPECR)+ factor(REGION)  + 
                TOTCHRON_mean + Avg_Patient_Age + PAYPRIV_pct + PAYMCARE_pct + 
                PAYMCAID_pct + PAYWKCMP_pct + PAYSELF_pct + factor(VYEAR), 
            design=design.mnps)
+
 glm_RETAPPT_pct_mnps_allcontrols <- 
     svyglm(RETAPPT_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MSA) + 
                factor(MANCAREC) + factor(SPECR)+ factor(REGION)  + 
@@ -296,14 +309,18 @@ grid.arrange(plot.part.1,plot.part.2,plot.part.3,
 
 ### Estimate regression model with ps weighting (one treatment)
 
-physician_cc_full_EMR$psweight <- get.weights(physician.ps.full, stop.method="es.mean")
-physician_cc_part_EMR$psweight <- get.weights(physician.ps.part, stop.method="es.mean")
+physician_cc_full_EMR$psweight <- 
+    get.weights(physician.ps.full, stop.method="es.mean")
+physician_cc_part_EMR$psweight <- 
+    get.weights(physician.ps.part, stop.method="es.mean")
 
 save(physician_cc_full_EMR,file="Data/physician_cc_full_EMR_w_psw.Rda")
 save(physician_cc_part_EMR,file="Data/physician_cc_part_EMR_w_psw.Rda")
 
-design.ps.full <- svydesign(ids=~1, weights=~psweight, data=physician_cc_full_EMR)
-design.ps.part <- svydesign(ids=~1, weights=~psweight, data=physician_cc_part_EMR)
+design.ps.full <- 
+    svydesign(ids=~1, weights=~psweight, data=physician_cc_full_EMR)
+design.ps.part <- 
+    svydesign(ids=~1, weights=~psweight, data=physician_cc_part_EMR)
 
 glm_HealthEdu_pct_full <- 
     svyglm(HealthEdu_pct ~ FullEMR+SOLO+factor(OWNS)+factor(MANCAREC), 

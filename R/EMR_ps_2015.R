@@ -87,19 +87,14 @@ physician_cc <- physician[complete.cases(physician),]
 # Keep only physicians with weight higher than zero
 physician_cc <- physician_cc[physician_cc$PHYSWT>0,]
 
-# Check distribution of outcome variables
-ggplot(physician_cc, aes(x=HealthEdu_pct,weight=PHYSWT)) + geom_density() + theme_bw()
-ggplot(physician_cc, aes(x=TIMEMD,weight=PHYSWT)) + geom_density() + theme_bw()
-ggplot(physician_cc, aes(x=RETAPPT_pct,weight=PHYSWT)) + geom_density() + theme_bw()
-
 # Multinomial propensity score estimation
 physician.ps.mnps <- mnps(EMEDREC ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+ 
-                            REGION  + TOTCHRON_mean + Avg_Patient_Age + 
-                            PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + 
-                            PAYSELF_pct+VYEAR,data=physician_cc,
-                        interaction.depth = 3,
-                        sampw = physician_cc$PHYSWT,
-                        verbose = F)
+                              REGION  + TOTCHRON_mean + Avg_Patient_Age + 
+                              PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + 
+                              PAYSELF_pct+VYEAR,data=physician_cc,
+                          interaction.depth = 3,
+                          sampw = physician_cc$PHYSWT,
+                          verbose = F)
 
 physician_cc$psweight <- get.weights(physician.ps.mnps, stop.method="es.max")
 save(physician_cc,file="Data/physician_cc_w_psw.Rda")
@@ -121,7 +116,19 @@ glm_RETAPPT_pct_mnps <-
            design=design.mnps)
 
 
-
+# Check distribution of outcome variables
+ggplot(physician_cc, 
+       aes(x=HealthEdu_pct,
+           weight=psweight/sum(psweight))) + 
+    geom_density() + theme_bw()
+ggplot(physician_cc, 
+       aes(x=TIMEMD,
+           weight=psweight/sum(psweight))) + 
+    geom_density() + theme_bw()
+ggplot(physician_cc, 
+       aes(x=RETAPPT_pct,
+           weight=psweight/sum(psweight))) + 
+    geom_density() + theme_bw()
 
 # Sensitive analysis
 ## mnps with other regressions
@@ -280,7 +287,7 @@ physician.match.r.full<-
             method = "nearest", 
             distance=physician_cc_full_EMR$psweight)
 
- physician.match.r.part<- 
+physician.match.r.part<- 
     matchit(PartEMR ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+ 
                 REGION  + TOTCHRON_mean + Avg_Patient_Age + 
                 PAYPRIV_pct + PAYMCARE_pct + PAYMCAID_pct + PAYWKCMP_pct + 

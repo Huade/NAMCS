@@ -87,6 +87,11 @@ physician_cc <- physician[complete.cases(physician),]
 # Keep only physicians with weight higher than zero
 physician_cc <- physician_cc[physician_cc$PHYSWT>0,]
 
+# Check distribution of outcome variables
+ggplot(physician_cc, aes(x=HealthEdu_pct,weight=PHYSWT)) + geom_density() + theme_bw()
+ggplot(physician_cc, aes(x=TIMEMD,weight=PHYSWT)) + geom_density() + theme_bw()
+ggplot(physician_cc, aes(x=RETAPPT_pct,weight=PHYSWT)) + geom_density() + theme_bw()
+
 # Multinomial propensity score estimation
 physician.ps.mnps <- mnps(EMEDREC ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+ 
                             REGION  + TOTCHRON_mean + Avg_Patient_Age + 
@@ -106,35 +111,49 @@ mnps_balance <- bal.table(physician.ps.mnps)
 
 design.mnps <- svydesign(ids=~1, weights=~psweight, data=physician_cc)
 glm_HealthEdu_pct_mnps <- 
-    svyglm(HealthEdu_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC), 
+    svyglm(HealthEdu_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC),
            design=design.mnps)
 glm_TIMEMD_mnps <- 
     svyglm(TIMEMD ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC), 
            design=design.mnps)
 glm_RETAPPT_pct_mnps <- 
-    svyglm(RETAPPT_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC), 
+    svyglm(RETAPPT_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC),
            design=design.mnps)
 
 
 
+
 # Sensitive analysis
+## mnps with other regressions
+glm_HealthEdu_pct_mnps_binomial <- 
+    svyglm(HealthEdu_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC),
+           family='quasibinomial',
+           design=design.mnps)
+glm_TIMEMD_mnps_poisson <- 
+    svyglm(TIMEMD ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC),
+           family="quasipoisson",
+           design=design.mnps)
+glm_RETAPPT_pct_mnps_binomial <- 
+    svyglm(RETAPPT_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC),
+           family='quasibinomial',
+           design=design.mnps)
 
 ## Includes no control variable
 glm_HealthEdu_pct_mnps_nocontrol <- 
-    svyglm(HealthEdu_pct ~ factor(EMEDREC), design=design.mnps)
+    svyglm(HealthEdu_pct ~ factor(EMEDREC), 
+           design=design.mnps)
 glm_TIMEMD_mnps_nocontrol <- 
     svyglm(TIMEMD ~ factor(EMEDREC), design=design.mnps)
 glm_RETAPPT_pct_mnps_nocontrol <- 
-    svyglm(RETAPPT_pct ~ factor(EMEDREC), design=design.mnps)
-
-
+    svyglm(RETAPPT_pct ~ factor(EMEDREC), 
+           design=design.mnps)
 
 ## Includes all control variables
 glm_HealthEdu_pct_mnps_allcontrols <- 
     svyglm(HealthEdu_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MSA) + 
                factor(MANCAREC) + factor(SPECR)+ factor(REGION)  + 
                TOTCHRON_mean + Avg_Patient_Age + PAYPRIV_pct + PAYMCARE_pct + 
-               PAYMCAID_pct + PAYWKCMP_pct + PAYSELF_pct + factor(VYEAR), 
+               PAYMCAID_pct + PAYWKCMP_pct + PAYSELF_pct + factor(VYEAR),           
            design=design.mnps)
 
 glm_TIMEMD_mnps_allcontrols <- 

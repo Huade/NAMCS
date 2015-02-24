@@ -1,4 +1,3 @@
-namcs
+MSPP Thesis
 =====
-
-Data analysis with NAMCS data
+Effect of EMR on Physician Behavior: A Propensity Score Weighted Analysis

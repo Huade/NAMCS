@@ -1,3 +1,5 @@
-MSPP Thesis
+Effect of EMR on Physician Behavior: A Propensity Score Weighted Analysis (Working)
 =====
-Effect of EMR on Physician Behavior: A Propensity Score Weighted Analysis
+Author: Huade Huo
+Thesis advisor: Dr. Yuriy Pylypchuk
+

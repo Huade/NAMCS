@@ -6,7 +6,10 @@ In experimental setting, treatment group (in this case, physicians who partially
 %WHY PS
 Estimating causal effects with observational data is challenging since it involves estimating the unobserved potential outcomes. Physicians in treatment group A, which they fully adopted the EHR systems, may systematically different than physicians in the control group. This difference could in both observed and unobserved ways. Without appropriate instrumental variable or regression discontinuity cutoff available, they propensity score matching method is one of few available techniques that can be used to access the treatment effect of the EHR system on physician behavior.
 
-Propensity score rely on assumption of no unmeasured confounders. With extensive information available in NAMCS data, I added various covariates when estimating propensity score. Knowing that many factors contribute to the decision of whether physician adopt the EHR or not, I included practice size, physician specialty, geological location, and more. 
+Propensity score rely on assumption of no unmeasured confounders. It is possible that confounding variables are omitted inadvertently. With extensive information available in NAMCS data, I added various covariates when estimating propensity score. Knowing that many factors contribute to the decision of whether physician adopt the EHR or not, I included practice size, physician specialty, geological location, and more. 
+
+%WHY Weighting
+I used an estimate of the propensity score as weights, and uses these weights in a weighted regression of the outcome on treatment and covariates.
 
 % WHY GBM
 I used Generalized Boosted Machine (GBM) model to estimate propensity score of each physicians. GBM is a general, automated, data-adaptive algorithm that fits several models by way of a regression tree, and then merges the predictions produced by each model. Comparing with traditional models, GBM model offer numerous advantage to solve the variable specification problem \citep{guo2009propensity}. 

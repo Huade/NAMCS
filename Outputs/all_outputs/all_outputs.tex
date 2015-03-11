@@ -1,0 +1,588 @@
+\documentclass[11pt, oneside]{article}        % use "amsart" instead of "article" for AMSLaTeX format 
+\usepackage{geometry}                          % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                             % ... or a4paper or a5paper or ...
+%\geometry{landscape}                          % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}              % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{dcolumn}
+\usepackage{graphicx}                    % Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+                                        % TeX will automatically convert eps --> pdf in pdflatex         
+\usepackage[english]{babel}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{pdflscape}
+\usepackage[stable]{footmisc}
+\usepackage[retainorgcmds]{IEEEtrantools}
+\usepackage{hyperref}
+\usepackage{soul}
+\usepackage{framed}
+\usepackage{pdfpages}
+
+\begin{document}
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Tue Mar 10 20:11:33 2015
+\begin{table}[ht]
+\centering
+\caption{Descriptive Statistics by Treatment Groups (Categorical variables)} 
+{\footnotesize
+\begin{tabular}{ll|rr|rr|rr|rr}
+ \textbf{Variable} & \textbf{Levels} & $\mathbf{n_{no}}$ & $\mathbf{\%_{no}}$ & $\mathbf{n_{full}}$ & $\mathbf{\%_{full}}$ & $\mathbf{n_{partial}}$ & $\mathbf{\%_{partial}}$ & $\mathbf{n_{\mathrm{All}}}$ & $\mathbf{\%_{\mathrm{All}}}$ \\ 
+  \hline
+VYEAR & 2008 & 169316 & 35.2 & 85869 & 27.3 & 57148 & 35.9 & 312333 & 32.7 \\ 
+   & 2009 & 159231 & 33.1 & 106551 & 33.9 & 61915 & 38.9 & 327697 & 34.4 \\ 
+   & 2010 & 152098 & 31.6 & 121813 & 38.8 & 39967 & 25.1 & 313878 & 32.9 \\ 
+   \hline
+$p< 0.0001$ & all & 480645 & 100.0 & 314233 & 100.0 & 159030 & 100.0 & 953908 & 100.0 \\ 
+   \hline
+\hline
+OWNS & 1 & 413518 & 86.0 & 229146 & 72.9 & 123852 & 77.9 & 766516 & 80.4 \\ 
+   & 2 & 1431 & 0.3 & 17814 & 5.7 & 2881 & 1.8 & 22126 & 2.3 \\ 
+   & 3 & 13950 & 2.9 & 11443 & 3.6 & 7100 & 4.5 & 32493 & 3.4 \\ 
+   & 4 & 13269 & 2.8 & 10209 & 3.2 & 4671 & 2.9 & 28149 & 3.0 \\ 
+   & 5 & 12584 & 2.6 & 10309 & 3.3 & 6340 & 4.0 & 29233 & 3.1 \\ 
+   & 6 & 20246 & 4.2 & 28058 & 8.9 & 10653 & 6.7 & 58957 & 6.2 \\ 
+   & 7 & 5647 & 1.2 & 7254 & 2.3 & 3533 & 2.2 & 16434 & 1.7 \\ 
+   \hline
+$p< 0.0001$ & all & 480645 & 100.0 & 314233 & 100.0 & 159030 & 100.0 & 953908 & 100.0 \\ 
+   \hline
+\hline
+MSA & 1 & 432514 & 90.0 & 281217 & 89.5 & 140373 & 88.3 & 854104 & 89.5 \\ 
+   & 2 & 48131 & 10.0 & 33016 & 10.5 & 18657 & 11.7 & 99804 & 10.5 \\ 
+   \hline
+$p< 0.0001$ & all & 480645 & 100.0 & 314233 & 100.0 & 159030 & 100.0 & 953908 & 100.0 \\ 
+   \hline
+\hline
+MANCAREC & 1 & 68873 & 14.3 & 23113 & 7.4 & 18497 & 11.6 & 110483 & 11.6 \\ 
+   & 2 & 46776 & 9.7 & 32378 & 10.3 & 15552 & 9.8 & 94706 & 9.9 \\ 
+   & 3 & 172372 & 35.9 & 97045 & 30.9 & 54721 & 34.4 & 324138 & 34.0 \\ 
+   & 4 & 192624 & 40.1 & 161697 & 51.5 & 70260 & 44.2 & 424581 & 44.5 \\ 
+   \hline
+$p< 0.0001$ & all & 480645 & 100.0 & 314233 & 100.0 & 159030 & 100.0 & 953908 & 100.0 \\ 
+   \hline
+\hline
+SPECR & 1 & 75910 & 15.8 & 77340 & 24.6 & 25888 & 16.3 & 179138 & 18.8 \\ 
+   & 3 & 62290 & 13.0 & 49404 & 15.7 & 19150 & 12.0 & 130844 & 13.7 \\ 
+   & 4 & 52183 & 10.9 & 30922 & 9.8 & 16420 & 10.3 & 99525 & 10.4 \\ 
+   & 5 & 20132 & 4.2 & 8503 & 2.7 & 5460 & 3.4 & 34095 & 3.6 \\ 
+   & 6 & 38835 & 8.1 & 24674 & 7.8 & 13170 & 8.3 & 76679 & 8.0 \\ 
+   & 7 & 20707 & 4.3 & 17634 & 5.6 & 9200 & 5.8 & 47541 & 5.0 \\ 
+   & 8 & 17515 & 3.6 & 12528 & 4.0 & 11208 & 7.0 & 41251 & 4.3 \\ 
+   & 9 & 14091 & 2.9 & 4885 & 1.6 & 2294 & 1.4 & 21270 & 2.2 \\ 
+   & 10 & 9163 & 1.9 & 7552 & 2.4 & 3384 & 2.1 & 20099 & 2.1 \\ 
+   & 11 & 36191 & 7.5 & 7216 & 2.3 & 7281 & 4.6 & 50688 & 5.3 \\ 
+   & 12 & 10915 & 2.3 & 5461 & 1.7 & 3330 & 2.1 & 19706 & 2.1 \\ 
+   & 13 & 24470 & 5.1 & 5801 & 1.9 & 8303 & 5.2 & 38574 & 4.0 \\ 
+   & 14 & 8539 & 1.8 & 5883 & 1.9 & 2469 & 1.6 & 16891 & 1.8 \\ 
+   & 15 & 87113 & 18.1 & 53544 & 17.0 & 29426 & 18.5 & 170083 & 17.8 \\ 
+   & 16 & 2591 & 0.5 & 2886 & 0.9 & 2047 & 1.3 & 7524 & 0.8 \\ 
+   \hline
+$p< 0.0001$ & all & 480645 & 100.0 & 314233 & 100.0 & 159030 & 100.0 & 953908 & 100.0 \\ 
+   \hline
+\hline
+REGION & 1 & 100439 & 20.9 & 60762 & 19.3 & 36078 & 22.7 & 197279 & 20.7 \\ 
+   & 2 & 103729 & 21.6 & 64325 & 20.5 & 31253 & 19.6 & 199307 & 20.9 \\ 
+   & 3 & 173896 & 36.2 & 103356 & 32.9 & 55115 & 34.7 & 332367 & 34.8 \\ 
+   & 4 & 102581 & 21.3 & 85790 & 27.3 & 36584 & 23.0 & 224955 & 23.6 \\ 
+   \hline
+$p< 0.0001$ & all & 480645 & 100.0 & 314233 & 100.0 & 159030 & 100.0 & 953908 & 100.0 \\ 
+   \hline
+\hline
+SOLO & 0 & 280577 & 58.4 & 250090 & 79.6 & 109011 & 68.5 & 639678 & 67.1 \\ 
+   & 1 & 200068 & 41.6 & 64143 & 20.4 & 50019 & 31.4 & 314230 & 32.9 \\ 
+   \hline
+$p< 0.0001$ & all & 480645 & 100.0 & 314233 & 100.0 & 159030 & 100.0 & 953908 & 100.0 \\ 
+   \hline
+\hline
+\end{tabular}
+}
+
+\label{tab:descriptive.1}
+\end{table}
+% latex table generated in R 3.1.2 by xtable 1.7-4 package
+% Tue Mar 10 20:11:48 2015
+\begin{table}[ht]
+\centering
+\caption{Descriptive Statistics by Treatment Groups (Continuous variables)} 
+{\footnotesize
+\begin{tabular}{llrrrrrr}
+ \textbf{Variable} & \textbf{Levels} & $\mathbf{n}$ & $\mathbf{\bar{x}}$ & $\mathbf{s}$ & \textbf{Min} & $\mathbf{\widetilde{x}}$ & \textbf{Max} \\ 
+  \hline
+TIMEMD & No & 480645 &   22.3 &   12.8 & 0.0 &   19.4 &  240.0 \\ 
+   & Full & 314233 &   21.7 &    8.8 & 0.0 &   19.8 &   73.3 \\ 
+   & Partial & 159030 &   21.9 &    9.1 & 0.0 &   20.0 &   62.9 \\ 
+   \hline
+ & all & 953908 &   22.0 &   11.0 & 0.0 &   19.6 &  240.0 \\ 
+   \hline
+RETAPPT\_pct & No & 480645 &    0.7 &    0.3 & 0.0 &    0.8 &    1.0 \\ 
+   & Full & 314233 &    0.7 &    0.3 & 0.0 &    0.8 &    1.0 \\ 
+   & Partial & 159030 &    0.7 &    0.3 & 0.0 &    0.8 &    1.0 \\ 
+   \hline
+ & all & 953908 &    0.7 &    0.3 & 0.0 &    0.8 &    1.0 \\ 
+   \hline
+PAYPRIV\_pct & No & 480645 &    0.6 &    0.3 & 0.0 &    0.7 &    1.0 \\ 
+   & Full & 314233 &    0.6 &    0.3 & 0.0 &    0.7 &    1.0 \\ 
+   & Partial & 159030 &    0.6 &    0.3 & 0.0 &    0.7 &    1.0 \\ 
+   \hline
+ & all & 953908 &    0.6 &    0.3 & 0.0 &    0.7 &    1.0 \\ 
+   \hline
+PAYMCARE\_pct & No & 480645 &    0.2 &    0.2 & 0.0 &    0.2 &    1.0 \\ 
+   & Full & 314233 &    0.2 &    0.2 & 0.0 &    0.2 &    1.0 \\ 
+   & Partial & 159030 &    0.3 &    0.2 & 0.0 &    0.3 &    1.0 \\ 
+   \hline
+ & all & 953908 &    0.2 &    0.2 & 0.0 &    0.2 &    1.0 \\ 
+   \hline
+PAYMCAID\_pct & No & 480645 &    0.1 &    0.2 & 0.0 &    0.0 &    1.0 \\ 
+   & Full & 314233 &    0.1 &    0.2 & 0.0 &    0.0 &    1.0 \\ 
+   & Partial & 159030 &    0.1 &    0.2 & 0.0 &    0.1 &    1.0 \\ 
+   \hline
+ & all & 953908 &    0.1 &    0.2 & 0.0 &    0.0 &    1.0 \\ 
+   \hline
+PAYWKCMP\_pct & No & 480645 &    0.0 &    0.1 & 0.0 &    0.0 &    1.0 \\ 
+   & Full & 314233 &    0.0 &    0.1 & 0.0 &    0.0 &    1.0 \\ 
+   & Partial & 159030 &    0.0 &    0.1 & 0.0 &    0.0 &    1.0 \\ 
+   \hline
+ & all & 953908 &    0.0 &    0.1 & 0.0 &    0.0 &    1.0 \\ 
+   \hline
+PAYSELF\_pct & No & 480645 &    0.1 &    0.2 & 0.0 &    0.0 &    1.0 \\ 
+   & Full & 314233 &    0.0 &    0.1 & 0.0 &    0.0 &    1.0 \\ 
+   & Partial & 159030 &    0.1 &    0.2 & 0.0 &    0.0 &    1.0 \\ 
+   \hline
+ & all & 953908 &    0.1 &    0.2 & 0.0 &    0.0 &    1.0 \\ 
+   \hline
+Avg\_Patient\_Age & No & 480645 &   46.3 &   18.5 & 1.4 &   50.0 &   84.7 \\ 
+   & Full & 314233 &   46.4 &   17.8 & 1.8 &   50.6 &   85.0 \\ 
+   & Partial & 159030 &   48.1 &   19.2 & 2.0 &   53.4 &   94.3 \\ 
+   \hline
+ & all & 953908 &   46.6 &   18.4 & 1.4 &   50.7 &   94.3 \\ 
+   \hline
+NOCHRON\_pct & No & 480645 &    0.5 &    0.3 & 0.0 &    0.4 &    2.0 \\ 
+   & Full & 314233 &    0.4 &    0.3 & 0.0 &    0.4 &    1.9 \\ 
+   & Partial & 159030 &    0.4 &    0.3 & 0.0 &    0.4 &    1.9 \\ 
+   \hline
+ & all & 953908 &    0.5 &    0.3 & 0.0 &    0.4 &    2.0 \\ 
+   \hline
+TOTCHRON\_mean & No & 480645 &    1.1 &    0.9 & 0.0 &    1.0 &    8.3 \\ 
+   & Full & 314233 &    1.3 &    0.9 & 0.0 &    1.2 &    4.7 \\ 
+   & Partial & 159030 &    1.3 &    0.9 & 0.0 &    1.2 &    4.0 \\ 
+   \hline
+ & all & 953908 &    1.2 &    0.9 & 0.0 &    1.1 &    8.3 \\ 
+   \hline
+HealthEdu\_pct & No & 480645 &    0.4 &    0.3 & 0.0 &    0.3 &    1.0 \\ 
+   & Full & 314233 &    0.4 &    0.3 & 0.0 &    0.4 &    1.0 \\ 
+   & Partial & 159030 &    0.4 &    0.3 & 0.0 &    0.4 &    1.0 \\ 
+   \hline
+ & all & 953908 &    0.4 &    0.3 & 0.0 &    0.4 &    1.0 \\ 
+   \hline
+psweight & No & 480645 &  774.1 &  510.3 & 2.8 &  640.3 & 3053.8 \\ 
+   & Full & 314233 & 1068.0 &  729.1 & 9.2 &  924.8 & 6477.1 \\ 
+   & Partial & 159030 & 2237.7 & 1358.9 & 5.8 & 1970.9 & 6647.0 \\ 
+   \hline
+ & all & 953908 & 1114.9 &  940.0 & 2.8 &  856.0 & 6647.0 \\ 
+   \hline
+\end{tabular}
+}
+
+\label{tab:descriptive.2}
+\end{table}
+
+% Table created by stargazer v.5.1 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Mar 10, 2015 - 20:11:49
+% Requires LaTeX packages: dcolumn 
+\begin{table}[!htbp] \centering 
+  \caption{Estimated effect of EMR adoption with multinomial 
+          propensity score weighted OLS models} 
+  \label{tab:mnps} 
+\footnotesize 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & \multicolumn{1}{c}{Health Education} & \multicolumn{1}{c}{Time Spent with MD} & \multicolumn{1}{c}{Returned Appointment Rate} \\ 
+\\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)}\\ 
+\hline \\[-1.8ex] 
+ Full EMR & 0.034^{*} & 0.222 & -0.031^{**} \\ 
+  & (0.018) & (0.532) & (0.015) \\ 
+  Partial EMR & 0.033 & 0.189 & -0.008 \\ 
+  & (0.020) & (0.574) & (0.018) \\ 
+  SOLO & -0.007 & 2.158^{***} & 0.023 \\ 
+  & (0.020) & (0.545) & (0.015) \\ 
+  HMO & 0.074^{*} & 0.647 & -0.142^{***} \\ 
+  & (0.043) & (0.971) & (0.049) \\ 
+  Community health center & 0.007 & -3.222^{***} & 0.031 \\ 
+  & (0.028) & (0.676) & (0.023) \\ 
+  Medical/academic health center & -0.015 & 3.993^{*} & 0.074^{*} \\ 
+  & (0.049) & (2.081) & (0.040) \\ 
+  Other hospital & 0.037 & -1.920^{***} & 0.033 \\ 
+  & (0.047) & (0.644) & (0.029) \\ 
+  Other health care corporation & 0.005 & 0.223 & -0.071^{**} \\ 
+  & (0.035) & (0.775) & (0.030) \\ 
+  Other owner type & 0.029 & 3.438 & 0.030 \\ 
+  & (0.050) & (2.094) & (0.052) \\ 
+  MCC less than 3 & -0.008 & -1.894 & 0.030 \\ 
+  & (0.040) & (1.319) & (0.032) \\ 
+  MCC 3-10 & -0.048 & -4.217^{***} & 0.020 \\ 
+  & (0.032) & (1.119) & (0.028) \\ 
+  MCC greater than 10 & -0.063^{**} & -5.571^{***} & 0.003 \\ 
+  & (0.031) & (1.088) & (0.028) \\ 
+  factor(VYEAR)2009 & 0.033^{*} & -0.385 & 0.031^{*} \\ 
+  & (0.019) & (0.528) & (0.016) \\ 
+  factor(VYEAR)2010 & 0.075^{***} & 0.576 & 0.033^{*} \\ 
+  & (0.021) & (0.573) & (0.017) \\ 
+  Constant & 0.411^{***} & 25.074^{***} & 0.679^{***} \\ 
+  & (0.031) & (1.102) & (0.026) \\ 
+ \hline \\[-1.8ex] 
+Observations & \multicolumn{1}{c}{3,619} & \multicolumn{1}{c}{3,619} & \multicolumn{1}{c}{3,619} \\ 
+Log Likelihood & \multicolumn{1}{c}{-2,048.801} & \multicolumn{1}{c}{-14,216.760} & \multicolumn{1}{c}{-1,394.416} \\ 
+Akaike Inf. Crit. & \multicolumn{1}{c}{4,127.603} & \multicolumn{1}{c}{28,463.530} & \multicolumn{1}{c}{2,818.832} \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+% Table created by stargazer v.5.1 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Mar 10, 2015 - 20:11:50
+% Requires LaTeX packages: dcolumn 
+\begin{table}[!htbp] \centering 
+  \caption{Estimated effect of EMR adoption with multinomial 
+          propensity score weighted OLS models (without covariate controls)} 
+  \label{tab:mnps.nocov} 
+\footnotesize 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & \multicolumn{1}{c}{Health Education} & \multicolumn{1}{c}{Time Spent with MD} & \multicolumn{1}{c}{Returned Appointment Rate} \\ 
+\\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)}\\ 
+\hline \\[-1.8ex] 
+ Full EMR & 0.037^{**} & -0.038 & -0.035^{**} \\ 
+  & (0.018) & (0.538) & (0.014) \\ 
+  Partial EMR & 0.034^{*} & 0.054 & -0.011 \\ 
+  & (0.020) & (0.593) & (0.018) \\ 
+  Constant & 0.401^{***} & 21.821^{***} & 0.719^{***} \\ 
+  & (0.010) & (0.345) & (0.009) \\ 
+ \hline \\[-1.8ex] 
+Observations & \multicolumn{1}{c}{3,619} & \multicolumn{1}{c}{3,619} & \multicolumn{1}{c}{3,619} \\ 
+Log Likelihood & \multicolumn{1}{c}{-2,072.498} & \multicolumn{1}{c}{-14,331.300} & \multicolumn{1}{c}{-1,423.651} \\ 
+Akaike Inf. Crit. & \multicolumn{1}{c}{4,150.996} & \multicolumn{1}{c}{28,668.600} & \multicolumn{1}{c}{2,853.302} \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+% Table created by stargazer v.5.1 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Mar 10, 2015 - 20:11:51
+% Requires LaTeX packages: dcolumn 
+\begin{table}[!htbp] \centering 
+  \caption{Estimated effect of EMR adoption with multinomial 
+          propensity score weighted OLS models (with all covariate controls)} 
+  \label{tab:mnps.nocov} 
+\footnotesize 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & \multicolumn{1}{c}{Health Education} & \multicolumn{1}{c}{Time Spent with MD} & \multicolumn{1}{c}{Returned Appointment Rate} \\ 
+\\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)}\\ 
+\hline \\[-1.8ex] 
+ Full EMR & 0.034^{**} & 0.353 & -0.020 \\ 
+  & (0.017) & (0.472) & (0.013) \\ 
+  Partial EMR & 0.034^{*} & 0.213 & -0.012 \\ 
+  & (0.019) & (0.519) & (0.016) \\ 
+  SOLO & 0.001 & 1.384^{***} & 0.024^{*} \\ 
+  & (0.019) & (0.480) & (0.014) \\ 
+  HMO & 0.069 & 0.679 & -0.076 \\ 
+  & (0.043) & (0.806) & (0.047) \\ 
+  Community health center & 0.017 & -2.525^{***} & 0.117^{***} \\ 
+  & (0.034) & (0.909) & (0.027) \\ 
+  Medical/academic health center & -0.016 & 2.618 & 0.064^{*} \\ 
+  & (0.048) & (2.036) & (0.034) \\ 
+  Other hospital & 0.004 & -1.398 & 0.064^{**} \\ 
+  & (0.043) & (0.882) & (0.026) \\ 
+  Other health care corporation & -0.010 & -0.038 & -0.039 \\ 
+  & (0.032) & (0.708) & (0.026) \\ 
+  Other owner type & 0.052 & 0.382 & -0.048 \\ 
+  & (0.049) & (1.834) & (0.049) \\ 
+  Non-MSA & 0.035 & 1.624^{**} & -0.035 \\ 
+  & (0.026) & (0.723) & (0.022) \\ 
+  MCC less than 3 & -0.029 & 0.218 & 0.036 \\ 
+  & (0.037) & (1.015) & (0.029) \\ 
+  MCC 3-10 & -0.071^{**} & -1.206 & 0.012 \\ 
+  & (0.029) & (0.793) & (0.026) \\ 
+  MCC greater than 10 & -0.076^{***} & -2.233^{***} & -0.007 \\ 
+  & (0.029) & (0.769) & (0.027) \\ 
+  Internal medicine & 0.005 & 2.115^{***} & -0.004 \\ 
+  & (0.032) & (0.818) & (0.028) \\ 
+  Pediatrics & 0.180^{***} & -0.528 & 0.118^{***} \\ 
+  & (0.039) & (1.438) & (0.036) \\ 
+  General surgery & -0.030 & 1.474^{**} & 0.074^{***} \\ 
+  & (0.035) & (0.683) & (0.028) \\ 
+  Obstetrics and gynecology & 0.138^{***} & 1.529 & 0.288^{***} \\ 
+  & (0.032) & (0.989) & (0.027) \\ 
+  Orthopedic surgery & -0.016 & 0.736 & 0.137^{***} \\ 
+  & (0.036) & (0.827) & (0.025) \\ 
+  Cardiovascular diseases & -0.046 & 1.472^{*} & 0.151^{***} \\ 
+  & (0.036) & (0.840) & (0.026) \\ 
+  Dermatology & 0.111^{**} & 0.501 & 0.179^{***} \\ 
+  & (0.046) & (0.971) & (0.029) \\ 
+  Urology & -0.033 & 1.280 & 0.246^{***} \\ 
+  & (0.035) & (0.796) & (0.023) \\ 
+  Psychiatry & 0.065 & 12.733^{***} & 0.373^{***} \\ 
+  & (0.045) & (1.502) & (0.027) \\ 
+  Neurology & 0.026 & 11.589^{***} & 0.182^{***} \\ 
+  & (0.042) & (1.061) & (0.029) \\ 
+  Ophthalmology & -0.053 & 1.006 & 0.225^{***} \\ 
+  & (0.041) & (1.028) & (0.031) \\ 
+  Otolaryngology & -0.072^{**} & 0.941 & 0.098^{***} \\ 
+  & (0.036) & (0.723) & (0.029) \\ 
+  Other specialties & 0.039 & 6.978^{***} & 0.114^{***} \\ 
+  & (0.029) & (0.920) & (0.025) \\ 
+  Oncology & -0.253^{***} & 8.111^{***} & 0.233^{***} \\ 
+  & (0.054) & (2.221) & (0.032) \\ 
+  Midwest & -0.071^{***} & -1.936^{***} & -0.021 \\ 
+  & (0.024) & (0.594) & (0.018) \\ 
+  South & -0.069^{***} & -0.580 & -0.013 \\ 
+  & (0.024) & (0.588) & (0.017) \\ 
+  West & -0.048^{*} & 0.767 & -0.068^{***} \\ 
+  & (0.025) & (0.673) & (0.020) \\ 
+  Avg. Pat. Total Chronic Conds. & 0.132^{***} & 1.615^{***} & 0.052^{***} \\ 
+  & (0.014) & (0.392) & (0.011) \\ 
+  Avg. Pat. Age & -0.002^{**} & -0.038 & 0.001 \\ 
+  & (0.001) & (0.042) & (0.001) \\ 
+  Private Insured Pat. Pct & 0.103^{***} & -0.179 & 0.047 \\ 
+  & (0.039) & (1.096) & (0.032) \\ 
+  Medicare Pat. Pct & -0.037 & -1.819 & 0.168^{***} \\ 
+  & (0.063) & (1.740) & (0.055) \\ 
+  Medicaid Pat. Pct & 0.005 & -1.232 & 0.132^{***} \\ 
+  & (0.052) & (1.492) & (0.043) \\ 
+  Workers Compensation Pat. Pct & -0.025 & -4.386 & -0.083 \\ 
+  & (0.125) & (3.718) & (0.118) \\ 
+  2009 & 0.096 & 7.735^{***} & 0.020 \\ 
+  & (0.065) & (2.537) & (0.044) \\ 
+  2010 & 0.019 & -0.525 & 0.023 \\ 
+  & (0.018) & (0.462) & (0.014) \\ 
+  factor(VYEAR)2010 & 0.077^{***} & 0.586 & 0.024 \\ 
+  & (0.019) & (0.520) & (0.015) \\ 
+  Constant & 0.334^{***} & 20.295^{***} & 0.392^{***} \\ 
+  & (0.064) & (2.247) & (0.055) \\ 
+ \hline \\[-1.8ex] 
+Observations & \multicolumn{1}{c}{3,619} & \multicolumn{1}{c}{3,619} & \multicolumn{1}{c}{3,619} \\ 
+Log Likelihood & \multicolumn{1}{c}{-1,853.567} & \multicolumn{1}{c}{-13,858.460} & \multicolumn{1}{c}{-1,011.757} \\ 
+Akaike Inf. Crit. & \multicolumn{1}{c}{3,787.134} & \multicolumn{1}{c}{27,796.920} & \multicolumn{1}{c}{2,103.514} \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+% Table created by stargazer v.5.1 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Mar 10, 2015 - 20:11:52
+% Requires LaTeX packages: dcolumn 
+\begin{table}[!htbp] \centering 
+  \caption{Estimated effect of full EMR adoption with 
+          propensity score weighted OLS models} 
+  \label{tab:ps.sep.full} 
+\footnotesize 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & \multicolumn{1}{c}{Health Education} & \multicolumn{1}{c}{Time Spent with MD} & \multicolumn{1}{c}{Returned Appointment Rate} \\ 
+\\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)}\\ 
+\hline \\[-1.8ex] 
+ Full EMR & 0.045^{**} & 0.312 & -0.029^{*} \\ 
+  & (0.019) & (0.566) & (0.015) \\ 
+  SOLO & 0.005 & 2.401^{***} & 0.029^{*} \\ 
+  & (0.021) & (0.622) & (0.017) \\ 
+  HMO & 0.049 & 0.636 & -0.099^{**} \\ 
+  & (0.043) & (1.229) & (0.049) \\ 
+  Community health center & -0.010 & -2.933^{***} & 0.006 \\ 
+  & (0.029) & (0.928) & (0.031) \\ 
+  Medical/academic health center & 0.044 & 4.526^{*} & 0.061 \\ 
+  & (0.056) & (2.582) & (0.039) \\ 
+  Other hospital & -0.010 & -0.963 & 0.018 \\ 
+  & (0.042) & (0.903) & (0.036) \\ 
+  Other health care corporation & 0.025 & 0.406 & -0.071^{**} \\ 
+  & (0.039) & (0.826) & (0.032) \\ 
+  Other owner type & 0.037 & 4.267^{*} & -0.015 \\ 
+  & (0.055) & (2.413) & (0.065) \\ 
+  MCC less than 3 & 0.006 & -3.636^{**} & -0.006 \\ 
+  & (0.045) & (1.592) & (0.033) \\ 
+  MCC 3-10 & -0.037 & -5.195^{***} & -0.017 \\ 
+  & (0.039) & (1.504) & (0.028) \\ 
+  MCC greater than 10 & -0.080^{**} & -6.270^{***} & -0.023 \\ 
+  & (0.038) & (1.464) & (0.028) \\ 
+  Constant & 0.443^{***} & 25.762^{***} & 0.723^{***} \\ 
+  & (0.034) & (1.363) & (0.026) \\ 
+ \hline \\[-1.8ex] 
+Observations & \multicolumn{1}{c}{2,999} & \multicolumn{1}{c}{2,999} & \multicolumn{1}{c}{2,999} \\ 
+Log Likelihood & \multicolumn{1}{c}{-1,624.108} & \multicolumn{1}{c}{-11,843.780} & \multicolumn{1}{c}{-1,110.281} \\ 
+Akaike Inf. Crit. & \multicolumn{1}{c}{3,272.216} & \multicolumn{1}{c}{23,711.550} & \multicolumn{1}{c}{2,244.561} \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+% Table created by stargazer v.5.1 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Mar 10, 2015 - 20:11:52
+% Requires LaTeX packages: dcolumn 
+\begin{table}[!htbp] \centering 
+  \caption{Estimated effect of partial EMR adoption with 
+          propensity score weighted OLS models} 
+  \label{tab:ps.sep.part} 
+\footnotesize 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & \multicolumn{1}{c}{Health Education} & \multicolumn{1}{c}{Time Spent with MD} & \multicolumn{1}{c}{Returned Appointment Rate} \\ 
+\\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)}\\ 
+\hline \\[-1.8ex] 
+ Partial EMR & 0.026 & 0.057 & -0.002 \\ 
+  & (0.021) & (0.606) & (0.017) \\ 
+  SOLO & -0.006 & 3.158^{***} & 0.035^{**} \\ 
+  & (0.023) & (0.678) & (0.018) \\ 
+  HMO & 0.117^{*} & -0.226 & -0.150^{**} \\ 
+  & (0.067) & (1.411) & (0.075) \\ 
+  Community health center & 0.007 & -2.921^{***} & 0.028 \\ 
+  & (0.033) & (0.748) & (0.025) \\ 
+  Medical/academic health center & 0.086 & 5.515^{*} & 0.080^{*} \\ 
+  & (0.056) & (3.314) & (0.046) \\ 
+  Other hospital & 0.028 & -2.583^{***} & 0.023 \\ 
+  & (0.049) & (0.828) & (0.035) \\ 
+  Other health care corporation & 0.034 & -0.055 & -0.065^{*} \\ 
+  & (0.044) & (0.872) & (0.038) \\ 
+  Other owner type & 0.093 & 4.846^{*} & -0.007 \\ 
+  & (0.059) & (2.793) & (0.074) \\ 
+  MCC less than 3 & 0.017 & -2.473 & 0.008 \\ 
+  & (0.047) & (1.700) & (0.034) \\ 
+  MCC 3-10 & -0.016 & -5.378^{***} & 0.001 \\ 
+  & (0.033) & (1.308) & (0.029) \\ 
+  MCC greater than 10 & -0.012 & -6.828^{***} & -0.016 \\ 
+  & (0.034) & (1.295) & (0.029) \\ 
+  Constant & 0.402^{***} & 25.788^{***} & 0.718^{***} \\ 
+  & (0.032) & (1.327) & (0.027) \\ 
+ \hline \\[-1.8ex] 
+Observations & \multicolumn{1}{c}{2,473} & \multicolumn{1}{c}{2,473} & \multicolumn{1}{c}{2,473} \\ 
+Log Likelihood & \multicolumn{1}{c}{-1,399.123} & \multicolumn{1}{c}{-9,906.268} & \multicolumn{1}{c}{-915.909} \\ 
+Akaike Inf. Crit. & \multicolumn{1}{c}{2,822.247} & \multicolumn{1}{c}{19,836.540} & \multicolumn{1}{c}{1,855.819} \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+% Table created by stargazer v.5.1 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Mar 10, 2015 - 20:11:52
+% Requires LaTeX packages: dcolumn 
+\begin{table}[!htbp] \centering 
+  \caption{Effect of fully EMR adoption on health care outcomes (PSM)} 
+  \label{tab:ps.psm.full} 
+\footnotesize 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & \multicolumn{1}{c}{Health Education} & \multicolumn{1}{c}{Time Spent with MD} & \multicolumn{1}{c}{Returned Appointment Rate} \\ 
+\\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)}\\ 
+\hline \\[-1.8ex] 
+ Full EMR & 0.043^{***} & 0.454 & -0.007 \\ 
+  & (0.015) & (0.401) & (0.012) \\ 
+  SOLO & -0.020 & 2.603^{***} & 0.038^{***} \\ 
+  & (0.017) & (0.458) & (0.014) \\ 
+  HMO & 0.017 & 1.699 & -0.088^{**} \\ 
+  & (0.044) & (1.193) & (0.037) \\ 
+  Community health center & 0.017 & -2.204^{***} & -0.022 \\ 
+  & (0.027) & (0.730) & (0.023) \\ 
+  Medical/academic health center & 0.047 & 5.386^{***} & 0.046 \\ 
+  & (0.044) & (1.198) & (0.037) \\ 
+  Other hospital & 0.034 & 0.270 & 0.014 \\ 
+  & (0.043) & (1.162) & (0.036) \\ 
+  Other health care corporation & 0.012 & 1.071 & -0.077^{***} \\ 
+  & (0.030) & (0.808) & (0.025) \\ 
+  Other owner type & 0.046 & 4.818^{***} & 0.015 \\ 
+  & (0.051) & (1.381) & (0.043) \\ 
+  MCC less than 3 & 0.031 & -1.577^{*} & 0.022 \\ 
+  & (0.032) & (0.856) & (0.026) \\ 
+  MCC 3-10 & -0.025 & -3.191^{***} & -0.005 \\ 
+  & (0.026) & (0.702) & (0.022) \\ 
+  MCC greater than 10 & -0.059^{**} & -3.948^{***} & -0.002 \\ 
+  & (0.026) & (0.692) & (0.021) \\ 
+  Constant & 0.423^{***} & 23.104^{***} & 0.705^{***} \\ 
+  & (0.026) & (0.692) & (0.021) \\ 
+ \hline \\[-1.8ex] 
+Observations & \multicolumn{1}{c}{2,292} & \multicolumn{1}{c}{2,292} & \multicolumn{1}{c}{2,292} \\ 
+R$^{2}$ & \multicolumn{1}{c}{0.014} & \multicolumn{1}{c}{0.052} & \multicolumn{1}{c}{0.014} \\ 
+Adjusted R$^{2}$ & \multicolumn{1}{c}{0.009} & \multicolumn{1}{c}{0.047} & \multicolumn{1}{c}{0.009} \\ 
+Residual Std. Error (df = 2280) & \multicolumn{1}{c}{0.341} & \multicolumn{1}{c}{9.206} & \multicolumn{1}{c}{0.285} \\ 
+F Statistic (df = 11; 2280) & \multicolumn{1}{c}{2.939$^{***}$} & \multicolumn{1}{c}{11.341$^{***}$} & \multicolumn{1}{c}{2.930$^{***}$} \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+% Table created by stargazer v.5.1 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Mar 10, 2015 - 20:11:53
+% Requires LaTeX packages: dcolumn 
+\begin{table}[!htbp] \centering 
+  \caption{Effect of partially EMR adoption on health care outcomes (PSM)} 
+  \label{tab:ps.psm.part} 
+\footnotesize 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & \multicolumn{1}{c}{Health Education} & \multicolumn{1}{c}{Time Spent with MD} & \multicolumn{1}{c}{Returned Appointment Rate} \\ 
+\\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)}\\ 
+\hline \\[-1.8ex] 
+ Partial EMR & 0.006 & -0.186 & 0.022 \\ 
+  & (0.020) & (0.551) & (0.016) \\ 
+  SOLO & -0.018 & 2.715^{***} & 0.039^{**} \\ 
+  & (0.022) & (0.605) & (0.018) \\ 
+  HMO & 0.154^{*} & 1.382 & -0.132^{**} \\ 
+  & (0.084) & (2.271) & (0.066) \\ 
+  Community health center & 0.086^{**} & -2.541^{**} & 0.0002 \\ 
+  & (0.038) & (1.035) & (0.030) \\ 
+  Medical/academic health center & 0.115^{*} & 4.279^{***} & 0.024 \\ 
+  & (0.060) & (1.641) & (0.048) \\ 
+  Other hospital & 0.079 & -2.044 & 0.023 \\ 
+  & (0.055) & (1.500) & (0.044) \\ 
+  Other health care corporation & 0.077^{*} & 1.668 & -0.051 \\ 
+  & (0.045) & (1.235) & (0.036) \\ 
+  Other owner type & 0.107 & 1.344 & 0.008 \\ 
+  & (0.074) & (2.015) & (0.059) \\ 
+  MCC less than 3 & 0.007 & -1.979^{*} & 0.018 \\ 
+  & (0.042) & (1.154) & (0.034) \\ 
+  MCC 3-10 & 0.004 & -4.172^{***} & 0.019 \\ 
+  & (0.033) & (0.892) & (0.026) \\ 
+  MCC greater than 10 & -0.010 & -5.576^{***} & -0.006 \\ 
+  & (0.033) & (0.884) & (0.026) \\ 
+  Constant & 0.393^{***} & 24.928^{***} & 0.708^{***} \\ 
+  & (0.033) & (0.885) & (0.026) \\ 
+ \hline \\[-1.8ex] 
+Observations & \multicolumn{1}{c}{1,240} & \multicolumn{1}{c}{1,240} & \multicolumn{1}{c}{1,240} \\ 
+R$^{2}$ & \multicolumn{1}{c}{0.016} & \multicolumn{1}{c}{0.076} & \multicolumn{1}{c}{0.013} \\ 
+Adjusted R$^{2}$ & \multicolumn{1}{c}{0.007} & \multicolumn{1}{c}{0.068} & \multicolumn{1}{c}{0.004} \\ 
+Residual Std. Error (df = 1228) & \multicolumn{1}{c}{0.349} & \multicolumn{1}{c}{9.470} & \multicolumn{1}{c}{0.277} \\ 
+F Statistic (df = 11; 1228) & \multicolumn{1}{c}{1.781$^{*}$} & \multicolumn{1}{c}{9.214$^{***}$} & \multicolumn{1}{c}{1.445} \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+\end{document}

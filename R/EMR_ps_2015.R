@@ -154,15 +154,15 @@ ggplot(physician_cc,
 # Sensitive analysis
 ## mnps with other regressions
 glm_HealthEdu_pct_mnps_binomial <- 
-    svyglm(HealthEdu_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC),
+    svyglm(HealthEdu_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC)+ factor(VYEAR),
            family='quasibinomial',
            design=design.mnps)
 glm_TIMEMD_mnps_poisson <- 
-    svyglm(TIMEMD ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC),
+    svyglm(TIMEMD ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC)+ factor(VYEAR),
            family="quasipoisson",
            design=design.mnps)
 glm_RETAPPT_pct_mnps_binomial <- 
-    svyglm(RETAPPT_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC),
+    svyglm(RETAPPT_pct ~ factor(EMEDREC)+SOLO+factor(OWNS)+factor(MANCAREC)+ factor(VYEAR),
            family='quasibinomial',
            design=design.mnps)
 
@@ -246,28 +246,28 @@ design.ps.part <-
     svydesign(ids=~1, weights=~psweight, data=physician_cc_part_EMR)
 
 glm_HealthEdu_pct_full <- 
-    svyglm(HealthEdu_pct ~ FullEMR+SOLO+factor(OWNS)+factor(MANCAREC), 
+    svyglm(HealthEdu_pct ~ FullEMR+SOLO+factor(OWNS)+factor(MANCAREC)+ factor(VYEAR), 
            design=design.ps.full)
 glm_HealthEdu_pct_part <- 
-    svyglm(HealthEdu_pct ~ PartEMR+SOLO+factor(OWNS)+factor(MANCAREC), 
+    svyglm(HealthEdu_pct ~ PartEMR+SOLO+factor(OWNS)+factor(MANCAREC)+ factor(VYEAR), 
            design=design.ps.part)
 summary(glm_HealthEdu_pct_full)
 summary(glm_HealthEdu_pct_part)
 
 glm_TIMEMD_full <- 
-    svyglm(TIMEMD ~ FullEMR+SOLO+factor(OWNS)+factor(MANCAREC), 
+    svyglm(TIMEMD ~ FullEMR+SOLO+factor(OWNS)+factor(MANCAREC)+ factor(VYEAR), 
            design=design.ps.full)
 glm_TIMEMD_part <- 
-    svyglm(TIMEMD ~ PartEMR+SOLO+factor(OWNS)+factor(MANCAREC), 
+    svyglm(TIMEMD ~ PartEMR+SOLO+factor(OWNS)+factor(MANCAREC)+ factor(VYEAR), 
            design=design.ps.part)
 summary(glm_TIMEMD_full)
 summary(glm_TIMEMD_part)
 
 glm_RETAPPT_pct_full <- 
-    svyglm(RETAPPT_pct ~ FullEMR+SOLO+factor(OWNS)+factor(MANCAREC), 
+    svyglm(RETAPPT_pct ~ FullEMR+SOLO+factor(OWNS)+factor(MANCAREC)+ factor(VYEAR), 
            design=design.ps.full)
 glm_RETAPPT_pct_part <- 
-    svyglm(RETAPPT_pct ~ PartEMR+SOLO+factor(OWNS)+factor(MANCAREC), 
+    svyglm(RETAPPT_pct ~ PartEMR+SOLO+factor(OWNS)+factor(MANCAREC)+ factor(VYEAR), 
            design=design.ps.part)
 summary(glm_RETAPPT_pct_full)
 summary(glm_RETAPPT_pct_part)
@@ -295,23 +295,23 @@ physician_full_matched <- match.data(physician.match.r.full)
 physician_part_matched <- match.data(physician.match.r.part)
 
 lm_HealthEdu_pct_matched_f <- 
-    lm(HealthEdu_pct ~ FullEMR+SOLO+factor(OWNS)+factor(MANCAREC),
+    lm(HealthEdu_pct ~ FullEMR+SOLO+factor(OWNS)+factor(MANCAREC)+ factor(VYEAR),
        physician_full_matched)
 lm_TIMEMD_matched_f <- 
-    lm(TIMEMD ~ FullEMR+SOLO+factor(OWNS)+factor(MANCAREC), 
+    lm(TIMEMD ~ FullEMR+SOLO+factor(OWNS)+factor(MANCAREC)+ factor(VYEAR), 
        physician_full_matched)
 lm_RETAPPT_pct_matched_f <- 
-    lm(RETAPPT_pct ~ FullEMR+SOLO+factor(OWNS)+factor(MANCAREC), 
+    lm(RETAPPT_pct ~ FullEMR+SOLO+factor(OWNS)+factor(MANCAREC)+ factor(VYEAR), 
        physician_full_matched)
 
 lm_HealthEdu_pct_matched_p <- 
-    lm(HealthEdu_pct ~ PartEMR+SOLO+factor(OWNS)+factor(MANCAREC), 
+    lm(HealthEdu_pct ~ PartEMR+SOLO+factor(OWNS)+factor(MANCAREC)+ factor(VYEAR), 
        physician_part_matched)
 lm_TIMEMD_matched_p <- 
-    lm(TIMEMD ~ PartEMR+SOLO+factor(OWNS)+factor(MANCAREC),
+    lm(TIMEMD ~ PartEMR+SOLO+factor(OWNS)+factor(MANCAREC)+ factor(VYEAR),
        physician_part_matched)
 lm_RETAPPT_pct_matched_p <- 
-    lm(RETAPPT_pct ~ PartEMR+SOLO+factor(OWNS)+factor(MANCAREC),
+    lm(RETAPPT_pct ~ PartEMR+SOLO+factor(OWNS)+factor(MANCAREC)+ factor(VYEAR),
        physician_part_matched)
 
 # Result reporting
@@ -330,7 +330,8 @@ tableNominal(vars = physician_tableNominal,
              lab = "tab:descriptive.1",
              font.size = "footnotesize",
              weights = physician_cc$PHYSWT,
-             longtable = F)
+             longtable = F,
+             cumsum = F)
 close(desc_des)
 
 physician_tableContinuous <- 
@@ -364,7 +365,9 @@ indep_label_mnps <- c("Full EMR",
                       "Other owner type",
                       "MCC less than 3",
                       "MCC 3-10",
-                      "MCC greater than 10")
+                      "MCC greater than 10",
+                      "2009",
+                      "2010")
 
 mnps_results <- file("Outputs/03_mnps_results.tex",open="wt")
 sink(mnps_results)
@@ -392,7 +395,9 @@ indep_label_mnps <- c("Full EMR",
                       "Other owner type",
                       "MCC less than 3",
                       "MCC 3-10",
-                      "MCC greater than 10")
+                      "MCC greater than 10",
+                      "2009",
+                      "2010")
 
 mnps_results_other_dist <- file("Outputs/04_mnps_other_dist.tex",open="wt")
 sink(mnps_results_other_dist)
@@ -495,7 +500,9 @@ indep_label_sep_full <- c("Full EMR",
                           "Other owner type",
                           "MCC less than 3",
                           "MCC 3-10",
-                          "MCC greater than 10")
+                          "MCC greater than 10",
+                          "2009",
+                          "2010")
 indep_label_sep_part <- c("Partial EMR",
                           "SOLO",
                           "HMO",
@@ -506,7 +513,9 @@ indep_label_sep_part <- c("Partial EMR",
                           "Other owner type",
                           "MCC less than 3",
                           "MCC 3-10",
-                          "MCC greater than 10")
+                          "MCC greater than 10",
+                          "2009",
+                          "2010")
 
 ps_sep_full <- file("Outputs/07_ps_sep_full_results.tex",open="wt")
 sink(ps_sep_full)
@@ -550,7 +559,9 @@ indep_label_psm_full <- c("Full EMR",
                           "Other owner type",
                           "MCC less than 3",
                           "MCC 3-10",
-                          "MCC greater than 10")
+                          "MCC greater than 10",
+                          "2009",
+                          "2010")
 indep_label_psm_part <- c("Partial EMR",
                           "SOLO",
                           "HMO",
@@ -561,7 +572,9 @@ indep_label_psm_part <- c("Partial EMR",
                           "Other owner type",
                           "MCC less than 3",
                           "MCC 3-10",
-                          "MCC greater than 10")
+                          "MCC greater than 10",
+                          "2009",
+                          "2010")
 
 ps_psm_full <- file("Outputs/09_ps_psm_full_results.tex",open="wt")
 sink(ps_psm_full)

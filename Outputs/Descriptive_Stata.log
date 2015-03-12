@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  /Users/huadehuo/Dropbox/MSPP/Thesis/NAMCS/Outputs/Descriptive_Stata.log
   log type:  text
- opened on:  11 Mar 2015, 21:03:15
+ opened on:  11 Mar 2015, 21:12:33
 
 . 
 . 
@@ -15,7 +15,7 @@
          SU 1: <observations>
         FPC 1: <zero>
 
-. svy: tab VYEAR EMEDREC
+. svy: tab VYEAR EMEDREC, row
 (running tabulate on estimation sample)
 
 Number of strata   =         1                  Number of obs      =      3619
@@ -26,19 +26,19 @@ Number of PSUs     =      3619                  Population size    =    953908
           |          EMEDREC          
     VYEAR |     0      1      2  Total
 ----------+---------------------------
-     2008 | .1775    .09  .0599  .3274
-     2009 | .1669  .1117  .0649  .3435
-     2010 | .1594  .1277  .0419   .329
+     2008 | .5421  .2749   .183      1
+     2009 | .4859  .3252  .1889      1
+     2010 | .4846  .3881  .1273      1
           | 
     Total | .5039  .3294  .1667      1
 --------------------------------------
-  Key:  cell proportions
+  Key:  row proportions
 
   Pearson:
     Uncorrected   chi2(4)         =   44.9462
     Design-based  F(4.00, 14462.69)=    7.1030    P = 0.0000
 
-. svy: tab OWNS EMEDREC
+. svy: tab OWNS EMEDREC, row
 (running tabulate on estimation sample)
 
 Number of strata   =         1                  Number of obs      =      3619
@@ -49,23 +49,23 @@ Number of PSUs     =      3619                  Population size    =    953908
           |          EMEDREC          
      OWNS |     0      1      2  Total
 ----------+---------------------------
-        1 | .4335  .2402  .1298  .8036
-        2 | .0015  .0187   .003  .0232
-        3 | .0146   .012  .0074  .0341
-        4 | .0139  .0107  .0049  .0295
-        5 | .0132  .0108  .0066  .0306
-        6 | .0212  .0294  .0112  .0618
-        7 | .0059  .0076  .0037  .0172
+        1 | .5395  .2989  .1616      1
+        2 | .0647  .8051  .1302      1
+        3 | .4293  .3522  .2185      1
+        4 | .4714  .3627  .1659      1
+        5 | .4305  .3526  .2169      1
+        6 | .3434  .4759  .1807      1
+        7 | .3436  .4414   .215      1
           | 
     Total | .5039  .3294  .1667      1
 --------------------------------------
-  Key:  cell proportions
+  Key:  row proportions
 
   Pearson:
     Uncorrected   chi2(12)        =  146.2924
     Design-based  F(11.22, 40607.01)=    8.9896   P = 0.0000
 
-. svy: tab MSA EMEDREC
+. svy: tab MSA EMEDREC, row
 (running tabulate on estimation sample)
 
 Number of strata   =         1                  Number of obs      =      3619
@@ -76,18 +76,18 @@ Number of PSUs     =      3619                  Population size    =    953908
           |          EMEDREC          
       MSA |     0      1      2  Total
 ----------+---------------------------
-        1 | .4534  .2948  .1472  .8954
-        2 | .0505  .0346  .0196  .1046
+        1 | .5064  .3293  .1644      1
+        2 | .4823  .3308  .1869      1
           | 
     Total | .5039  .3294  .1667      1
 --------------------------------------
-  Key:  cell proportions
+  Key:  row proportions
 
   Pearson:
     Uncorrected   chi2(2)         =    1.4319
     Design-based  F(1.99, 7185.34)=    0.4711     P = 0.6230
 
-. svy: tab MANCAREC EMEDREC
+. svy: tab MANCAREC EMEDREC, row
 (running tabulate on estimation sample)
 
 Number of strata   =         1                  Number of obs      =      3619
@@ -98,20 +98,20 @@ Number of PSUs     =      3619                  Population size    =    953908
           |          EMEDREC          
  MANCAREC |     0      1      2  Total
 ----------+---------------------------
-        1 | .0722  .0242  .0194  .1158
-        2 |  .049  .0339  .0163  .0993
-        3 | .1807  .1017  .0574  .3398
-        4 | .2019  .1695  .0737  .4451
+        1 | .6234  .2092  .1674      1
+        2 | .4939  .3419  .1642      1
+        3 | .5318  .2994  .1688      1
+        4 | .4537  .3808  .1655      1
           | 
     Total | .5039  .3294  .1667      1
 --------------------------------------
-  Key:  cell proportions
+  Key:  row proportions
 
   Pearson:
     Uncorrected   chi2(6)         =   56.8230
     Design-based  F(5.99, 21689.64)=    6.0078    P = 0.0000
 
-. svy: tab SPECR EMEDREC
+. svy: tab SPECR EMEDREC, row
 (running tabulate on estimation sample)
 
 Number of strata   =         1                  Number of obs      =      3619
@@ -122,31 +122,31 @@ Number of PSUs     =      3619                  Population size    =    953908
           |          EMEDREC          
     SPECR |     0      1      2  Total
 ----------+---------------------------
-        1 | .0796  .0811  .0271  .1878
-        3 | .0653  .0518  .0201  .1372
-        4 | .0547  .0324  .0172  .1043
-        5 | .0211  .0089  .0057  .0357
-        6 | .0407  .0259  .0138  .0804
-        7 | .0217  .0185  .0096  .0498
-        8 | .0184  .0131  .0117  .0432
-        9 | .0148  .0051  .0024  .0223
-       10 | .0096  .0079  .0035  .0211
-       11 | .0379  .0076  .0076  .0531
-       12 | .0114  .0057  .0035  .0207
-       13 | .0257  .0061  .0087  .0404
-       14 |  .009  .0062  .0026  .0177
-       15 | .0913  .0561  .0308  .1783
-       16 | .0027   .003  .0021  .0079
+        1 | .4238  .4317  .1445      1
+        3 | .4761  .3776  .1464      1
+        4 | .5243  .3107   .165      1
+        5 | .5905  .2494  .1601      1
+        6 | .5065  .3218  .1718      1
+        7 | .4356  .3709  .1935      1
+        8 | .4246  .3037  .2717      1
+        9 | .6625  .2297  .1079      1
+       10 | .4559  .3757  .1684      1
+       11 |  .714  .1424  .1436      1
+       12 | .5539  .2771   .169      1
+       13 | .6344  .1504  .2152      1
+       14 | .5055  .3483  .1462      1
+       15 | .5122  .3148   .173      1
+       16 | .3444  .3836  .2721      1
           | 
     Total | .5039  .3294  .1667      1
 --------------------------------------
-  Key:  cell proportions
+  Key:  row proportions
 
   Pearson:
     Uncorrected   chi2(28)        =  132.6711
     Design-based  F(21.46, 77654.32)=    4.3313   P = 0.0000
 
-. svy: tab REGION EMEDREC
+. svy: tab REGION EMEDREC, row
 (running tabulate on estimation sample)
 
 Number of strata   =         1                  Number of obs      =      3619
@@ -157,20 +157,20 @@ Number of PSUs     =      3619                  Population size    =    953908
           |          EMEDREC          
    REGION |     0      1      2  Total
 ----------+---------------------------
-        1 | .1053  .0637  .0378  .2068
-        2 | .1087  .0674  .0328  .2089
-        3 | .1823  .1084  .0578  .3484
-        4 | .1075  .0899  .0384  .2358
+        1 | .5091   .308  .1829      1
+        2 | .5204  .3227  .1568      1
+        3 | .5232   .311  .1658      1
+        4 |  .456  .3814  .1626      1
           | 
     Total | .5039  .3294  .1667      1
 --------------------------------------
-  Key:  cell proportions
+  Key:  row proportions
 
   Pearson:
     Uncorrected   chi2(6)         =   16.4172
     Design-based  F(5.92, 21427.85)=    1.7409    P = 0.1082
 
-. svy: tab SOLO EMEDREC
+. svy: tab SOLO EMEDREC, row
 (running tabulate on estimation sample)
 
 Number of strata   =         1                  Number of obs      =      3619
@@ -181,12 +181,12 @@ Number of PSUs     =      3619                  Population size    =    953908
           |          EMEDREC          
      SOLO |     0      1      2  Total
 ----------+---------------------------
-        0 | .2941  .2622  .1143  .6706
-        1 | .2097  .0672  .0524  .3294
+        0 | .4386   .391  .1704      1
+        1 | .6367  .2041  .1592      1
           | 
     Total | .5039  .3294  .1667      1
 --------------------------------------
-  Key:  cell proportions
+  Key:  row proportions
 
   Pearson:
     Uncorrected   chi2(2)         =  147.5646
@@ -428,5 +428,5 @@ TOTCHRON_mean |
       name:  <unnamed>
        log:  /Users/huadehuo/Dropbox/MSPP/Thesis/NAMCS/Outputs/Descriptive_Stata.log
   log type:  text
- closed on:  11 Mar 2015, 21:03:15
+ closed on:  11 Mar 2015, 21:12:33
 -------------------------------------------------------------------------------------------------------------------------------------------

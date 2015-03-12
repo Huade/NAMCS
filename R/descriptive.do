@@ -6,13 +6,13 @@ log using "/Users/huadehuo/Dropbox/MSPP/Thesis/NAMCS/Outputs/Descriptive_Stata.l
 
 
 svyset [pweight= PHYSWT]
-svy: tab VYEAR EMEDREC
-svy: tab OWNS EMEDREC
-svy: tab MSA EMEDREC
-svy: tab MANCAREC EMEDREC
-svy: tab SPECR EMEDREC
-svy: tab REGION EMEDREC
-svy: tab SOLO EMEDREC
+svy: tab VYEAR EMEDREC, row
+svy: tab OWNS EMEDREC, row
+svy: tab MSA EMEDREC, row
+svy: tab MANCAREC EMEDREC, row
+svy: tab SPECR EMEDREC, row
+svy: tab REGION EMEDREC, row
+svy: tab SOLO EMEDREC, row
 
 svy: mean HealthEdu_pct, over(EMEDREC)
 svy: mean TIMEMD, over(EMEDREC)

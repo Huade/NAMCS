@@ -14,6 +14,7 @@ library(survey) # Survey-weighted generalised linear models
 library(gridExtra) # high-level functions for Grid graphics
 library(xtable) # Create Export Tables
 library(reporttools) # Functions to display descriptive statistics
+library(ggplot2)
 
 set.seed(1)
 namcs<-fread("Data/namcs.csv")

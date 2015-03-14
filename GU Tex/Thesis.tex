@@ -1,3 +1,140 @@
+\documentclass[12pt]{report}
+
+\usepackage{url}
+\usepackage[dvips]{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[round]{natbib}
+\bibpunct{(}{)}{;}{a}{,}{,}
+\usepackage{cite}
+\usepackage{dcolumn}
+
+% If there are any other \usepackage commands, put them here.
+
+\usepackage{guthesis} % Must be the last package
+
+\newtheorem{theorem}{Theorem}[section]
+\newenvironment{proof}[0]{\textit{Proof.}}{}
+\newcommand{\qed}{\hfill $\Box$}
+
+% To comment out multiple lines of text.
+\long\def\comment#1{}
+
+\title{The Effect of the Electronic Healthcare Record \\
+on Physician Behavior:\\
+A Propensity Score Weighted Analysis}
+
+\author{Huade Huo}
+
+\previousdegree{B.Mg.}
+
+\thisdegree{Master of Public Policy}  % or Doctor of Philosophy, etc.
+
+\thisdiscipline{Public Policy}
+
+\thesistype{Thesis}     % or Dissertation
+
+% defense or approval date, not today's date...
+\thesisday{11}
+\thesismonth{April}
+\thesisyear{2015}
+
+\professor{Yuriy Pylypchuk}
+%\secondprofessor{Alonzo Church}   % Only if you have 2 major professors!
+
+\fulltitle{The Effect of the Electronic Healthcare Record
+on Physician Behavior:\\
+A Propensity Score Weighted Analysis}
+
+\indexwords{Word~processing, Computer~typesetting, Computer~graphics,
+            Style~sheets, Typography, Dissertations, Theses~(academic)}
+
+\dean{Timothy A.\ Barbari}
+
+\memberi{Benjamin Franklin}
+\memberii{Isaac Newton}
+% Use \memberiii, \memberiv, \memberv for up to 3 more members if needed.
+
+\begin{document}
+
+\pagenumbering{roman}
+
+\maketitle    % Creates title page, copyright page if any, and approval page.
+
+\begin{abstract}
+This is the abstract, a brief summary of the contents of the entire thesis.
+It is limited to 350 words.
+
+The abstract page(s) are not numbered and are not necessarily included
+in the bound copies.  Likewise, the signature page is not counted in
+page numbering because not all copies contain it.
+
+Throughout this sample thesis, {\bf please note
+that the layout obtained with \LaTeX\ is not meant to be a
+perfect duplicate of the Microsoft Word examples in the \emph{Graduate
+School Style Manual.}}  \LaTeX\ has additional typographic tools at its
+disposal, such as {\sc small capitals} and various subtle adjustments
+of spacing, which are used by the Georgetown \LaTeX\ style sheet in
+accordance with the standard practices of the book-printing industry.
+
+The index words at the bottom of the abstract should be chosen carefully,
+preferably with the help of one or two of your colleagues.
+They are the words by which people will find your thesis when searching
+the scientific literature.
+If you want to get credit for your ideas, be sure to choose a good set of
+index words so that people doing related work will know about yours.
+\end{abstract}
+
+
+\chapter*{Dedication}
+
+The Dedication is optional, but if it is included, it should have
+a roman numeral page number but not be included in the table of
+contents.  To achieve that, we declare it as a \verb"\chapter*" in \LaTeX.
+
+
+\pseudochapter{Acknowledgments}
+
+In a real thesis, this section would contain acknowledgments such
+as, ``This work was funded by National Science Foundation Grant
+Number AAA-00-00000 (Benjamin Franklin, Principal Investigator),''
+and ``I would like to thank John Doe for helping me proofread my
+thesis and Mary Roe for drawing my graphs.''
+
+The acknowledgments are included in the table of contents but do
+not have a chapter number.  To achieve that, we
+declare them to be a \verb"\pseudochapter" (which is defined only in
+\verb"guthesis.sty").
+
+I (Mark Maloof) would like to thank Michael Covington for developing
+this \LaTeX\ style sheet for the University of Georgia.
+Zachary Hunter deserves special thanks for revising the UGA style
+file to work with the new version of \LaTeX\ (2e) as well as the
+previous version (2.09).
+The revisions in
+Version 3.0 of \verb"guthesis.sty" are
+largely the work of Isidor Ruderfer.
+Other credits appear in the style sheet itself.
+
+\pseudochapter{Preface}
+
+If your thesis has a preface, this is where it goes.
+A preface is not an introduction, and most theses do not need them.
+
+
+\tableofcontents
+
+\listoffigures  % Optional - Omit this line if you don't want a list of figures.
+\listoftables   % Optional - Omit this line if you don't want a list of tables.
+
+\newpage
+
+\pagenumbering{arabic}  % Ordinary pages have Arabic numerals.
+\chapter{Introduction}
+The US spend 17.9\% of GDP on health expenditure in 2013, according to the World Bank, and it is continuing to growth. Some scholars proposed that one way to reduce health care spending and improve health care efficiency is to adopt the Electronic Healthcare Record (EHR). The Obama Administration has prioritized the improvement of quality and efficiency of the health care system. President Obama signed the American Recovery and Reinvestment Act of 2009 which provides financial incentive for adoption and meaningful use of electronic health records. The adoption of EHR increased rapidly [CITATION NEEDED].
+
+Given the increasing adoption of EHR, and the implementation of EHR incentive programs, the effect of electronic health care record on health outcomes are of interest. Empirically measured effect of adopting EHR on cost is still very limited, and the results are mixed.
+
 \chapter{Literature review}
 
 \section{Background}
@@ -24,7 +161,7 @@ Another important factor of healthcare efficiency and quality is the likelihood 
 
 Patient-centered education, which provided by EHR-based system, allows patients to understand their health better and make informed lifestyle adjustments. CMS requires eligible physicians to provide patient-specific education resources to more than 10 percent of all unique patients in order to obtain the EHR incentive program funding \citep{healthit05}. Very limited literature evaluated effect of EHR on patient-specific education resources utilization. 
 
-\subsection{Physicians' financial incentives on EHR}
+\section{Physicians' financial incentives on EHR}
 On the micro level, EHR has a mixed effect on cost-saving of physician practices.
 
 Some scholars claimed that the long-term return on adoption of EHR is positive. For example, Wang et al. estimated that a provider could gain \$86,400 net benefits from using an electronic medical record for a 5-year period, resulting in a positive financial return on investment to the health care organization \citep{Wang2003}. Bell and Thornton claimed that based on the size of a health system and the scope of implementation, benefits of HITs for large hospitals can range from \$37M to \$59M over a five-year period in addition to incentive payments \citep{Bell2011}.
@@ -40,3 +177,9 @@ Although the number of health information technology evaluation studies is rapid
 Another major limitation of the literature is its generalization. Insufficient reporting of contextual and implementation factors makes it impossible to determine why most health IT implementations are successful but some are not. This paper will consider which factors may contribute to a better outcome of EHR adoption. It could help making government incentive programs more efficient by selecting proper physician practices.
 
 
+
+\newpage
+\bibliographystyle{plainnat}
+\bibliography{EHR}
+
+\end{document}

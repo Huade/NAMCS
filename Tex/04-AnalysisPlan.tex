@@ -1,8 +1,8 @@
-\section{Analysis Plan}
-\subsection{Estimating treatment effect with observational data}
+\chapter{Analysis Plan}
+\section{Estimating treatment effect with observational data}
 Ideally, we would observe physician in three possible conditions: one in which she has fully adopted the EHR system, one in which she has partially adopted the EHR system, and one in which she has not. We can express our evaluation problem as follows: Let $W_i = 1$ for physician $i$ who has fully adopted the EHR system, let $W_i = 2$ for physician $i$ who has partially adopted the EHR system, and let $W_i = 0$ for physician $i$ who has not yet adopted the ENR system. Let $Y_i(1)$ refer to the time efficiency for physician $i$ who has fully adopted the EHR system, let $Y_i(2)$ refer to the time efficiency for physician $i$ who has partially adopted the EHR system, and let $Y_i(0)$ refer to the patient interaction time for physician $i$ who has not adopted the EHR system. Although all outcomes are possible in theory, we cannot observe all possible outcome $Y_i(0)$, $Y_i(1)$, and $Y_i(2)$ for physician $i$ while holding all other conditions constant. We only observe $Y_i(0)$ if $W_i = 0$, $Y_i(1)$ if $W_i = 1$, and $Y_i(2)$ if $W_i = 2$ with our data \citep{imbens2008recent}. People in "treatments" and "control" groups likely different in both observed and unobserved ways.
 
-\subsection{Assumption of causal inference}
+\section{Assumption of causal inference}
 There are two assumptions associate with estimating treatment effect. The first assumption is the stable unit treatment value assumption (SUTVA). The SUTVA requires that there is no interference between units, that is, treatment assignment of one unit does not affect potential outcomes of another unit. We cannot test this statistically with our data. However, we can safely assume that this assumption meets in our analysis since there are no evidence to show the EHR adoption at one physician practice has interactions with the outcome in another physician's practice.
 
 The second assumption is no unmeasured confounders. An estimate of the EHR's effect on doctors' behavior relies on an assumption of no unmeasured confounders of treatment assignment, that is, $W_i \prep (Y_i(0),Y_i(1),Y_i(2))$ \citep{imbens2008recent}. In other words, the assignment of study participants to treatment conditions (i.e. fully adopted EHR, partially adopted EHR, and no adoption) is independent of the outcome of these three groups. In experimental settings, treatment groups (in this case, physicians who partially or fully adopted the EHR system) and control group were random assigned, which ensure that both observed and unobserved factors of treatment and control group have similar distribution. If the assignment to adopt the EHR system is based on randomization, this assumption is easy to statisfy and the causal inference would be straightforward. However, this assumption often violates in non-experimental setting. This is a strong assumption with the evaluation of EHR effect since a national level experiment on the effectiveness of the EHR adoption is expensive and infeasible. Violation of unconfoundedness could bias result because of omitted variable bias.
@@ -18,7 +18,7 @@ In this model, $Y_{i}$ is the outcome of interest for physician $i$, including p
 This condition is unlikely with NAMCS data. For example, physicians in the treatment group A, which they fully adopted the EHR systems, may systematically different than physicians in the control group. This difference could in both observed and unobserved ways. With large number of covariates that has unknown functional relationship with treatment and outcome, it is hard to specify regression adjustment model. Without appropriate instrumental variable or regression discontinuity cutoff available, the propensity score matching method is one of few available techniques that can be used to access the treatment effect of the EHR system on physician behavior.
 
 %WHY PS
-\subsection{Propensity score estimation}
+\section{Propensity score estimation}
 As described above, estimating causal effects with observational data is challenging since it involves estimating the unobserved potential outcomes. Propensity score methods attempt to replicate two features of randomized experiments. On the one hand, propensity score methodologies can create groups that look only randomly different from one another (at least on observed variables). On the other hand, propensity score methods do not use outcome variables when setting up the design. With these two features, treatment assignment and the observed covariates are conditionally independent given the propensity score \citep{guo2014propensity}:
 
 \begin{equation*}
@@ -31,14 +31,14 @@ Hirano et al. claimed that the resulting estimate is asymptotically efficient if
 
 To assess the quality of propensity score estimation, we use diagnostics to check the balance after propensity score weighting. The goal of propensity score estimation and weighting is to have similar covariate distributions in the matched treated, and control groups. We use both numerical summaries of balance and graphic summaries of balance to evaluate the quality of propensity score weighting. We relied primarily on the absolute standardized difference (ASD, also referred to as the Effect Size or the absolute standardized mean difference) to assess the balance after weighting. 
 
-\subsection{Propensity score weighted regression model}
+\section{Propensity score weighted regression model}
 The essential feature of propensity score weighting model is the treatment of estimated propensity scores as sampling weights to perform a weighted outcome analysis. The control of selection biases is achieved through weighting. Counterfactuals are estimated through a regression model \citep{guo2009propensity}.
 
 When dimension of pre-treatment variables $\textbf{X}$ is large, it is difficult to ensure both the regression model is correct, and a consistent estimator will be obtained \citep{rubin1997estimating}. Also, the estimated modeling leads to extrapolation if the distribution of some confounders do not overlap with each other, since the effect is primarily determined by treated subjects in one region of $\textbf{X}$ space and by control subjects in another. In contrast, the regression model with propensity score weighting largely circumvents this since pretreatment variables $\textbf{X}$ and treatment group variable $W$ should be approximately independent after propensity score estimation. By adding covariates into the regression adjustment, we will obtain ``double robustness'' that further improve the precision of estimators \citep{lunceford2004stratification}. We used an estimate of the propensity score as weights, and uses these weights in a weighted regression of the potential outcome on treatment and observed covariates.
 
 We estimate a separate propensity score weighted regression model for each outcome. We include covariates that have maximum ASD greater than 0.1. 
 
-\subsection{Sensitivity tests}
+\section{Sensitivity tests}
 
 Finally, we conduct sensitivity tests of the following four cases.
 

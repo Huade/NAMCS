@@ -548,4 +548,128 @@ l.30 \caption
              {Descriptive Statistics (Nominal / Ordinal Variables)}
 ? 
 LaTeX Font Info:    Try loading font information for U+msa on input line 34.
-(/usr/local/texlive/2014/texmf
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 34.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+./all_outputs.tex:108: Misplaced \crcr.
+\endlongtable ->\crcr 
+                      \noalign {\let \LT@entry \LT@entry@chop \xdef \LT@save...
+l.108 \end{longtable}
+                     
+? 
+./all_outputs.tex:108: Misplaced \noalign.
+\endlongtable ->\crcr \noalign 
+                               {\let \LT@entry \LT@entry@chop \xdef \LT@save...
+l.108 \end{longtable}
+                     
+? 
+./all_outputs.tex:108: Undefined control sequence.
+\endlongtable ...\xdef \LT@save@row {\LT@save@row 
+                                                  }}\LT@echunk \LT@start \un...
+l.108 \end{longtable}
+                     
+? 
+./all_outputs.tex:108: Misplaced \crcr.
+\LT@echunk ->\crcr 
+                   \LT@save@row \cr \egroup \global \setbox \@ne \lastbox \u...
+l.108 \end{longtable}
+                     
+? 
+./all_outputs.tex:108: Misplaced \cr.
+\LT@echunk ->\crcr \LT@save@row \cr 
+                                    \egroup \global \setbox \@ne \lastbox \u...
+l.108 \end{longtable}
+                     
+? 
+./all_outputs.tex:108: Extra }, or forgotten \endgroup.
+\LT@echunk ->\crcr \LT@save@row \cr \egroup 
+                                            \global \setbox \@ne \lastbox \u...
+l.108 \end{longtable}
+                     
+? 
+./all_outputs.tex:108: Extra }, or forgotten \endgroup.
+\LT@echunk ...etbox \@ne \lastbox \unskip \egroup 
+                                                  
+l.108 \end{longtable}
+                     
+? 
+[1
+
+{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \vbox (396.42276pt too high) has occurred while \output is active []
+
+
+[2]
+./all_outputs.tex:108: \vsplit needs a \vbox.
+\LT@start ...tw@ \vsplit \tw@ to \ht \@arstrutbox 
+                                                  \setbox \tw@ \vbox {\unvbo...
+l.108 \end{longtable}
+                     
+? 
+./all_outputs.tex:108: Incompatible list can't be unboxed.
+\endlongtable ...\LT@echunk \LT@start \unvbox \z@ 
+                                                  \LT@get@widths \if@filesw ...
+l.108 \end{longtable}
+                     
+? 
+./all_outputs.tex:172: Too many }'s.
+\@endfloatbox ...pagefalse \outer@nobreak \egroup 
+                                                  \color@endbox 
+l.172 \end{table}
+                 
+? 
+[3]
+Overfull \vbox (164.82292pt too high) has occurred while \output is active []
+
+
+[4]
+./all_outputs.tex:172: Extra \endgroup.
+\color@endgroup ->\endgraf \endgroup 
+                                     
+l.172 \end{table}
+                 
+? 
+./all_outputs.tex:172: Too many }'s.
+\color@endbox ->\color@endgroup \egroup 
+                                        
+l.172 \end{table}
+                 
+? 
+
+./all_outputs.tex:172: LaTeX Error: \begin{document} ended by \end{table}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.172 \end{table}
+                 
+? 
+./all_outputs.tex:172: Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.172 \end{table}
+                 
+? 
+./all_outputs.tex:172: Emergency stop.
+<recently read> \endgroup 
+                          
+l.172 \end{table}
+                 
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 8975 strings out of 493117
+ 131114 string characters out of 6135433
+ 253716 words of memory out of 5000000
+ 12305 multiletter control sequences out of 15000+600000
+ 8909 words of font info for 34 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 37i,8n,39p,250b,353s stack positions out of 5000i,500n,10000p,200000b,80000s
+./all_outputs.tex:172:  ==> Fatal error occurred, no output PDF file produced!

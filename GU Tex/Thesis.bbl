@@ -1,0 +1,181 @@
+\begin{thebibliography}{23}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[hea()]{healthit05}
+Eligible professional meaningful use menu set measures measure 5 of 9.
+\newblock URL
+  \url{http://www.healthit.gov/providers-professionals/achieve-meaningful-use/menu-measures/patient-education-resources}.
+
+\bibitem[hhs()]{hhs_recovery}
+URL \url{http://www.hhs.gov/recovery/programs/}.
+
+\bibitem[Adler-Milstein et~al.(2013{\natexlab{a}})Adler-Milstein, Green, and
+  Bates]{Adler-Milstein2012}
+Julia Adler-Milstein, Carol~E. Green, and David~W. Bates.
+\newblock A survey analysis suggests that electronic health records will yield
+  revenue gains for some practices and losses for many.
+\newblock \emph{Health Affairs}, 32\penalty0 (3):\penalty0 562--570,
+  2013{\natexlab{a}}.
+\newblock \doi{10.1377/hlthaff.2012.0306}.
+\newblock URL \url{http://content.healthaffairs.org/content/32/3/562.abstract}.
+
+\bibitem[Adler-Milstein et~al.(2013{\natexlab{b}})Adler-Milstein, Salzberg,
+  Franz, Orav, and Bates]{Adler-Milstein2013}
+Julia Adler-Milstein, Claudia Salzberg, Calvin Franz, E.~John Orav, and
+  David~Westfall Bates.
+\newblock The impact of electronic health records on ambulatory costs among
+  medicaid beneficiaries.
+\newblock \emph{Medicare \& Medicaid Research Review}, 3\penalty0 (2),
+  2013{\natexlab{b}}.
+
+\bibitem[Amarasingham et~al.(2009)Amarasingham, Plantinga, Diener-West, Gaskin,
+  and Powe]{amarasingham2009clinical}
+Ruben Amarasingham, Laura Plantinga, Marie Diener-West, Darrell~J Gaskin, and
+  Neil~R Powe.
+\newblock Clinical information technologies and inpatient outcomes: a multiple
+  hospital study.
+\newblock \emph{Archives of Internal Medicine}, 169\penalty0 (2):\penalty0
+  108--114, 2009.
+
+\bibitem[Bates et~al.(2014)Bates, Saria, Ohno-Machado, Shah, and
+  Escobar]{Bates2014}
+David~W. Bates, Suchi Saria, Lucila Ohno-Machado, Anand Shah, and Gabriel
+  Escobar.
+\newblock Big data in health care: Using analytics to identify and manage
+  high-risk and high-cost patients.
+\newblock \emph{Health Affairs}, 33\penalty0 (7):\penalty0 1123--1131, 2014.
+
+\bibitem[Bell and Thornton(2011)]{Bell2011}
+Beverly Bell and Kelly Thornton.
+\newblock From promise to reality achieving the value of an ehr.
+\newblock \emph{Healthcare Financial Management}, 65\penalty0 (2):\penalty0
+  51--56, 2011.
+
+\bibitem[Buntin et~al.(2011)Buntin, Burke, Hoaglin, and Blumenthal]{Buntin2011}
+Melinda~Beeuwkes Buntin, Matthew~F. Burke, Michael~C. Hoaglin, and David
+  Blumenthal.
+\newblock The benefits of health information technology: A review of the recent
+  literature shows predominantly positive results.
+\newblock \emph{Health Affairs}, 30\penalty0 (3):\penalty0 464--471, 2011.
+
+\bibitem[Chaudhry et~al.(2006)Chaudhry, Wang, Wu, Maglione, Mojica, Roth,
+  Morton, and Shekelle]{Chaudhry2006}
+Basit Chaudhry, Jerome Wang, Shinyi Wu, Margaret Maglione, Walter Mojica,
+  Elizabeth Roth, Sally~C. Morton, and Paul~G. Shekelle.
+\newblock Systematic review: Impact of health information technology on
+  quality, efficiency, and costs of medical care.
+\newblock \emph{Annals of Internal Medicine}, 144\penalty0 (10):\penalty0
+  742--752, 2006.
+\newblock \doi{10.7326/0003-4819-144-10-200605160-00125}.
+\newblock URL \url{+
+  http://dx.doi.org/10.7326/0003-4819-144-10-200605160-00125}.
+
+\bibitem[CMS({\natexlab{a}})]{cmsincentive14}
+CMS.
+\newblock \emph{Eligible Professional Meaningful Use Menu Set Measures Measure
+  4 of 9}, {\natexlab{a}}.
+
+\bibitem[CMS({\natexlab{b}})]{stage1}
+CMS.
+\newblock 2014 definition stage 1 of meaningful use, {\natexlab{b}}.
+\newblock URL
+  \url{http://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/Meaningful_Use.html}.
+
+\bibitem[DesRoches et~al.(2010)DesRoches, Campbell, Vogeli, Zheng, Rao,
+  Shields, Donelan, Rosenbaum, Bristol, and Jha]{DesRoches2010}
+Catherine~M. DesRoches, Eric~G. Campbell, Christine Vogeli, Jie Zheng,
+  Sowmya~R. Rao, Alexandra~E. Shields, Karen Donelan, Sara Rosenbaum,
+  Steffanie~J. Bristol, and Ashish~K. Jha.
+\newblock Electronic health records' limited successes suggest more targeted
+  uses.
+\newblock \emph{Health Affairs}, 29\penalty0 (4):\penalty0 639--646, 2010.
+
+\bibitem[Gans et~al.(2005)Gans, Kralewski, Hammons, and Dowd]{Gans2005}
+David Gans, John Kralewski, Terry Hammons, and Bryan Dowd.
+\newblock Medical groups' adoption of electronic health records and information
+  systems.
+\newblock \emph{Health Affairs}, 24\penalty0 (5):\penalty0 1323--1333, 2005.
+
+\bibitem[Hillestad et~al.(2005)Hillestad, Bigelow, Bower, Girosi, Meili,
+  Scoville, and Taylor]{Hillestad2005}
+Richard Hillestad, James Bigelow, Anthony Bower, Federico Girosi, Robin Meili,
+  Richard Scoville, and Roger Taylor.
+\newblock Can electronic medical record systems transform health care?
+  potential health benefits, savings, and costs.
+\newblock \emph{Health Affairs}, 24\penalty0 (5):\penalty0 1103--1117, 2005.
+
+\bibitem[II et~al.(2012)II, Kazley, Ebeling, and Jr.]{Teufel2012}
+Ronald J.~Teufel II, Abby~Swanson Kazley, Myla~D. Ebeling, and William T.~Basco
+  Jr.
+\newblock Hospital electronic medical record use and cost of inpatient
+  pediatric care.
+\newblock \emph{Academic Pediatrics}, 12\penalty0 (5), 2012.
+
+\bibitem[Jha et~al.(2009)Jha, DesRoches, Campbell, Donelan, Rao, Ferris,
+  Shields, Rosenbaum, and Blumenthal]{Jha2009}
+Ashish~K. Jha, Catherine~M. DesRoches, Eric~G. Campbell, Karen Donelan,
+  Sowmya~R. Rao, Timothy~G. Ferris, Alexandra Shields, Sara Rosenbaum, and
+  David Blumenthal.
+\newblock Use of electronic health records in u.s. hospitals.
+\newblock \emph{New England Journal of Medicine}, 360\penalty0 (16):\penalty0
+  1628--1638, 2009.
+\newblock \doi{10.1056/NEJMsa0900592}.
+\newblock URL \url{http://www.nejm.org/doi/full/10.1056/NEJMsa0900592}.
+\newblock PMID: 19321858.
+
+\bibitem[Leung et~al.(2003)Leung, Philip, Wong, Johnston, and
+  Tin]{leung2003incentives}
+Gabriel~M Leung, LH~Philip, Irene~OL Wong, Janice~M Johnston, and Keith~YK Tin.
+\newblock Incentives and barriers that influence clinical computerization in
+  hong kong: a population-based physician survey.
+\newblock \emph{Journal of the American Medical Informatics Association},
+  10\penalty0 (2):\penalty0 201--212, 2003.
+
+\bibitem[Myers and Heffner(2001)]{myers2001strategies}
+Esther~F Myers and Sharon~M Heffner.
+\newblock Strategies for improving follow-up client appointment-keeping
+  compliance.
+\newblock \emph{Journal of the American Dietetic Association}, 101\penalty0
+  (8):\penalty0 935--939, 2001.
+
+\bibitem[Poissant et~al.(2005)Poissant, Pereira, Tamblyn, and
+  Kawasumi]{poissant2005impact}
+Lise Poissant, Jennifer Pereira, Robyn Tamblyn, and Yuko Kawasumi.
+\newblock The impact of electronic health records on time efficiency of
+  physicians and nurses: a systematic review.
+\newblock \emph{Journal of the American Medical Informatics Association},
+  12\penalty0 (5):\penalty0 505--516, 2005.
+
+\bibitem[RAND(2005)]{Rand2005}
+RAND.
+\newblock \emph{Health Information Technology Health Information Technology:
+  Can HIT Lower Costs and Improve Quality?}
+\newblock RAND, 2005.
+
+\bibitem[Roski et~al.(2014)Roski, Bo-Linn, and Andrews]{Roski2014}
+Joachim Roski, George~W. Bo-Linn, and Timothy~A. Andrews.
+\newblock Creating value in health care through big data: Opportunities and
+  policy implications.
+\newblock \emph{Health Affairs}, 33\penalty0 (7), 2014.
+
+\bibitem[Sidorov(2006)]{Sidorov2006}
+Jaan Sidorov.
+\newblock It ain't necessarily so: The electronic health record and the
+  unlikely prospect of reducing health care costs.
+\newblock \emph{Health Affairs}, 25\penalty0 (4):\penalty0 1079--1085, 2006.
+
+\bibitem[Wang et~al.(2003)Wang, Middleton, Prosser, Bardon, Spurr, Carchidi,
+  Kittler, Goldszer, Fairchild, Sussman, Kuperman, and Bates]{Wang2003}
+Samuel~J. Wang, Blackford Middleton, Lisa~A. Prosser, Christiana~G. Bardon,
+  Cynthia~D. Spurr, Patricia~J. Carchidi, Anne~F. Kittler, Robert~C. Goldszer,
+  David~G. Fairchild, Andrew~J. Sussman, Gilad~J. Kuperman, and David~W. Bates.
+\newblock A cost-benefit analysis of electronic medical records in primary
+  care.
+\newblock \emph{The American Journal of Medicine}, 114\penalty0 (5):\penalty0
+  397--403, 2003.
+
+\end{thebibliography}

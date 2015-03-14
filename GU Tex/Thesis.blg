@@ -1,0 +1,59 @@
+This is BibTeX, Version 0.99d (TeX Live 2014)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Thesis.aux
+The style file: plainnat.bst
+Database file #1: EHR.bib
+Warning--entry type for "stage1" isn't style-file defined
+--line 70 of file EHR.bib
+Warning--entry type for "hhs_recovery" isn't style-file defined
+--line 123 of file EHR.bib
+Warning--entry type for "healthit05" isn't style-file defined
+--line 130 of file EHR.bib
+Warning--to sort, need author or key in hhs_recovery
+Warning--to sort, need author or key in healthit05
+Warning--empty year in healthit05
+Warning--empty year in hhs_recovery
+Warning--empty year in cmsincentive14
+Warning--empty year in stage1
+You've used 23 entries,
+            2773 wiz_defined-function locations,
+            738 strings with 10064 characters,
+and the built_in function-call counts, 12217 in all, are:
+= -- 1021
+> -- 919
+< -- 6
++ -- 313
+- -- 288
+* -- 1149
+:= -- 1908
+add.period$ -- 72
+call.type$ -- 23
+change.case$ -- 162
+chr.to.int$ -- 21
+cite$ -- 54
+duplicate$ -- 454
+empty$ -- 876
+format.name$ -- 313
+if$ -- 2497
+int.to.chr$ -- 3
+int.to.str$ -- 1
+missing$ -- 20
+newline$ -- 126
+num.names$ -- 84
+pop$ -- 314
+preamble$ -- 1
+purify$ -- 142
+quote$ -- 0
+skip$ -- 378
+stack$ -- 0
+substring$ -- 403
+swap$ -- 28
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 248
+warning$ -- 6
+while$ -- 82
+width$ -- 0
+write$ -- 305
+(There were 9 warnings)

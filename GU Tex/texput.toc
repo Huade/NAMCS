@@ -12,12 +12,11 @@
 \contentsline {section}{\numberline {2.3}Effect of EHR on healthcare efficiency and quality}{4}
 \contentsline {subsection}{\numberline {2.3.1}Physicians' financial incentives on EHR}{5}
 \contentsline {section}{\numberline {2.4}Contribution to literature}{6}
-\contentsline {chapter}{\numberline {3}Data source}{8}
-\contentsline {chapter}{\numberline {4}Analysis Plan}{10}
-\contentsline {section}{\numberline {4.1}Estimating treatment effect with observational data}{10}
-\contentsline {section}{\numberline {4.2}Assumption of causal inference}{10}
-\contentsline {section}{\numberline {4.3}Propensity score estimation}{12}
-\contentsline {section}{\numberline {4.4}Propensity score weighted regression model}{14}
-\contentsline {section}{\numberline {4.5}Sensitivity tests}{15}
-\contentsline {chapter}{\numberline {5}Descriptive Statistics}{16}
-\contentsline {pseudochapter}{Bibliography}{23}
+\contentsline {chapter}{\numberline {3}Data source}{7}
+\contentsline {chapter}{\numberline {4}Analysis Plan}{9}
+\contentsline {section}{\numberline {4.1}Estimating treatment effect with observational data}{9}
+\contentsline {section}{\numberline {4.2}Assumption of causal inference}{9}
+\contentsline {section}{\numberline {4.3}Propensity score estimation}{11}
+\contentsline {section}{\numberline {4.4}Propensity score weighted regression model}{13}
+\contentsline {section}{\numberline {4.5}Sensitivity tests}{14}
+\contentsline {chapter}{\numberline {5}Descriptive Statistics}{15}

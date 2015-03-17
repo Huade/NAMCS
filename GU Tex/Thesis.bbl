@@ -1,4 +1,4 @@
-\begin{thebibliography}{23}
+\begin{thebibliography}{35}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -40,6 +40,11 @@ Ruben Amarasingham, Laura Plantinga, Marie Diener-West, Darrell~J Gaskin, and
   hospital study.
 \newblock \emph{Archives of Internal Medicine}, 169\penalty0 (2):\penalty0
   108--114, 2009.
+
+\bibitem[Amb()]{SasProcedure}
+\emph{Code to Produce Aggregated Visit Statistics at the Physician or Facility
+  Level}.
+\newblock Ambulatory Statistics Branch.
 
 \bibitem[Bates et~al.(2014)Bates, Saria, Ohno-Machado, Shah, and
   Escobar]{Bates2014}
@@ -85,6 +90,12 @@ CMS.
 \newblock URL
   \url{http://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/Meaningful_Use.html}.
 
+\bibitem[DeBlasio()]{mcc2008}
+Susan~Leach DeBlasio.
+\newblock Managed care contracts - key provisions for providers.
+\newblock URL
+  \url{http://corporate.findlaw.com/law-library/managed-care-contracts-key-provisions-for-providers.html}.
+
 \bibitem[DesRoches et~al.(2010)DesRoches, Campbell, Vogeli, Zheng, Rao,
   Shields, Donelan, Rosenbaum, Bristol, and Jha]{DesRoches2010}
 Catherine~M. DesRoches, Eric~G. Campbell, Christine Vogeli, Jie Zheng,
@@ -100,6 +111,12 @@ David Gans, John Kralewski, Terry Hammons, and Bryan Dowd.
   systems.
 \newblock \emph{Health Affairs}, 24\penalty0 (5):\penalty0 1323--1333, 2005.
 
+\bibitem[Guo and Fraser(2014)]{guo2014propensity}
+Shenyang Guo and Mark~W Fraser.
+\newblock \emph{Propensity score analysis: Statistical methods and
+  applications}, volume~11.
+\newblock Sage Publications, 2014.
+
 \bibitem[Hillestad et~al.(2005)Hillestad, Bigelow, Bower, Girosi, Meili,
   Scoville, and Taylor]{Hillestad2005}
 Richard Hillestad, James Bigelow, Anthony Bower, Federico Girosi, Robin Meili,
@@ -108,12 +125,29 @@ Richard Hillestad, James Bigelow, Anthony Bower, Federico Girosi, Robin Meili,
   potential health benefits, savings, and costs.
 \newblock \emph{Health Affairs}, 24\penalty0 (5):\penalty0 1103--1117, 2005.
 
+\bibitem[Hillm et~al.(2015)Hillm, Gormley, and Adelstein]{hillm2015short}
+Carolyn~J Hillm, William~T Gormley, and Shirley Adelstein.
+\newblock Do the short-term effects of a high-quality preschool program
+  persist?
+\newblock \emph{Early Childhood Research Quarterly}, 2015.
+
+\bibitem[Hirano et~al.(2003)Hirano, Imbens, and Ridder]{hirano2003efficient}
+Keisuke Hirano, Guido~W Imbens, and Geert Ridder.
+\newblock Efficient estimation of average treatment effects using the estimated
+  propensity score.
+\newblock \emph{Econometrica}, 71\penalty0 (4):\penalty0 1161--1189, 2003.
+
 \bibitem[II et~al.(2012)II, Kazley, Ebeling, and Jr.]{Teufel2012}
 Ronald J.~Teufel II, Abby~Swanson Kazley, Myla~D. Ebeling, and William T.~Basco
   Jr.
 \newblock Hospital electronic medical record use and cost of inpatient
   pediatric care.
 \newblock \emph{Academic Pediatrics}, 12\penalty0 (5), 2012.
+
+\bibitem[Imbens and Wooldridge(2008)]{imbens2008recent}
+Guido~M Imbens and Jeffrey~M Wooldridge.
+\newblock Recent developments in the econometrics of program evaluation.
+\newblock Technical report, National Bureau of Economic Research, 2008.
 
 \bibitem[Jha et~al.(2009)Jha, DesRoches, Campbell, Donelan, Rao, Ferris,
   Shields, Rosenbaum, and Blumenthal]{Jha2009}
@@ -135,12 +169,39 @@ Gabriel~M Leung, LH~Philip, Irene~OL Wong, Janice~M Johnston, and Keith~YK Tin.
 \newblock \emph{Journal of the American Medical Informatics Association},
   10\penalty0 (2):\penalty0 201--212, 2003.
 
+\bibitem[Lunceford and Davidian(2004)]{lunceford2004stratification}
+Jared~K Lunceford and Marie Davidian.
+\newblock Stratification and weighting via the propensity score in estimation
+  of causal treatment effects: a comparative study.
+\newblock \emph{Statistics in medicine}, 23\penalty0 (19):\penalty0 2937--2960,
+  2004.
+
+\bibitem[McCaffrey et~al.(2004)McCaffrey, Ridgeway, and
+  Morral]{mccaffrey2004propensity}
+Daniel~F McCaffrey, Greg Ridgeway, and Andrew~R Morral.
+\newblock Propensity score estimation with boosted regression for evaluating
+  causal effects in observational studies.
+\newblock \emph{Psychological methods}, 9\penalty0 (4):\penalty0 403, 2004.
+
+\bibitem[McCaffrey et~al.(2013)McCaffrey, Griffin, Almirall, Slaughter,
+  Ramchand, and Burgette]{mccaffrey2013tutorial}
+Daniel~F McCaffrey, Beth~Ann Griffin, Daniel Almirall, Mary~Ellen Slaughter,
+  Rajeev Ramchand, and Lane~F Burgette.
+\newblock A tutorial on propensity score estimation for multiple treatments
+  using generalized boosted models.
+\newblock \emph{Statistics in medicine}, 32\penalty0 (19):\penalty0 3388--3414,
+  2013.
+
 \bibitem[Myers and Heffner(2001)]{myers2001strategies}
 Esther~F Myers and Sharon~M Heffner.
 \newblock Strategies for improving follow-up client appointment-keeping
   compliance.
 \newblock \emph{Journal of the American Dietetic Association}, 101\penalty0
   (8):\penalty0 935--939, 2001.
+
+\bibitem[Nat()]{NAMCSDOC2010}
+\emph{2010 NAMCS Micro-Data File Documentation}.
+\newblock National Center for Health Statistics.
 
 \bibitem[Poissant et~al.(2005)Poissant, Pereira, Tamblyn, and
   Kawasumi]{poissant2005impact}
@@ -149,6 +210,12 @@ Lise Poissant, Jennifer Pereira, Robyn Tamblyn, and Yuko Kawasumi.
   physicians and nurses: a systematic review.
 \newblock \emph{Journal of the American Medical Informatics Association},
   12\penalty0 (5):\penalty0 505--516, 2005.
+
+\bibitem[{R Core Team}(2014)]{rbase}
+{R Core Team}.
+\newblock \emph{R: A Language and Environment for Statistical Computing}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria, 2014.
+\newblock URL \url{http://www.R-project.org/}.
 
 \bibitem[RAND(2005)]{Rand2005}
 RAND.
@@ -161,6 +228,13 @@ Joachim Roski, George~W. Bo-Linn, and Timothy~A. Andrews.
 \newblock Creating value in health care through big data: Opportunities and
   policy implications.
 \newblock \emph{Health Affairs}, 33\penalty0 (7), 2014.
+
+\bibitem[Rubin(1997)]{rubin1997estimating}
+Donald~B Rubin.
+\newblock Estimating causal effects from large data sets using propensity
+  scores.
+\newblock \emph{Annals of internal medicine}, 127\penalty0
+  (8\_Part\_2):\penalty0 757--763, 1997.
 
 \bibitem[Sidorov(2006)]{Sidorov2006}
 Jaan Sidorov.

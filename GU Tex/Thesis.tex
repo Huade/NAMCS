@@ -3,11 +3,14 @@
 \usepackage{url}
 \usepackage[dvips]{graphicx}
 \usepackage{amsmath}
+\usepackage{longtable}
 \usepackage{amssymb}
 \usepackage[round]{natbib}
 \bibpunct{(}{)}{;}{a}{,}{,}
 \usepackage{cite}
+\usepackage{longtable}
 \usepackage{dcolumn}
+\usepackage{booktabs}
 
 % If there are any other \usepackage commands, put them here.
 
@@ -130,7 +133,7 @@ A preface is not an introduction, and most theses do not need them.
 \newpage
 
 \pagenumbering{arabic}  % Ordinary pages have Arabic numerals.
-\chapter{Introduction}
+\chapter{Introduction (working)}
 The US spend 17.9\% of GDP on health expenditure in 2013, according to the World Bank, and it is continuing to growth. Some scholars proposed that one way to reduce health care spending and improve health care efficiency is to adopt the Electronic Healthcare Record (EHR). The Obama Administration has prioritized the improvement of quality and efficiency of the health care system. President Obama signed the American Recovery and Reinvestment Act of 2009 which provides financial incentive for adoption and meaningful use of electronic health records. The adoption of EHR increased rapidly [CITATION NEEDED].
 
 Given the increasing adoption of EHR, and the implementation of EHR incentive programs, the effect of electronic health care record on health outcomes are of interest. Empirically measured effect of adopting EHR on cost is still very limited, and the results are mixed.
@@ -161,7 +164,7 @@ Another important factor of healthcare efficiency and quality is the likelihood 
 
 Patient-centered education, which provided by EHR-based system, allows patients to understand their health better and make informed lifestyle adjustments. CMS requires eligible physicians to provide patient-specific education resources to more than 10 percent of all unique patients in order to obtain the EHR incentive program funding \citep{healthit05}. Very limited literature evaluated effect of EHR on patient-specific education resources utilization. 
 
-\section{Physicians' financial incentives on EHR}
+\subsection{Physicians' financial incentives on EHR}
 On the micro level, EHR has a mixed effect on cost-saving of physician practices.
 
 Some scholars claimed that the long-term return on adoption of EHR is positive. For example, Wang et al. estimated that a provider could gain \$86,400 net benefits from using an electronic medical record for a 5-year period, resulting in a positive financial return on investment to the health care organization \citep{Wang2003}. Bell and Thornton claimed that based on the size of a health system and the scope of implementation, benefits of HITs for large hospitals can range from \$37M to \$59M over a five-year period in addition to incentive payments \citep{Bell2011}.
@@ -175,6 +178,208 @@ Giving the increasing participation in the Medicare and Medicaid Electronic Heal
 Although the number of health information technology evaluation studies is rapidly increasing, empirically measured behavior data are limited and inconclusive. Some research projected the potential benefit of adoption of EHR with data from surveys, publications, interviews, and expert panel reviews. However, there are limited research focus on empirical analysis of national wide data. Literature on outcome of adopting EHR, especially the effect of EHR on patient-specific health education prescription, is limited. This paper could contribute to the literature with a national-level perspective and evaluate the outcome of EHR adoption on health education, time spent with MD, and returned appointment rate.
 
 Another major limitation of the literature is its generalization. Insufficient reporting of contextual and implementation factors makes it impossible to determine why most health IT implementations are successful but some are not. This paper will consider which factors may contribute to a better outcome of EHR adoption. It could help making government incentive programs more efficient by selecting proper physician practices.
+
+\chapter{Data source}
+The data source for this study was National Ambulatory Medical Care Survey (NAMCS) public use micro-data files. NAMCS is a national probability sample survey of visits to office-based physicians conducted by the National Center for Health Statistics, Centers for Disease Control and Prevention. NAMCS has information at visit level, including whether the physician practice has Electronic Medical Record (EMR) system, health education prescription, the breakdown of patients by different payment type, time spent with physician for each visit, and whether the visit is a returned appointment, etc. The sample size for 2008, 2009, and 2010 public use micro-data files, which includes information about adopting EMR, are 28,741, 32,281, and 31,229, respectively.
+
+I used information on adoption of EMR system to identify the treatment groups and potential comparison groups. The survey question was described as "Does your practice use an electronic medical record or health record (EMR/HER) system? (Not including billing records system)." \citep{NAMCSDOC2010}. Three possible groups in this treatment variable including "Yes, all electronic", "Yes, part paper and part electronic", and "No". The other characteristics were used as covariates in the propensity score estimation and models.
+
+The sampling of NAMCS is a multistage process. The first-stage sample includes 112 primary sampling units (PSUs) by geological distribution. The second stage stratified physicians into 15 groups and select physicians within each PSU. The final stage is the selection of patient visits within the annual practices of sample physicians. The basic sampling unit for the NAMCS is the physician-patient encounter or visit. 
+
+Start from 2005, NAMCS includes provider weight that allow researchers to produce aggregated visit statistics at the physician level. In this analysis, I summarized visits level data to physician level data based on recommendation provided by Ambulatory Statistics Branch of Centers for Disease Control and Prevention \citep{SasProcedure}. There are 3,777 physicians' information available after the aggregation. 157 cases were dropped afterward due to incompleteness and 1 case were ignored due to negative physician weight. 3619 observations were available for further analysis. 
+
+\chapter{Analysis Plan}
+\section{Estimating treatment effect with observational data}
+Ideally, we would observe physician in three possible conditions: one in which she has fully adopted the EHR system, one in which she has partially adopted the EHR system, and one in which she has not. We can express our evaluation problem as follows: Let $W_i = 1$ for physician $i$ who has fully adopted the EHR system, let $W_i = 2$ for physician $i$ who has partially adopted the EHR system, and let $W_i = 0$ for physician $i$ who has not yet adopted the ENR system. Let $Y_i(1)$ refer to the time efficiency for physician $i$ who has fully adopted the EHR system, let $Y_i(2)$ refer to the time efficiency for physician $i$ who has partially adopted the EHR system, and let $Y_i(0)$ refer to the patient interaction time for physician $i$ who has not adopted the EHR system. Although all outcomes are possible in theory, we cannot observe all possible outcome $Y_i(0)$, $Y_i(1)$, and $Y_i(2)$ for physician $i$ while holding all other conditions constant. We only observe $Y_i(0)$ if $W_i = 0$, $Y_i(1)$ if $W_i = 1$, and $Y_i(2)$ if $W_i = 2$ with our data \citep{imbens2008recent}. People in "treatments" and "control" groups likely different in both observed and unobserved ways.
+
+\section{Assumption of causal inference}
+There are two assumptions associate with estimating treatment effect. The first assumption is the stable unit treatment value assumption (SUTVA). The SUTVA requires that there is no interference between units, that is, treatment assignment of one unit does not affect potential outcomes of another unit. We cannot test this statistically with our data. However, we can safely assume that this assumption meets in our analysis since there are no evidence to show the EHR adoption at one physician practice has interactions with the outcome in another physician's practice.
+
+The second assumption is no unmeasured confounders. An estimate of the EHR's effect on doctors' behavior relies on an assumption of no unmeasured confounders of treatment assignment, that is, 
+\begin{equation*}
+W_i \perp (Y_i(0),Y_i(1),Y_i(2)
+\end{equation*}
+
+ \citep{imbens2008recent}. In other words, the assignment of study participants to treatment conditions (i.e. fully adopted EHR, partially adopted EHR, and no adoption) is independent of the outcome of these three groups. In experimental settings, treatment groups (in this case, physicians who partially or fully adopted the EHR system) and control group were random assigned, which ensure that both observed and unobserved factors of treatment and control group have similar distribution. If the assignment to adopt the EHR system is based on randomization, this assumption is easy to statisfy and the causal inference would be straightforward. However, this assumption often violates in non-experimental setting. This is a strong assumption with the evaluation of EHR effect since a national level experiment on the effectiveness of the EHR adoption is expensive and infeasible. Violation of unconfoundedness could bias result because of omitted variable bias.
+
+To estimate the effect of the EHR adoption on physician behavior, we can obtain the following model:
+
+\begin{equation*}
+Y_{i} = \beta_0 + \beta_1 W_i + \Sigma^k_{i=2} \beta_k X_{ik} + \epsilon_{i}
+\end{equation*}
+
+In this model, $Y_{i}$ is the outcome of interest for physician $i$, including percentage rate of patient-specific education resource prescribed, time spent with the physician, and percentage rate of returned patients. $W_i$ is the EHR adoption status for physician $i$, including fully adopted EHR, partially adopted EHR, and no EHR adoption. $X_{ik}$ are $k$ observable characteristics for physician $i$, including MSA status, physician specialty, Solo status, etc. We will describe more details in descriptive statistics section. Coefficient $\beta_1$ estimate the treatment effect of the EHR adoption on three outcome variables if the model is correct and satisfies the assumption of unconfoundedness. 
+
+This condition is unlikely with NAMCS data. For example, physicians in the treatment group A, which they fully adopted the EHR systems, may systematically different than physicians in the control group. This difference could in both observed and unobserved ways. With large number of covariates that has unknown functional relationship with treatment and outcome, it is hard to specify regression adjustment model. Without appropriate instrumental variable or regression discontinuity cutoff available, the propensity score matching method is one of few available techniques that can be used to access the treatment effect of the EHR system on physician behavior.
+
+%WHY PS
+\section{Propensity score estimation}
+As described above, estimating causal effects with observational data is challenging since it involves estimating the unobserved potential outcomes. Propensity score methods attempt to replicate two features of randomized experiments. On the one hand, propensity score methodologies can create groups that look only randomly different from one another (at least on observed variables). On the other hand, propensity score methods do not use outcome variables when setting up the design. With these two features, treatment assignment and the observed covariates are conditionally independent given the propensity score \citep{guo2014propensity}:
+
+\begin{equation*}
+\boldsymbol{X_i} \perp W_i \mid e(X_i)
+\end{equation*}
+
+Conditional on the propensity score, each physician has the same probability of assignment to treatment, as in a randomized experiment setting. After propensity score estimation, physicians in the control group who have not adopted the EHR system are comparable with those who in treatment groups with similar propensity scores, at least on observable characteristics. 
+
+Hirano et al. claimed that the resulting estimate is asymptotically efficient if the propensity score is estimated non-parametrically using a series estimator \citep{hirano2003efficient}. In this analysis, we used Generalized Boosted Machine (GBM) model \citep{mccaffrey2004propensity} to estimate the propensity score of each physician. GBM is a general, automated, data-adaptive algorithm that fits several models by way of a regression tree, and then merges the predictions produced by each model. It can use all available covariates and is not subject to the particular modeling choices made by the analyst \citep{hillm2015short}. Comparing with traditional models, GBM model offer numerous advantage to solve the variable specification problem \citep{guo2009propensity}. Our boosted model uses the default setting of twang package \citep{mccaffrey2013tutorial} with R \citep{rbase}, which has 10,000 GBM interactions, three interactions, a bagging fraction of 1.0, and a shrinkage parameter of 0.01, based on McCaffrey's (2013) recommendation. We use physician weight as sample weight in multinomial propensity score estimation procedure.
+
+To assess the quality of propensity score estimation, we use diagnostics to check the balance after propensity score weighting. The goal of propensity score estimation and weighting is to have similar covariate distributions in the matched treated, and control groups. We use both numerical summaries of balance and graphic summaries of balance to evaluate the quality of propensity score weighting. We relied primarily on the absolute standardized difference (ASD, also referred to as the Effect Size or the absolute standardized mean difference) to assess the balance after weighting. 
+
+\section{Propensity score weighted regression model}
+The essential feature of propensity score weighting model is the treatment of estimated propensity scores as sampling weights to perform a weighted outcome analysis. The control of selection biases is achieved through weighting. Counterfactuals are estimated through a regression model \citep{guo2009propensity}.
+
+When dimension of pre-treatment variables $\textbf{X}$ is large, it is difficult to ensure both the regression model is correct, and a consistent estimator will be obtained \citep{rubin1997estimating}. Also, the estimated modeling leads to extrapolation if the distribution of some confounders do not overlap with each other, since the effect is primarily determined by treated subjects in one region of $\textbf{X}$ space and by control subjects in another. In contrast, the regression model with propensity score weighting largely circumvents this since pretreatment variables $\textbf{X}$ and treatment group variable $W$ should be approximately independent after propensity score estimation. By adding covariates into the regression adjustment, we will obtain ``double robustness'' that further improve the precision of estimators \citep{lunceford2004stratification}. We used an estimate of the propensity score as weights, and uses these weights in a weighted regression of the potential outcome on treatment and observed covariates.
+
+We estimate a separate propensity score weighted regression model for each outcome. We include covariates that have maximum ASD greater than 0.1. 
+
+\section{Sensitivity tests}
+
+Finally, we conduct sensitivity tests of the following four cases.
+
+First, we test the robustness of the result to different covariate controls with multinomial propensity score weighted regression models. We test this in two cases: (1) including only treatment variable with no covariates; (2) including all possible covariates and treatment assignment variable.
+
+Second, we test whether the results are robust to different multinomial propensity score weighted generalized regression model. Based on the distribution of dependent variables, we use Binomial regression for the EHR adoption status on health education prescription rate, Poisson regression for the EHR adoption status on time spent with MD, and Binomial regression for the EHR adoption status on returned appointment rate.
+
+Third, we test whether the results are robust to propensity score weighted binary treatment assignment. We create two separated datasets. One with only physicians who have fully adopted EHR and control group. Another with only physicians who have partially adopted EHR system and control group. We estimated propensity score with binary treatment and estimate the effect of full EHR adoption and partial EHR adoption on outcome variables.
+
+Fourth, we test the robustness of the result with propensity score matching approach. We use nearest neighbor matching for binary treatment cases and assess the treatment effect of the EHR adoption.
+
+
+\chapter{Descriptive Statistics}
+
+As shown in Table \ref{tab:desc1}, more physician practice fully adopted the EHR system since 2008. While 54.21\% of physicians reported that they have no EHR system adoption in 2008, 5.75\% percentage points less physician report they have no EHR adoption in 2010, reducing 10.6\% percent comparing to year 2008. Meanwhile, 38.8\% physicians reported they have full EHR system adoption on 2010, while only 27.49\% physicians reported then have fully adopted the EHR system in 2008. Comparing with year 2008 (18.3\%), fewer physicians partially adopt the EHR system in 2010 (12.73\%). The result suggests the adoption rate of the EHR system is growing rapidly after the implementation of the EHR incentive program.
+
+The adoption of EHR has statistically significant difference between different practice ownerships ($p<0.0001$). Physicians or physician group has lower likelihood to adopt EHR system. In our sample, 53.95\% respondents who are physicians or physician groups reported they have no EHR adoption. Health Maintenance Organization (80.51\%) has the highest likelihood to fully adopt the EHR system, among all health care practice ownerships. There is no substantial difference of partially adopt the EHR system between different practice ownership types. The full adoption rate among other hospital (35.26\%), other health care corporations (47.59\%), or all others (44.14\%) are also variance. 
+
+There are no statistically significant relationship between adoption of the EHR system and whether the practice is in metropolitan statistical areas ($\chi^2=1.4319$). The full adoption rate of MSA area (32.93\%) and non-MSA area (33.08\%) is close to the national average (32.94\%). However, geographic regions have statistically significant relationship with the adoption of the EHR system ($\chi^2=16.41$). Physicians that are in West region has higher likelihood to adopt EHR system, while physicians in Northeast or South region have less likelihood to adopt it, comparing with physicians who are in Midwest region.
+
+Another physician practice's characteristics of interest are the number of managed care contracts. The contract between a physician and a managed care organization can affect payment, office organization, practices and procedures, and confidential records as well as clinical decision-making \citep{mcc2008}. In general, practice with higher number of managed tends to have higher adoption rate of the EHR system. 38.08\% physician practice with more than ten managed contracts has fully adopted the EHR system while only 20.92\% physician practice with no managed contracts fully adopted the EHR system. There are no statistically or substantially difference of partially adoption rate among difference managed care contracts.
+
+Physician specialty has statistically significant relationship with the adoption of the EHR system ($p < 0.0001$). Among all physician specialties, general and family practice have the highest likelihood to fully adopt the EHR system. 43.17\% physicians who are general or family practice reported they had fully adopted the EHR system. Ophthalmologists have the lowest likelihood to adopt the EHR system. More than half of ophthalmologists reported they have no EHR adoption. Among all other physician specialities, oncology (38.36\%), internal medicine (37.76\%), urology (37.57\%), and orthopedic surgery (37.09\%) also have higher likelihood of fully EHR adoption.
+ 
+Comparing with the group practice, solo practice has less likelihood to fully adopt the EHR system. Over half of group practice fully or partially adopted the EHR system, while less than 40\% solo practices adopted the EHR system. 
+{\footnotesize 
+\begin{center}
+
+\label{tab:desc1}
+
+\begin{longtable}{lccc}
+\caption{Descriptive Statistics (Nominal / Ordinal Variables)}\\
+
+
+\hline \hline Variable & $P_{No}$ & $P_{Full}$ & $P_{Part}$ \\ \hline \endhead
+
+\hline \endfoot
+\hline \hline \endlastfoot
+\textbf{Year of Visit}                 &          &            &            \\
+2008                                   & 0.5421   & 0.2749     & 0.1830     \\
+2009                                   & 0.4859   & 0.3252     & 0.1889     \\
+2010                                   & 0.4846   & 0.3881     & 0.1273     \\
+                                       &          &            &            \\
+$\chi^2_4 = 44.95$                     &          &            &            \\
+                                       &          &            &            \\
+\textbf{Ownership Type}                &          &            &            \\
+Physician or physician group           & 0.5395   & 0.2989     & 0.1616     \\
+Health Maintenance Organization (HMO)  & 0.0647   & 0.8051     & 0.1302     \\
+Community health center                & 0.4293   & 0.3522     & 0.2185     \\
+Medical/academic health center         & 0.4714   & 0.3627     & 0.1659     \\
+Other hospital                         & 0.4305   & 0.3526     & 0.2169     \\
+Other health care corporation          & 0.3434   & 0.4759     & 0.1807     \\
+Other                                  & 0.3436   & 0.4414     & 0.2150     \\
+                                       &          &            &            \\
+$\chi^2_{12} = 146.29$                 &          &            &            \\
+                                       &          &            &            \\
+\textbf{Metropolitan Statistical Area} &          &            &            \\
+MSA                                    & 0.5064   & 0.3293     & 0.1644     \\
+Non-MSA                                & 0.4823   & 0.3308     & 0.1869     \\
+                                       &          &            &            \\
+$\chi^2_2 = 1.43$                      &          &            &            \\
+                                       &          &            &            \\
+\textbf{Managed Care Contracts}        &          &            &            \\
+None                                   & 0.6234   & 0.2092     & 0.1674     \\
+Less than 3                            & 0.4939   & 0.3419     & 0.1642     \\
+3-10                                   & 0.5318   & 0.2994     & 0.1688     \\
+Greater than 10                        & 0.4537   & 0.3808     & 0.1655     \\
+                                       &          &            &            \\
+$\chi^2_6 = 56.82$                     &          &            &            \\
+                                       &          &            &            \\
+\textbf{Physician specialties}         &          &            &            \\
+General/family practice                & 0.4238   & 0.4317     & 0.1445     \\
+Internal medicine                      & 0.4761   & 0.3776     & 0.1464     \\
+Pediatrics                             & 0.5243   & 0.3107     & 0.1650     \\
+General surgery                        & 0.5905   & 0.2494     & 0.1601     \\
+Obstetrics and gynecology              & 0.5065   & 0.3218     & 0.1718     \\
+Orthopedic surgery                     & 0.4356   & 0.3709     & 0.1935     \\
+Cardiovascular diseases                & 0.4246   & 0.3037     & 0.2717     \\
+Dermatology                            & 0.6625   & 0.2297     & 0.1079     \\
+Urology                                & 0.4559   & 0.3757     & 0.1684     \\
+Psychiatry                             & 0.7140   & 0.1424     & 0.1436     \\
+Neurology                              & 0.5539   & 0.2771     & 0.1690     \\
+Ophthalmology                          & 0.6344   & 0.1504     & 0.2152     \\
+Otolaryngology                         & 0.5055   & 0.3483     & 0.1462     \\
+Other specialties                      & 0.5122   & 0.3148     & 0.1730     \\
+Oncology                               & 0.3444   & 0.3836     & 0.2721     \\
+                                       &          &            &            \\
+$\chi^2_{28} = 132.67$                 &          &            &            \\
+                                       &          &            &            \\
+\textbf{Region}                        &          &            &            \\
+Northeast                              & 0.5091   & 0.3080     & 0.1829     \\
+Midwest                                & 0.5204   & 0.3227     & 0.1568     \\
+South                                  & 0.5232   & 0.3110     & 0.1658     \\
+West                                   & 0.4560   & 0.3814     & 0.1626     \\
+                                       &          &            &            \\
+$\chi^2_6 = 16.41$                     &          &            &            \\
+                                       &          &            &            \\
+\textbf{Solo}                          &          &            &            \\
+Yes                                    & 0.4386   & 0.3910     & 0.1704     \\
+No                                     & 0.6367   & 0.2041     & 0.1592     \\
+                                       &          &            &            \\
+$\chi^2_2 = 147.56$                    &          &            &            \\
+                                       &          &            &            \\
+Total                                  & 0.5039   & 0.3294     & 0.1667     \\
+                                       &          &            &            \\
+Obs.                                   & 3,619    &            &            \\
+Population Size                        & 953,908  &            &            \\ 
+\end{longtable}
+\end{center}}
+
+Physician practices with difference EHR adoption status tend to have different payment structure. Practice with fully EHR adoption tends to have higher percentage of privately insured patients. On average, 60.85\% visits are privately insured patients at a practice without the EHR system adoption while 64.75\% visits are privately insured patients at the practice with the EHR system fully adopted. There is slight difference among Medicare, Medicaid, or self-paid patients between different EHR adoption status. Practice with the EHR system fully adopted has slightly less likelihood to accept Medicare, Medicaid, or self-paid patient, comparing with the control group. Practices with fully adopted EHR system have higher likelihood to accept work compensation patients.
+
+As for the characteristic of patients, there is no significant age difference between the fully treated group and the control group. Practice with the EHR system partially adopted has higher average patient age. This is constant with patients insurance status since practices with partially adopted EHR system has higher likelihood to accept Medicare patients.  There is significant difference between the average number of chronological disease between the fully treated group and the control group. Less patient with complex chronological conditions visited practice without the EHR system. 
+
+
+The adoption status of the EHR system has potential influence on outcome variables. Physicians who have fully or partially adopted the EHR system have higher likelihood to prescribe patient-specific education resource. While 39.7\% patients have received education resources during their visit at practice without the EHR system, more than 44\% patients received education resource during their visit at practice with the EHR system adoption. As for patient-physician interaction time, there is no systematical difference between the practice with the EHR adoption or not. On average, patients spend 22 minutes with their medical doctor, and there is no substantial difference among different EHR adoption status. For returned appointment rate, physician practice who have fully adopted the EHR system has lower returned appointment rate (66.16\%), comparing with the other groups whose returned appointment rate is higher than 71 percent.
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}[h]
+\footnotesize 
+\centering
+\caption{Descriptive Statistics (Continuous Variables)}
+
+\label{tab:desc2}
+
+\begin{tabular}{@{}llll@{}}
+\toprule
+                                    & $Mean_{No}$ & $Mean_{Full}$ & $Mean_{Part}$ \\ \midrule
+\textbf{Outcomes}                   &           &             &             \\
+Patient education prescription rate & 0.3970    & 0.4418      & 0.4419      \\
+Time spent with MD                  & 22.3401   & 21.6737     & 21.8993     \\
+Retured appointment rate            & 0.7245    & 0.6616      & 0.7187      \\
+                                    &           &             &             \\
+\textbf{Patient insurance type}     &           &             &             \\
+Private insurance                   & 0.6086    & 0.6475      & 0.6041      \\
+Medicare                            & 0.2474    & 0.2301      & 0.2827      \\
+Medicaid                            & 0.1372    & 0.1117      & 0.1417      \\
+Self-pay                            & 0.0843    & 0.0426      & 0.0602      \\
+Workers Compensation                & 0.0137    & 0.0155      & 0.0112      \\
+                                    &           &             &             \\
+\textbf{Avg. patient age}           & 46.2783   & 46.4305     & 48.0636     \\
+\textbf{Avg. chron cond.}           & 1.1214    & 1.2606      & 1.2617      \\ \bottomrule
+\end{tabular}
+\end{table}
 
 
 

@@ -5,14 +5,6 @@
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[hea()]{healthit05}
-Eligible professional meaningful use menu set measures measure 5 of 9.
-\newblock URL
-  \url{http://www.healthit.gov/providers-professionals/achieve-meaningful-use/menu-measures/patient-education-resources}.
-
-\bibitem[hhs()]{hhs_recovery}
-URL \url{http://www.hhs.gov/recovery/programs/}.
-
 \bibitem[Adler-Milstein et~al.(2013{\natexlab{a}})Adler-Milstein, Green, and
   Bates]{Adler-Milstein2012}
 Julia Adler-Milstein, Carol~E. Green, and David~W. Bates.
@@ -41,10 +33,10 @@ Ruben Amarasingham, Laura Plantinga, Marie Diener-West, Darrell~J Gaskin, and
 \newblock \emph{Archives of Internal Medicine}, 169\penalty0 (2):\penalty0
   108--114, 2009.
 
-\bibitem[Amb()]{SasProcedure}
+\bibitem[Amb(2012)]{SasProcedure}
 \emph{Code to Produce Aggregated Visit Statistics at the Physician or Facility
   Level}.
-\newblock Ambulatory Statistics Branch.
+\newblock Ambulatory Statistics Branch, 2012.
 
 \bibitem[Bates et~al.(2014)Bates, Saria, Ohno-Machado, Shah, and
   Escobar]{Bates2014}
@@ -79,20 +71,27 @@ Basit Chaudhry, Jerome Wang, Shinyi Wu, Margaret Maglione, Walter Mojica,
 \newblock URL \url{+
   http://dx.doi.org/10.7326/0003-4819-144-10-200605160-00125}.
 
-\bibitem[CMS({\natexlab{a}})]{cmsincentive14}
+\bibitem[CMS(2014{\natexlab{a}})]{cmsincentive14}
 CMS.
-\newblock \emph{Eligible Professional Meaningful Use Menu Set Measures Measure
-  4 of 9}, {\natexlab{a}}.
+\newblock Eligible professional meaningful use menu set measures measure 4 of
+  9, 2014{\natexlab{a}}.
 
-\bibitem[CMS({\natexlab{b}})]{stage1}
+\bibitem[CMS(2014{\natexlab{b}})]{healthit05}
 CMS.
-\newblock 2014 definition stage 1 of meaningful use, {\natexlab{b}}.
+\newblock Eligible professional meaningful use menu set measures measure 5 of
+  9, 2014{\natexlab{b}}.
+\newblock URL
+  \url{http://www.healthit.gov/providers-professionals/achieve-meaningful-use/menu-measures/patient-education-resources}.
+
+\bibitem[CMS(2014{\natexlab{c}})]{stage1}
+CMS.
+\newblock 2014 definition stage 1 of meaningful use, 2014{\natexlab{c}}.
 \newblock URL
   \url{http://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/Meaningful_Use.html}.
 
-\bibitem[DeBlasio()]{mcc2008}
+\bibitem[DeBlasio(2008)]{mcc2008}
 Susan~Leach DeBlasio.
-\newblock Managed care contracts - key provisions for providers.
+\newblock Managed care contracts - key provisions for providers, 2008.
 \newblock URL
   \url{http://corporate.findlaw.com/law-library/managed-care-contracts-key-provisions-for-providers.html}.
 
@@ -117,6 +116,11 @@ Shenyang Guo and Mark~W Fraser.
   applications}, volume~11.
 \newblock Sage Publications, 2014.
 
+\bibitem[HHS(2013)]{hhs_recovery}
+HHS.
+\newblock Recovery act-funded programs, 2013.
+\newblock URL \url{http://www.hhs.gov/recovery/programs/}.
+
 \bibitem[Hillestad et~al.(2005)Hillestad, Bigelow, Bower, Girosi, Meili,
   Scoville, and Taylor]{Hillestad2005}
 Richard Hillestad, James Bigelow, Anthony Bower, Federico Girosi, Robin Meili,
@@ -136,13 +140,6 @@ Keisuke Hirano, Guido~W Imbens, and Geert Ridder.
 \newblock Efficient estimation of average treatment effects using the estimated
   propensity score.
 \newblock \emph{Econometrica}, 71\penalty0 (4):\penalty0 1161--1189, 2003.
-
-\bibitem[II et~al.(2012)II, Kazley, Ebeling, and Jr.]{Teufel2012}
-Ronald J.~Teufel II, Abby~Swanson Kazley, Myla~D. Ebeling, and William T.~Basco
-  Jr.
-\newblock Hospital electronic medical record use and cost of inpatient
-  pediatric care.
-\newblock \emph{Academic Pediatrics}, 12\penalty0 (5), 2012.
 
 \bibitem[Imbens and Wooldridge(2008)]{imbens2008recent}
 Guido~M Imbens and Jeffrey~M Wooldridge.
@@ -199,9 +196,9 @@ Esther~F Myers and Sharon~M Heffner.
 \newblock \emph{Journal of the American Dietetic Association}, 101\penalty0
   (8):\penalty0 935--939, 2001.
 
-\bibitem[Nat()]{NAMCSDOC2010}
+\bibitem[Nat(2010)]{NAMCSDOC2010}
 \emph{2010 NAMCS Micro-Data File Documentation}.
-\newblock National Center for Health Statistics.
+\newblock National Center for Health Statistics, 2010.
 
 \bibitem[Poissant et~al.(2005)Poissant, Pereira, Tamblyn, and
   Kawasumi]{poissant2005impact}
@@ -241,6 +238,12 @@ Jaan Sidorov.
 \newblock It ain't necessarily so: The electronic health record and the
   unlikely prospect of reducing health care costs.
 \newblock \emph{Health Affairs}, 25\penalty0 (4):\penalty0 1079--1085, 2006.
+
+\bibitem[Teufel et~al.(2012)Teufel, Kazley, Ebeling, and Basco]{Teufel2012}
+Ronald~J Teufel, Abby~Swanson Kazley, Myla~D Ebeling, and William~T Basco.
+\newblock Hospital electronic medical record use and cost of inpatient
+  pediatric care.
+\newblock \emph{Academic pediatrics}, 12\penalty0 (5):\penalty0 429--435, 2012.
 
 \bibitem[Wang et~al.(2003)Wang, Middleton, Prosser, Bardon, Spurr, Carchidi,
   Kittler, Goldszer, Fairchild, Sussman, Kuperman, and Bates]{Wang2003}

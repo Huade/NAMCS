@@ -222,12 +222,14 @@ As described above, estimating causal effects with observational data is challen
 
 Conditional on the propensity score, each physician has the same probability of assignment to treatment, as in a randomized experiment setting. After propensity score estimation, physicians in the control group who have not adopted the EHR system are comparable with those who in treatment groups with similar propensity scores, at least on observable characteristics. 
 
-Hirano et al. claimed that the resulting estimate is asymptotically efficient if the propensity score is estimated non-parametrically using a series estimator \citep{hirano2003efficient}. In this analysis, we used Generalized Boosted Machine (GBM) model \citep{mccaffrey2004propensity} to estimate the propensity score of each physician. GBM is a general, automated, data-adaptive algorithm that fits several models by way of a regression tree, and then merges the predictions produced by each model. It can use all available covariates and is not subject to the particular modeling choices made by the analyst \citep{hillm2015short}. Comparing with traditional models, GBM model offer numerous advantage to solve the variable specification problem \citep{guo2009propensity}. Our boosted model uses the default setting of twang package \citep{mccaffrey2013tutorial} with R \citep{rbase}, which has 10,000 GBM interactions, three interactions, a bagging fraction of 1.0, and a shrinkage parameter of 0.01, based on McCaffrey's (2013) recommendation. We use physician weight as sample weight in multinomial propensity score estimation procedure.
+Hirano et al. claimed that the resulting estimate is asymptotically efficient if the propensity score is estimated non-parametrically using a series estimator \citep{hirano2003efficient}. McCaffrey et al. summarised that recent studies of propensity score estimation in binary case of two treatment show that, in terms of bias reduction and mean squared error (MSE), machine learning methods outperform simple logistic regression models with iterative variable selection \citep{mccaffrey2013tutorial}. One application of using machine learning algorithms to estimate propensity score is the use of Generalized Boosted Machine models (GBM). GBM is a general, automated, data-adaptive algorithm that fits several models by way of a regression tree, and then merges the predictions produced by each model. In other words, GBM estimation captures complex and nonlinear relationships using nonparametric estimation, which means the complexity of the fitted model depends on sample size. Comparing with traditional methods, ``the GBM model's iterative estimation procedure can be tuned to find the propensity score model leading to the best balance between treated and control groups, where balance refers to the similarity between different groups on their propensity score weighted distributions of pretreatment covariates''  \citep{mccaffrey2013tutorial}. GBM model can also use all available covariates and is not subject to the particular modeling choices made by the analyst \citep{hillm2015short}.
+
+In this analysis, we used GBM model \citep{mccaffrey2004propensity} to estimate the propensity score of each physician. Our boosted model uses the default setting of twang package \citep{mccaffrey2013tutorial} with R \citep{rbase}, which has 10,000 GBM interactions, three interactions, a bagging fraction of 1.0, and a shrinkage parameter of 0.01, based on McCaffrey's (2013) recommendation. We use physician weight as sample weight in multinomial propensity score estimation procedure.
 
 To assess the quality of propensity score estimation, we use diagnostics to check the balance after propensity score weighting. The goal of propensity score estimation and weighting is to have similar covariate distributions in the matched treated, and control groups. We use both numerical summaries of balance and graphic summaries of balance to evaluate the quality of propensity score weighting. We relied primarily on the absolute standardized difference (ASD, also referred to as the Effect Size or the absolute standardized mean difference) to assess the balance after weighting. 
 
 \section{Propensity score weighted regression model}
-The essential feature of propensity score weighting model is the treatment of estimated propensity scores as sampling weights to perform a weighted outcome analysis. The control of selection biases is achieved through weighting. Counterfactuals are estimated through a regression model \citep{guo2009propensity}.
+The essential feature of propensity score weighting model is the treatment of estimated propensity scores as sampling weights to perform a weighted outcome analysis. The control of selection biases is achieved through weighting. Counterfactuals are estimated through a regression model \citep{guo2014propensity}.
 
 When dimension of pre-treatment variables $\textbf{X}$ is large, it is difficult to ensure both the regression model is correct, and a consistent estimator will be obtained \citep{rubin1997estimating}. Also, the estimated modeling leads to extrapolation if the distribution of some confounders do not overlap with each other, since the effect is primarily determined by treated subjects in one region of $\textbf{X}$ space and by control subjects in another. In contrast, the regression model with propensity score weighting largely circumvents this since pretreatment variables $\textbf{X}$ and treatment group variable $W$ should be approximately independent after propensity score estimation. By adding covariates into the regression adjustment, we will obtain ``double robustness'' that further improve the precision of estimators \citep{lunceford2004stratification}. We used an estimate of the propensity score as weights, and uses these weights in a weighted regression of the potential outcome on treatment and observed covariates.
 
@@ -262,11 +264,11 @@ Comparing with the group practice, solo practice has less likelihood to fully ad
 {\footnotesize 
 \begin{center}
 
-\label{tab:desc1}
+
 
 \begin{longtable}{lccc}
 \caption{Descriptive Statistics (Nominal / Ordinal Variables)}\\
-
+\label{tab:desc1}\\
 
 \hline \hline Variable & $P_{No}$ & $P_{Full}$ & $P_{Part}$ \\ \hline \endhead
 
@@ -344,13 +346,11 @@ Population Size                        & 953,908  &            &            \\
 \end{longtable}
 \end{center}}
 
-Physician practices with difference EHR adoption status tend to have different payment structure. Practice with fully EHR adoption tends to have higher percentage of privately insured patients. On average, 60.85\% visits are privately insured patients at a practice without the EHR system adoption while 64.75\% visits are privately insured patients at the practice with the EHR system fully adopted. There is slight difference among Medicare, Medicaid, or self-paid patients between different EHR adoption status. Practice with the EHR system fully adopted has slightly less likelihood to accept Medicare, Medicaid, or self-paid patient, comparing with the control group. Practices with fully adopted EHR system have higher likelihood to accept work compensation patients.
+As shown in the Table \ref{tab:desc2}, the adoption status of the EHR system has potential influence on outcome variables. Physicians who have fully or partially adopted the EHR system have higher likelihood to prescribe patient-specific education resource. While 39.7\% patients have received education resources during their visit at practice without the EHR system, more than 44\% patients received education resource during their visit at practice with the EHR system adoption. As for patient-physician interaction time, there is no systematical difference between the practice with the EHR adoption or not. On average, patients spend 22 minutes with their medical doctor, and there is no substantial difference among different EHR adoption status. For returned appointment rate, physician practice who have fully adopted the EHR system has lower returned appointment rate (66.16\%), comparing with the other groups whose returned appointment rate is higher than 71 percent.
 
 As for the characteristic of patients, there is no significant age difference between the fully treated group and the control group. Practice with the EHR system partially adopted has higher average patient age. This is constant with patients insurance status since practices with partially adopted EHR system has higher likelihood to accept Medicare patients.  There is significant difference between the average number of chronological disease between the fully treated group and the control group. Less patient with complex chronological conditions visited practice without the EHR system. 
 
-
-The adoption status of the EHR system has potential influence on outcome variables. Physicians who have fully or partially adopted the EHR system have higher likelihood to prescribe patient-specific education resource. While 39.7\% patients have received education resources during their visit at practice without the EHR system, more than 44\% patients received education resource during their visit at practice with the EHR system adoption. As for patient-physician interaction time, there is no systematical difference between the practice with the EHR adoption or not. On average, patients spend 22 minutes with their medical doctor, and there is no substantial difference among different EHR adoption status. For returned appointment rate, physician practice who have fully adopted the EHR system has lower returned appointment rate (66.16\%), comparing with the other groups whose returned appointment rate is higher than 71 percent.
-
+Physician practices with difference EHR adoption status tend to have different payment structure. Practice with fully EHR adoption tends to have higher percentage of privately insured patients. On average, 60.85\% visits are privately insured patients at a practice without the EHR system adoption while 64.75\% visits are privately insured patients at the practice with the EHR system fully adopted. There is slight difference among Medicare, Medicaid, or self-paid patients between different EHR adoption status. Practice with the EHR system fully adopted has slightly less likelihood to accept Medicare, Medicaid, or self-paid patient, comparing with the control group. Practices with fully adopted EHR system have higher likelihood to accept work compensation patients.
 
 % Please add the following required packages to your document preamble:
 % \usepackage{booktabs}
@@ -362,7 +362,7 @@ The adoption status of the EHR system has potential influence on outcome variabl
 \label{tab:desc2}
 
 \begin{tabular}{@{}llll@{}}
-\toprule
+\toprule \toprule
                                     & $Mean_{No}$ & $Mean_{Full}$ & $Mean_{Part}$ \\ \midrule
 \textbf{Outcomes}                   &           &             &             \\
 Patient education prescription rate & 0.3970    & 0.4418      & 0.4419      \\
@@ -381,7 +381,7 @@ Workers Compensation                & 0.0137    & 0.0155      & 0.0112      \\
 \end{tabular}
 \end{table}
 
-
+\chapter{Propensity score balance}
 {\footnotesize
 \begin{center}
 \label{tab:psbalance}
@@ -390,7 +390,7 @@ Workers Compensation                & 0.0137    & 0.0155      & 0.0112      \\
 \caption{Propensity Score Balance Statistics}\\
 
 \hline \hline
-Variable                               & \multicolumn{1}{p{2.5cm}}{\centering Max Std. ES \\(Unweighted)} & \multicolumn{1}{p{2.5cm}}{\centering Max KS \\(Unweighted)} &  \multicolumn{1}{p{2.5cm}}{\centering Max Std. ES \\(PS Weighted)} & \multicolumn{1}{p{2.5cm}}{\centering Max KS \\(PS Weighted)} \\  \hline \endhead
+Variable                               & \multicolumn{1}{p{1.5cm}}{\centering Max Std. ES \\(UNW)} & \multicolumn{1}{p{1.5cm}}{\centering Max \\KS \\(UNW)} &  \multicolumn{1}{p{1.5cm}}{\centering Max Std. ES \\(PSW)} & \multicolumn{1}{p{1.5cm}}{\centering Max \\KS \\(PSW)} \\  \hline \endhead
 
 \hline \endfoot
 \hline \hline \endlastfoot

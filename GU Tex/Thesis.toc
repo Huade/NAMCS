@@ -19,5 +19,6 @@
 \contentsline {section}{\numberline {4.3}Propensity score estimation}{12}
 \contentsline {section}{\numberline {4.4}Propensity score weighted regression model}{14}
 \contentsline {section}{\numberline {4.5}Sensitivity tests}{15}
-\contentsline {chapter}{\numberline {5}Descriptive Statistics}{16}
-\contentsline {pseudochapter}{Bibliography}{26}
+\contentsline {chapter}{\numberline {5}Descriptive Statistics}{17}
+\contentsline {chapter}{\numberline {6}Propensity score balance}{24}
+\contentsline {pseudochapter}{Bibliography}{27}

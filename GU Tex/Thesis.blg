@@ -3,63 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Thesis.aux
 The style file: plainnat.bst
 Database file #1: EHR.bib
-Warning--entry type for "mcc2008" isn't style-file defined
---line 12 of file EHR.bib
-Warning--entry type for "stage1" isn't style-file defined
---line 70 of file EHR.bib
-Warning--entry type for "hhs_recovery" isn't style-file defined
---line 123 of file EHR.bib
-Warning--entry type for "healthit05" isn't style-file defined
---line 130 of file EHR.bib
-Warning--I didn't find a database entry for "guo2009propensity"
-Warning--to sort, need author or key in hhs_recovery
-Warning--to sort, need author or key in healthit05
-Warning--empty year in healthit05
-Warning--empty year in hhs_recovery
-Warning--empty year in SasProcedure
-Warning--empty year in cmsincentive14
-Warning--empty year in stage1
-Warning--empty year in mcc2008
-Warning--empty year in NAMCSDOC2010
 You've used 35 entries,
             2773 wiz_defined-function locations,
-            807 strings with 12217 characters,
-and the built_in function-call counts, 16913 in all, are:
-= -- 1449
-> -- 1159
-< -- 13
-+ -- 397
-- -- 360
-* -- 1523
-:= -- 2620
-add.period$ -- 107
+            809 strings with 12233 characters,
+and the built_in function-call counts, 17138 in all, are:
+= -- 1472
+> -- 1179
+< -- 15
++ -- 404
+- -- 366
+* -- 1529
+:= -- 2685
+add.period$ -- 110
 call.type$ -- 35
-change.case$ -- 221
-chr.to.int$ -- 33
-cite$ -- 81
-duplicate$ -- 678
-empty$ -- 1282
-format.name$ -- 401
-if$ -- 3477
-int.to.chr$ -- 3
+change.case$ -- 225
+chr.to.int$ -- 32
+cite$ -- 70
+duplicate$ -- 677
+empty$ -- 1292
+format.name$ -- 409
+if$ -- 3519
+int.to.chr$ -- 4
 int.to.str$ -- 1
 missing$ -- 28
-newline$ -- 185
-num.names$ -- 124
-pop$ -- 441
+newline$ -- 188
+num.names$ -- 132
+pop$ -- 431
 preamble$ -- 1
-purify$ -- 192
+purify$ -- 194
 quote$ -- 0
-skip$ -- 541
+skip$ -- 546
 stack$ -- 0
-substring$ -- 558
+substring$ -- 581
 swap$ -- 43
 text.length$ -- 1
 text.prefix$ -- 2
 top$ -- 0
 type$ -- 375
-warning$ -- 9
-while$ -- 121
+warning$ -- 0
+while$ -- 129
 width$ -- 0
-write$ -- 452
-(There were 14 warnings)
+write$ -- 463

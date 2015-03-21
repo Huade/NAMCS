@@ -104,8 +104,9 @@ load("Data/physician_cc_w_psw.Rda")
 
 mnps_balance <- bal.table(physician.ps.mnps)
 plot(physician.ps.mnps, plots=3)
-bal.table(physician.ps.mnps, collapse.to = 'covariate', digits = 4)
-
+bal_table_mnps_cov <- bal.table(physician.ps.mnps, collapse.to = 'covariate', digits = 4)
+bal_table_mnps_all <- bal.table(physician.ps.mnps,  digits = 4)
+xtable(bal_table_mnps_cov)
 
 # mnps model
 design.mnps <- svydesign(ids=~1, weights=~psweight, data=physician_cc)

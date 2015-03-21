@@ -20,5 +20,7 @@
 \contentsline {section}{\numberline {4.4}Propensity score weighted regression model}{14}
 \contentsline {section}{\numberline {4.5}Sensitivity tests}{15}
 \contentsline {chapter}{\numberline {5}Descriptive Statistics}{17}
-\contentsline {chapter}{\numberline {6}Propensity score balance}{24}
-\contentsline {pseudochapter}{Bibliography}{27}
+\contentsline {section}{\numberline {5.1}Nominal and Ordinal Variables}{17}
+\contentsline {section}{\numberline {5.2}Continuous variables}{22}
+\contentsline {chapter}{\numberline {6}Propensity score balance}{25}
+\contentsline {pseudochapter}{Bibliography}{28}

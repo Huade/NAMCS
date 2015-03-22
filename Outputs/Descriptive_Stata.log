@@ -1,0 +1,659 @@
+-------------------------------------------------
+      name:  <unnamed>
+       log:  /Users/huadehuo/Dropbox/MSPP/Thesis/
+> NAMCS/Outputs/Descriptive_Stata.log
+  log type:  text
+ opened on:  22 Mar 2015, 15:57:03
+
+. 
+. 
+. svyset [pweight= PHYSWT]
+
+      pweight: PHYSWT
+          VCE: linearized
+  Single unit: missing
+     Strata 1: <one>
+         SU 1: <observations>
+        FPC 1: <zero>
+
+. svy: tab EMEDREC, obs cou format(%8.0g)
+(running tabulate on estimation sample)
+
+Number of strata   =         1                  N
+> umber of obs                                   
+>                   =      3619
+Number of PSUs     =      3619                  P
+> opulation size                                 
+>                   =    953908
+                                                D
+> esign df                                       
+>                   =      3618
+
+----------------------------------
+  EMEDREC |      count         obs
+----------+-----------------------
+        0 |     480645        1853
+        1 |     314233        1146
+        2 |     159030         620
+          | 
+    Total |     953908        3619
+----------------------------------
+  Key:  count     =  weighted counts
+        obs       =  number of observations
+
+. 
+. svy: tab VYEAR EMEDREC, row
+(running tabulate on estimation sample)
+
+Number of strata   =         1                  N
+> umber of obs                                   
+>                   =      3619
+Number of PSUs     =      3619                  P
+> opulation size                                 
+>                   =    953908
+                                                D
+> esign df                                       
+>                   =      3618
+
+--------------------------------------
+          |          EMEDREC          
+    VYEAR |     0      1      2  Total
+----------+---------------------------
+     2008 | .5421  .2749   .183      1
+     2009 | .4859  .3252  .1889      1
+     2010 | .4846  .3881  .1273      1
+          | 
+    Total | .5039  .3294  .1667      1
+--------------------------------------
+  Key:  row proportions
+
+  Pearson:
+    Uncorrected   chi2(4)         =   44.9462
+    Design-based  F(4.00, 14462.69)=    7.1030   
+>  P = 0.0000
+
+. svy: tab OWNS EMEDREC, row
+(running tabulate on estimation sample)
+
+Number of strata   =         1                  N
+> umber of obs                                   
+>                   =      3619
+Number of PSUs     =      3619                  P
+> opulation size                                 
+>                   =    953908
+                                                D
+> esign df                                       
+>                   =      3618
+
+--------------------------------------
+          |          EMEDREC          
+     OWNS |     0      1      2  Total
+----------+---------------------------
+        1 | .5395  .2989  .1616      1
+        2 | .0647  .8051  .1302      1
+        3 | .4293  .3522  .2185      1
+        4 | .4714  .3627  .1659      1
+        5 | .4305  .3526  .2169      1
+        6 | .3434  .4759  .1807      1
+        7 | .3436  .4414   .215      1
+          | 
+    Total | .5039  .3294  .1667      1
+--------------------------------------
+  Key:  row proportions
+
+  Pearson:
+    Uncorrected   chi2(12)        =  146.2924
+    Design-based  F(11.22, 40607.01)=    8.9896  
+>  P = 0.0000
+
+. svy: tab MSA EMEDREC, row
+(running tabulate on estimation sample)
+
+Number of strata   =         1                  N
+> umber of obs                                   
+>                   =      3619
+Number of PSUs     =      3619                  P
+> opulation size                                 
+>                   =    953908
+                                                D
+> esign df                                       
+>                   =      3618
+
+--------------------------------------
+          |          EMEDREC          
+      MSA |     0      1      2  Total
+----------+---------------------------
+        1 | .5064  .3293  .1644      1
+        2 | .4823  .3308  .1869      1
+          | 
+    Total | .5039  .3294  .1667      1
+--------------------------------------
+  Key:  row proportions
+
+  Pearson:
+    Uncorrected   chi2(2)         =    1.4319
+    Design-based  F(1.99, 7185.34)=    0.4711    
+>  P = 0.6230
+
+. svy: tab MANCAREC EMEDREC, row
+(running tabulate on estimation sample)
+
+Number of strata   =         1                  N
+> umber of obs                                   
+>                   =      3619
+Number of PSUs     =      3619                  P
+> opulation size                                 
+>                   =    953908
+                                                D
+> esign df                                       
+>                   =      3618
+
+--------------------------------------
+          |          EMEDREC          
+ MANCAREC |     0      1      2  Total
+----------+---------------------------
+        1 | .6234  .2092  .1674      1
+        2 | .4939  .3419  .1642      1
+        3 | .5318  .2994  .1688      1
+        4 | .4537  .3808  .1655      1
+          | 
+    Total | .5039  .3294  .1667      1
+--------------------------------------
+  Key:  row proportions
+
+  Pearson:
+    Uncorrected   chi2(6)         =   56.8230
+    Design-based  F(5.99, 21689.64)=    6.0078   
+>  P = 0.0000
+
+. svy: tab SPECR EMEDREC, row
+(running tabulate on estimation sample)
+
+Number of strata   =         1                  N
+> umber of obs                                   
+>                   =      3619
+Number of PSUs     =      3619                  P
+> opulation size                                 
+>                   =    953908
+                                                D
+> esign df                                       
+>                   =      3618
+
+--------------------------------------
+          |          EMEDREC          
+    SPECR |     0      1      2  Total
+----------+---------------------------
+        1 | .4238  .4317  .1445      1
+        3 | .4761  .3776  .1464      1
+        4 | .5243  .3107   .165      1
+        5 | .5905  .2494  .1601      1
+        6 | .5065  .3218  .1718      1
+        7 | .4356  .3709  .1935      1
+        8 | .4246  .3037  .2717      1
+        9 | .6625  .2297  .1079      1
+       10 | .4559  .3757  .1684      1
+       11 |  .714  .1424  .1436      1
+       12 | .5539  .2771   .169      1
+       13 | .6344  .1504  .2152      1
+       14 | .5055  .3483  .1462      1
+       15 | .5122  .3148   .173      1
+       16 | .3444  .3836  .2721      1
+          | 
+    Total | .5039  .3294  .1667      1
+--------------------------------------
+  Key:  row proportions
+
+  Pearson:
+    Uncorrected   chi2(28)        =  132.6711
+    Design-based  F(21.46, 77654.32)=    4.3313  
+>  P = 0.0000
+
+. svy: tab REGION EMEDREC, row
+(running tabulate on estimation sample)
+
+Number of strata   =         1                  N
+> umber of obs                                   
+>                   =      3619
+Number of PSUs     =      3619                  P
+> opulation size                                 
+>                   =    953908
+                                                D
+> esign df                                       
+>                   =      3618
+
+--------------------------------------
+          |          EMEDREC          
+   REGION |     0      1      2  Total
+----------+---------------------------
+        1 | .5091   .308  .1829      1
+        2 | .5204  .3227  .1568      1
+        3 | .5232   .311  .1658      1
+        4 |  .456  .3814  .1626      1
+          | 
+    Total | .5039  .3294  .1667      1
+--------------------------------------
+  Key:  row proportions
+
+  Pearson:
+    Uncorrected   chi2(6)         =   16.4172
+    Design-based  F(5.92, 21427.85)=    1.7409   
+>  P = 0.1082
+
+. svy: tab SOLO EMEDREC, row
+(running tabulate on estimation sample)
+
+Number of strata   =         1                  N
+> umber of obs                                   
+>                   =      3619
+Number of PSUs     =      3619                  P
+> opulation size                                 
+>                   =    953908
+                                                D
+> esign df                                       
+>                   =      3618
+
+--------------------------------------
+          |          EMEDREC          
+     SOLO |     0      1      2  Total
+----------+---------------------------
+        0 | .4386   .391  .1704      1
+        1 | .6367  .2041  .1592      1
+          | 
+    Total | .5039  .3294  .1667      1
+--------------------------------------
+  Key:  row proportions
+
+  Pearson:
+    Uncorrected   chi2(2)         =  147.5646
+    Design-based  F(2.00, 7233.11)=   44.3443    
+>  P = 0.0000
+
+. 
+. svy: mean HealthEdu_pct, over(EMEDREC)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =       1          Number of obs
+>     =    3619
+Number of PSUs   =    3619          Population si
+> ze                                             
+>     =  953908
+                                    Design df    
+>     =    3618
+
+    _subpop_1: EMEDREC = 0
+    _subpop_2: EMEDREC = 1
+    _subpop_3: EMEDREC = 2
+
+-------------------------------------------------
+> --------------
+              |             Linearized
+         Over |       Mean   Std. Err.     [95% C
+> on                                             
+>   f. Interval]
+--------------+----------------------------------
+> --------------
+HealthEdu_pct |
+    _subpop_1 |   .3970079   .0101972      .37701
+> 51                                             
+>       .4170008
+    _subpop_2 |   .4417981   .0130065      .41629
+> 74                                             
+>       .4672988
+    _subpop_3 |   .4419178   .0173046        .407
+> 99                                             
+>       .4758456
+-------------------------------------------------
+> --------------
+
+. svy: mean TIMEMD, over(EMEDREC)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =       1          Number of obs
+>     =    3619
+Number of PSUs   =    3619          Population si
+> ze                                             
+>     =  953908
+                                    Design df    
+>     =    3618
+
+    _subpop_1: EMEDREC = 0
+    _subpop_2: EMEDREC = 1
+    _subpop_3: EMEDREC = 2
+
+-------------------------------------------------
+> -------------
+             |             Linearized
+        Over |       Mean   Std. Err.     [95% Co
+> n                                              
+>  f. Interval]
+-------------+-----------------------------------
+> -------------
+TIMEMD       |
+   _subpop_1 |   22.34009   .3682599      21.6180
+> 7                                              
+>      23.06211
+   _subpop_2 |    21.6737   .3355101      21.0158
+> 9                                              
+>      22.33151
+   _subpop_3 |   21.89927   .4744222      20.9691
+> 1                                              
+>      22.82943
+-------------------------------------------------
+> -------------
+
+. svy: mean RETAPPT_pct, over(EMEDREC)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =       1          Number of obs
+>     =    3619
+Number of PSUs   =    3619          Population si
+> ze                                             
+>     =  953908
+                                    Design df    
+>     =    3618
+
+    _subpop_1: EMEDREC = 0
+    _subpop_2: EMEDREC = 1
+    _subpop_3: EMEDREC = 2
+
+-------------------------------------------------
+> -------------
+             |             Linearized
+        Over |       Mean   Std. Err.     [95% Co
+> n                                              
+>  f. Interval]
+-------------+-----------------------------------
+> -------------
+RETAPPT_pct  |
+   _subpop_1 |   .7244579   .0087921        .7072
+> 2                                              
+>      .7416958
+   _subpop_2 |   .6616479   .0117219      .638665
+> 8                                              
+>        .68463
+   _subpop_3 |    .718668   .0144553      .690326
+> 7                                              
+>      .7470094
+-------------------------------------------------
+> -------------
+
+. svy: mean PAYPRIV_pct, over(EMEDREC)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =       1          Number of obs
+>     =    3619
+Number of PSUs   =    3619          Population si
+> ze                                             
+>     =  953908
+                                    Design df    
+>     =    3618
+
+    _subpop_1: EMEDREC = 0
+    _subpop_2: EMEDREC = 1
+    _subpop_3: EMEDREC = 2
+
+-------------------------------------------------
+> -------------
+             |             Linearized
+        Over |       Mean   Std. Err.     [95% Co
+> n                                              
+>  f. Interval]
+-------------+-----------------------------------
+> -------------
+PAYPRIV_pct  |
+   _subpop_1 |   .6085912   .0085799      .591769
+> 3                                              
+>       .625413
+   _subpop_2 |   .6474977   .0100991      .627697
+> 2                                              
+>      .6672983
+   _subpop_3 |   .6041373   .0143449      .576012
+> 3                                              
+>      .6322622
+-------------------------------------------------
+> -------------
+
+. svy: mean PAYMCARE_pct, over(EMEDREC)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =       1          Number of obs
+>     =    3619
+Number of PSUs   =    3619          Population si
+> ze                                             
+>     =  953908
+                                    Design df    
+>     =    3618
+
+    _subpop_1: EMEDREC = 0
+    _subpop_2: EMEDREC = 1
+    _subpop_3: EMEDREC = 2
+
+-------------------------------------------------
+> -------------
+             |             Linearized
+        Over |       Mean   Std. Err.     [95% Co
+> n                                              
+>  f. Interval]
+-------------+-----------------------------------
+> -------------
+PAYMCARE_pct |
+   _subpop_1 |   .2474365   .0069043      .233899
+> 8                                              
+>      .2609733
+   _subpop_2 |   .2300999   .0081464      .214127
+> 8                                              
+>       .246072
+   _subpop_3 |   .2826832    .012196      .258771
+> 5                                              
+>       .306595
+-------------------------------------------------
+> -------------
+
+. svy: mean PAYMCAID_pct, over(EMEDREC)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =       1          Number of obs
+>     =    3619
+Number of PSUs   =    3619          Population si
+> ze                                             
+>     =  953908
+                                    Design df    
+>     =    3618
+
+    _subpop_1: EMEDREC = 0
+    _subpop_2: EMEDREC = 1
+    _subpop_3: EMEDREC = 2
+
+-------------------------------------------------
+> -------------
+             |             Linearized
+        Over |       Mean   Std. Err.     [95% Co
+> n                                              
+>  f. Interval]
+-------------+-----------------------------------
+> -------------
+PAYMCAID_pct |
+   _subpop_1 |   .1372215    .006122      .125218
+> 6                                              
+>      .1492243
+   _subpop_2 |   .1117399   .0063227      .099343
+> 4                                              
+>      .1241364
+   _subpop_3 |   .1416996   .0097623      .122559
+> 3                                              
+>      .1608398
+-------------------------------------------------
+> -------------
+
+. svy: mean PAYWKCMP_pct, over(EMEDREC)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =       1          Number of obs
+>     =    3619
+Number of PSUs   =    3619          Population si
+> ze                                             
+>     =  953908
+                                    Design df    
+>     =    3618
+
+    _subpop_1: EMEDREC = 0
+    _subpop_2: EMEDREC = 1
+    _subpop_3: EMEDREC = 2
+
+-------------------------------------------------
+> -------------
+             |             Linearized
+        Over |       Mean   Std. Err.     [95% Co
+> n                                              
+>  f. Interval]
+-------------+-----------------------------------
+> -------------
+PAYWKCMP_pct |
+   _subpop_1 |   .0137003   .0019445      .009887
+> 8                                              
+>      .0175128
+   _subpop_2 |   .0154933    .003076      .009462
+> 4                                              
+>      .0215243
+   _subpop_3 |   .0112217   .0027925      .005746
+> 7                                              
+>      .0166966
+-------------------------------------------------
+> -------------
+
+. svy: mean PAYSELF_pct, over(EMEDREC)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =       1          Number of obs
+>     =    3619
+Number of PSUs   =    3619          Population si
+> ze                                             
+>     =  953908
+                                    Design df    
+>     =    3618
+
+    _subpop_1: EMEDREC = 0
+    _subpop_2: EMEDREC = 1
+    _subpop_3: EMEDREC = 2
+
+-------------------------------------------------
+> -------------
+             |             Linearized
+        Over |       Mean   Std. Err.     [95% Co
+> n                                              
+>  f. Interval]
+-------------+-----------------------------------
+> -------------
+PAYSELF_pct  |
+   _subpop_1 |    .084326   .0061953      .072179
+> 4                                              
+>      .0964725
+   _subpop_2 |   .0426213   .0044247      .033946
+> 1                                              
+>      .0512965
+   _subpop_3 |   .0601703   .0101634      .040243
+> 7                                              
+>      .0800969
+-------------------------------------------------
+> -------------
+
+. svy: mean Avg_Patient_Age, over(EMEDREC)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =       1          Number of obs
+>     =    3619
+Number of PSUs   =    3619          Population si
+> ze                                             
+>     =  953908
+                                    Design df    
+>     =    3618
+
+    _subpop_1: EMEDREC = 0
+    _subpop_2: EMEDREC = 1
+    _subpop_3: EMEDREC = 2
+
+-------------------------------------------------
+> ----------------
+                |             Linearized
+           Over |       Mean   Std. Err.     [95%
+>  Con                                           
+>     f. Interval]
+----------------+--------------------------------
+> ----------------
+Avg_Patient_Age |
+      _subpop_1 |   46.27834   .5313917      45.2
+> 3648                                           
+>          47.3202
+      _subpop_2 |   46.43047   .6193262       45.
+> 2162                                           
+>         47.64473
+      _subpop_3 |   48.06359   .9443651      46.2
+> 1205                                           
+>         49.91513
+-------------------------------------------------
+> ----------------
+
+. svy: mean TOTCHRON_mean, over(EMEDREC)
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =       1          Number of obs
+>     =    3619
+Number of PSUs   =    3619          Population si
+> ze                                             
+>     =  953908
+                                    Design df    
+>     =    3618
+
+    _subpop_1: EMEDREC = 0
+    _subpop_2: EMEDREC = 1
+    _subpop_3: EMEDREC = 2
+
+-------------------------------------------------
+> --------------
+              |             Linearized
+         Over |       Mean   Std. Err.     [95% C
+> on                                             
+>   f. Interval]
+--------------+----------------------------------
+> --------------
+TOTCHRON_mean |
+    _subpop_1 |   1.121364   .0269164      1.0685
+> 91                                             
+>       1.174136
+    _subpop_2 |   1.260581   .0337333      1.1944
+> 42                                             
+>       1.326719
+    _subpop_3 |   1.261688   .0485109      1.1665
+> 77                                             
+>         1.3568
+-------------------------------------------------
+> --------------
+
+. 
+. log close
+      name:  <unnamed>
+       log:  /Users/huadehuo/Dropbox/MSPP/Thesis/
+> NAMCS/Outputs/Descriptive_Stata.log
+  log type:  text
+ closed on:  22 Mar 2015, 15:57:03
+-------------------------------------------------

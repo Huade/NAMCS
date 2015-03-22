@@ -6,6 +6,8 @@ log using "/Users/huadehuo/Dropbox/MSPP/Thesis/NAMCS/Outputs/Descriptive_Stata.l
 
 
 svyset [pweight= PHYSWT]
+svy: tab EMEDREC, obs cou format(%8.0g)
+
 svy: tab VYEAR EMEDREC, row
 svy: tab OWNS EMEDREC, row
 svy: tab MSA EMEDREC, row

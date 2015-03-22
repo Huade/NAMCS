@@ -1,7 +1,8 @@
 \documentclass[12pt]{report}
 
 \usepackage{url}
-\usepackage[dvips]{graphicx}
+%\usepackage[dvips]{graphicx}
+\usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{longtable}
 \usepackage{amssymb}
@@ -193,7 +194,7 @@ Start from 2005, NAMCS includes provider weight that allow researchers to produc
 Ideally, we would observe physician in three possible conditions: one in which she has fully adopted the EHR system, one in which she has partially adopted the EHR system, and one in which she has not. We can express our evaluation problem as follows: Let $W_i = 1$ for physician $i$ who has fully adopted the EHR system, let $W_i = 2$ for physician $i$ who has partially adopted the EHR system, and let $W_i = 0$ for physician $i$ who has not yet adopted the ENR system. Let $Y_i(1)$ refer to the time efficiency for physician $i$ who has fully adopted the EHR system, let $Y_i(2)$ refer to the time efficiency for physician $i$ who has partially adopted the EHR system, and let $Y_i(0)$ refer to the patient interaction time for physician $i$ who has not adopted the EHR system. Although all outcomes are possible in theory, we cannot observe all possible outcome $Y_i(0)$, $Y_i(1)$, and $Y_i(2)$ for physician $i$ while holding all other conditions constant. We only observe $Y_i(0)$ if $W_i = 0$, $Y_i(1)$ if $W_i = 1$, and $Y_i(2)$ if $W_i = 2$ with our data \citep{imbens2008recent}. People in "treatments" and "control" groups likely different in both observed and unobserved ways.
 
 \section{Assumption of causal inference}
-There are two assumptions associate with estimating treatment effect. The first assumption is the stable unit treatment value assumption (SUTVA). The SUTVA requires that there is no interference between units, that is, treatment assignment of one unit does not affect potential outcomes of another unit. We cannot test this statistically with our data. However, we can safely assume that this assumption meets in our analysis since there are no evidence to show the EHR adoption at one physician practice has interactions with the outcome in another physician's practice.
+There are two assumptions associate with estimating treatment effect. The first assumption is the stable unit treatment value assumption (SUTVA). The SUTVA requires that there is no interference between units, that is, treatment assignment of one unit does not affect potential outcomes of another unit. We cannot test this statistically with our data. This is a strong assumption in our analysis since (1) there are possibility communication between different physician practice about the adoption of EHR system, which could possible affect the outcome; (2) there are different version of the EHR system within different practices.
 
 The second assumption is no unmeasured confounders. An estimate of the EHR's effect on doctors' behavior relies on an assumption of no unmeasured confounders of treatment assignment, that is, 
 \begin{equation*}
@@ -222,16 +223,18 @@ As described above, estimating causal effects with observational data is challen
 
 Conditional on the propensity score, each physician has the same probability of assignment to treatment, as in a randomized experiment setting. After propensity score estimation, physicians in the control group who have not adopted the EHR system are comparable with those who in treatment groups with similar propensity scores, at least on observable characteristics. 
 
-Hirano et al. claimed that the resulting estimate is asymptotically efficient if the propensity score is estimated non-parametrically using a series estimator \citep{hirano2003efficient}. McCaffrey et al. summarised that recent studies of propensity score estimation in binary case of two treatment show that, in terms of bias reduction and mean squared error (MSE), machine learning methods outperform simple logistic regression models with iterative variable selection \citep{mccaffrey2013tutorial}. One application of using machine learning algorithms to estimate propensity score is the use of Generalized Boosted Machine models (GBM). GBM is a general, automated, data-adaptive algorithm that fits several models by way of a regression tree, and then merges the predictions produced by each model. In other words, GBM estimation captures complex and nonlinear relationships using nonparametric estimation, which means the complexity of the fitted model depends on sample size. Comparing with traditional methods, ``the GBM model's iterative estimation procedure can be tuned to find the propensity score model leading to the best balance between treated and control groups, where balance refers to the similarity between different groups on their propensity score weighted distributions of pretreatment covariates''  \citep{mccaffrey2013tutorial}. GBM model can also use all available covariates and is not subject to the particular modeling choices made by the analyst \citep{hillm2015short}.
+Hirano et al. claimed that the resulting estimate is asymptotically efficient if the propensity score is estimated non-parametrically using a series estimator \citep{hirano2003efficient}. McCaffrey et al. summarized that recent studies of propensity score estimation in binary case of two treatment show that, in terms of bias reduction and mean squared error (MSE), machine learning methods outperform simple logistic regression models with iterative variable selection \citep{mccaffrey2013tutorial}. One application of using machine learning algorithms to estimate propensity score is the use of Generalized Boosted Machine models (GBM).
 
-In this analysis, we used GBM model \citep{mccaffrey2004propensity} to estimate the propensity score of each physician. Our boosted model uses the default setting of twang package \citep{mccaffrey2013tutorial} with R \citep{rbase}, which has 10,000 GBM interactions, three interactions, a bagging fraction of 1.0, and a shrinkage parameter of 0.01, based on McCaffrey's (2013) recommendation. We use physician weight as sample weight in multinomial propensity score estimation procedure.
+GBM is a general, automated, data-adaptive algorithm that fits several models by way of a regression tree, and then merges the predictions produced by each model. In other words, GBM estimation captures complex and nonlinear relationships using nonparametric estimation, which means the complexity of the fitted model depends on sample size. GBM aims to minimize sample prediction error; that is, the algorithm stops iterations when the sample prediction error is minimized \citep{guo2014propensity}. Comparing with traditional methods, ``the GBM model's iterative estimation procedure can be tuned to find the propensity score model leading to the best balance between treated and control groups, where balance refers to the similarity between different groups on their propensity score weighted distributions of pretreatment covariates''  \citep{mccaffrey2013tutorial}. GBM model can also use all available covariates and is not subject to the particular modeling choices made by the analyst \citep{hillm2015short}. 
+
+Two common boost algorithms for propensity score estimation is Stata's \textit{boost} program and R's \textit{gbm} program. These two different packages do not lead to different results on covariate control and estimates of treatment effects \citep{guo2014propensity}. In this analysis, we used GBM model, developed by  \citep{mccaffrey2004propensity}, to estimate the propensity score of each physician. Our boosted model uses the default setting of twang package \citep{mccaffrey2013tutorial} with R \citep{rbase}, which has 10,000 GBM interactions, three interactions, a bagging fraction of 1.0, and a shrinkage parameter of 0.01, based on McCaffrey's (2013) recommendation. We use physician weight as sample weight in multinomial propensity score estimation procedure.
 
 To assess the quality of propensity score estimation, we use diagnostics to check the balance after propensity score weighting. The goal of propensity score estimation and weighting is to have similar covariate distributions in the matched treated, and control groups. We use both numerical summaries of balance and graphic summaries of balance to evaluate the quality of propensity score weighting. We relied primarily on the absolute standardized difference (ASD, also referred to as the Effect Size or the absolute standardized mean difference) to assess the balance after weighting. 
 
 \section{Propensity score weighted regression model}
-The essential feature of propensity score weighting model is the treatment of estimated propensity scores as sampling weights to perform a weighted outcome analysis. The control of selection biases is achieved through weighting. Counterfactuals are estimated through a regression model \citep{guo2014propensity}.
+The essential feature of propensity score weighting model is the treatment of estimated propensity scores as sampling weights to perform a weighted outcome analysis. Propensity score weighting has two advantages. On the one hand, propensity score weighing permits most types of multivariate outcome analysis and does not require an outcome variable that is continuous or normally distributed. On the other hand, unlike matching techniques, weighting method maintains sample size \citep{guo2014propensity}.
 
-When dimension of pre-treatment variables $\textbf{X}$ is large, it is difficult to ensure both the regression model is correct, and a consistent estimator will be obtained \citep{rubin1997estimating}. Also, the estimated modeling leads to extrapolation if the distribution of some confounders do not overlap with each other, since the effect is primarily determined by treated subjects in one region of $\textbf{X}$ space and by control subjects in another. In contrast, the regression model with propensity score weighting largely circumvents this since pretreatment variables $\textbf{X}$ and treatment group variable $W$ should be approximately independent after propensity score estimation. By adding covariates into the regression adjustment, we will obtain ``double robustness'' that further improve the precision of estimators \citep{lunceford2004stratification}. We used an estimate of the propensity score as weights, and uses these weights in a weighted regression of the potential outcome on treatment and observed covariates.
+With propensity score weighting, the control of selection biases is achieved through weighting and counterfactuals are estimated through a regression model. When dimension of pre-treatment variables $\textbf{X}$ is large, it is difficult to ensure both the regression model is correct, and a consistent estimator will be obtained \citep{rubin1997estimating}. Also, the estimated modeling leads to extrapolation if the distribution of some confounders do not overlap with each other, since the effect is primarily determined by treated subjects in one region of $\textbf{X}$ space and by control subjects in another. In contrast, the regression model with propensity score weighting largely circumvents this since pretreatment variables $\textbf{X}$ and treatment group variable $W$ should be approximately independent after propensity score estimation. By adding covariates into the regression adjustment, we will obtain ``double robustness'' that further improve the precision of estimators \citep{lunceford2004stratification}. We used an estimate of the propensity score as weights, and uses these weights in a weighted regression of the potential outcome on treatment and observed covariates.
 
 We estimate a separate propensity score weighted regression model for each outcome. We include covariates that have maximum ASD greater than 0.1. 
 
@@ -258,7 +261,7 @@ The adoption of EHR has statistically significant difference between different p
 
 There are no statistically significant relationship between adoption of the EHR system and whether the practice is in metropolitan statistical areas ($\chi^2=1.4319$). The full adoption rate of MSA area (32.93\%) and non-MSA area (33.08\%) is close to the national average (32.94\%). However, geographic regions have statistically significant relationship with the adoption of the EHR system ($\chi^2=16.41$). Physicians that are in West region has higher likelihood to adopt EHR system, while physicians in Northeast or South region have less likelihood to adopt it, comparing with physicians who are in Midwest region.
 
-Another physician practice's characteristics of interest are the number of managed care contracts. The contract between a physician and a managed care organization can affect payment, office organization, practices and procedures, and confidential records as well as clinical decision-making \citep{mcc2008}. In general, practice with higher number of managed tends to have higher adoption rate of the EHR system. 38.08\% physician practice with more than ten managed contracts has fully adopted the EHR system while only 20.92\% physician practice with no managed contracts fully adopted the EHR system. There are no statistically or substantially difference of partially adoption rate among difference managed care contracts.
+Another physician practice's characteristics of interest are the number of managed care contracts. The contract between a physician and a managed care organization can affect payment, office organization, practices and procedures, and confidential records as well as clinical decision-making \citep{mcc2008}. In general, practice with higher number of managed care contracts tends to have higher adoption rate of the EHR system. 38.08\% physician practice with more than ten managed contracts has fully adopted the EHR system while only 20.92\% physician practice with no managed contracts fully adopted the EHR system. There are no statistically or substantially difference of partially adoption rate among difference managed care contracts.
 
 Physician specialty has statistically significant relationship with the adoption of the EHR system ($p < 0.0001$). Among all physician specialties, general and family practice have the highest likelihood to fully adopt the EHR system. 43.17\% physicians who are general or family practice reported they had fully adopted the EHR system. Ophthalmologists have the lowest likelihood to adopt the EHR system. More than half of ophthalmologists reported they have no EHR adoption. Among all other physician specialities, oncology (38.36\%), internal medicine (37.76\%), urology (37.57\%), and orthopedic surgery (37.09\%) also have higher likelihood of fully EHR adoption.
  
@@ -272,7 +275,11 @@ Comparing with the group practice, solo practice has less likelihood to fully ad
 \caption{Descriptive Statistics (Nominal and Ordinal Variables)}\\
 \label{tab:desc1}\\
 
-\hline \hline Variable & $P_{No}$ & $P_{Full}$ & $P_{Part}$ \\ \hline \endhead
+\hline \hline Variable & $P_{No}$ & $P_{Full}$ & $P_{Part}$ \\ \hline \endfirsthead
+
+\caption*{Descriptive Statistics (Nominal and Ordinal Variables, Cont'd) }\\
+
+\hline  Variable & $P_{No}$ & $P_{Full}$ & $P_{Part}$ \\ \hline \endhead
 
 \hline \endfoot
 \hline \hline \endlastfoot
@@ -343,8 +350,8 @@ $\chi^2_2 = 147.56$                    &          &            &            \\
                                        &          &            &            \\
 Total                                  & 0.5039   & 0.3294     & 0.1667     \\
                                        &          &            &            \\
-Obs.                                   & 3,619    &            &            \\
-Population Size                        & 953,908  &            &            \\ 
+Obs.                                   & 1,853    & 1,146      & 620        \\
+Weighted Counts                        & 480,645  & 314,233    & 159,030    \\ 
 \end{longtable}
 \end{center}}
 
@@ -362,6 +369,11 @@ Physician practices with difference EHR adoption status tend to have different p
 
 \begin{longtable}{lccc}
 \caption{Descriptive Statistics (Continuous Variables)}\\
+
+\hline \hline
+Variable   & $Mean_{No}$ & $Mean_{Full}$ & $Mean_{Part}$ \\ \hline \endfirsthead
+
+\caption*{Descriptive Statistics (Continuous Variables, Cont'd)}\\
 
 \hline \hline
 Variable   & $Mean_{No}$ & $Mean_{Full}$ & $Mean_{Part}$ \\ \hline \endhead
@@ -383,11 +395,64 @@ Workers Compensation                & 0.0137    & 0.0155      & 0.0112      \\
                                     &           &             &             \\
 \textbf{Avg. patient age}           & 46.2783   & 46.4305     & 48.0636     \\
 \textbf{Avg. chron cond.}           & 1.1214    & 1.2606      & 1.2617      \\ 
+Obs.                                & 1,853     & 1,146       & 620         \\
+Weighted Counts                     & 480,645   & 314,233     & 159,030     \\
 \end{longtable}
 \end{center}}
 
 
 \chapter{Propensity score balance}
+The goal of propensity score weighting is to have similar covariate distribution (or "balance") in the weighted treated and control groups. We relied on the absolute standardized mean difference (ASMD, also referred to as the absolute standardized bias or the Effect Size) to assess the balance. The ASMD $d_x$ was calculated as the absolute difference in means between two different groups, divided by the square root of the average sample variances for this two groups using the following formula \citep{haviland2007combining}:
+
+\begin{equation*}
+d_x =\frac{|\Delta M_x|}{S_x}
+\end{equation*}
+
+where $\Delta M_x$ is the difference of means between two groups, $S_x$ is calculated by: 
+
+\begin{equation*}
+S_x=\sqrt{\frac{S^2_{xt}+S^2_{xp}}{2}}
+\end{equation*}
+
+where $S^2_{xt}$ and $S^2_{xp}$ denotes the standard deviations of variable $x$ in group $t$ and group $p$.
+
+In our analysis, each character has three ASMD statistics, including the difference between non-adopter and fully adaptor, the difference between non-adopter and partially adopted and the difference between partially adopted and fully adopted. We collapse these three statistics to covariate level for comparison propose. Hill et al. summarised that ASMDs less than 0.25 were considered acceptable, with values below 0.10 representing a more stringent standard \citep{hillm2015short}.
+
+To optimize the balance statistics of interest, ASMD, we need to make sure the propensity score estimation models run for a sufficiently large number of iterations. We do this by evaluating whether the maximum ASMD appears to be decreasing after 10,000 iterations. Figure \ref{fig:diag1} shows the relationship between number of iteration and balance measurement, maximum ASMD. In this analysis, it appears that each of the maximum ASMD is optimized with substantially fewer than 10,000 iterations.
+
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=\textwidth]{psdiag1.eps}
+\caption{{\bf GBM iterations and balance measure}}
+\label{fig.diag1}
+\end{center}
+\end{figure}
+
+Propensity score analyses assume that each experiment unit has a non-zero probability of receiving each treatment \citep{mnps2015}. We can examine the overlap of the empirical propensity score distribution in order to assess the plausibility of this assumption. As shown in the Figure \ref{fig:diag2}, the overlap assumption generally seems to be met. 
+
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=\textwidth]{psdiag2.eps}
+\caption{{\bf Propensity score overlapping assumption}}
+\label{fig.diag2}
+\end{center}
+\end{figure}
+
+Figure \ref{fig:diag3} and Table \ref{tab:psbalance} summarizes balance statistics from propensity score estimation with GBM model. Figure \ref{fig:diag3} provides comparisons of the ASMD between each groups, before and after weighting. As shown in the Figure \ref{fig:diag3}, the $ASMDs<0.25$ criterion is easily met for all pretreatment variables after propensity score weighting. 
+
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=\textwidth]{psdiag3.eps}
+\caption{{\bf Propensity score balancing}}
+\label{fig.diag3}
+\end{center}
+\end{figure}
+
+Table \ref{tab:psbalance} shows that few variables' ASMDs exceeds 0.10 threshold after weighting but non of them exceed 0.1260. 
+
+Although the observed covariates balanced relatively well, it is possible that unobserved differences between each two of three groups could still remain.
+
+
 {\footnotesize
 \begin{center}
 \label{tab:psbalance}
@@ -396,6 +461,11 @@ Workers Compensation                & 0.0137    & 0.0155      & 0.0112      \\
 \caption{Propensity Score Balance Statistics}\\
 
 \hline \hline
+Variable                               & \multicolumn{1}{p{3cm}}{\centering Max Std. ES \\(UNW)} & \multicolumn{1}{p{3cm}}{\centering Max Std. ES \\(PSW)} \\  \hline \endfirsthead
+
+\caption*{Propensity Score Balance Statistics (Cont'd)}\\
+
+\hline 
 Variable                               & \multicolumn{1}{p{3cm}}{\centering Max Std. ES \\(UNW)} & \multicolumn{1}{p{3cm}}{\centering Max Std. ES \\(PSW)} \\  \hline \endhead
 
 \hline \endfoot

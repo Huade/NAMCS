@@ -1,4 +1,4 @@
-\begin{thebibliography}{35}
+\begin{thebibliography}{37}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -59,6 +59,11 @@ Melinda~Beeuwkes Buntin, Matthew~F. Burke, Michael~C. Hoaglin, and David
   literature shows predominantly positive results.
 \newblock \emph{Health Affairs}, 30\penalty0 (3):\penalty0 464--471, 2011.
 
+\bibitem[Burgette et~al.(2015)Burgette, Griffin, and McCaffrey]{mnps2015}
+Lane Burgette, Beth~Ann Griffin, and Dan McCaffrey.
+\newblock Propensity scores for multiple treatments: A tutorial for the mnps
+  function in the twang package, 2015.
+
 \bibitem[Chaudhry et~al.(2006)Chaudhry, Wang, Wu, Maglione, Mojica, Roth,
   Morton, and Shekelle]{Chaudhry2006}
 Basit Chaudhry, Jerome Wang, Shinyi Wu, Margaret Maglione, Walter Mojica,
@@ -115,6 +120,13 @@ Shenyang Guo and Mark~W Fraser.
 \newblock \emph{Propensity score analysis: Statistical methods and
   applications}, volume~11.
 \newblock Sage Publications, 2014.
+
+\bibitem[Haviland et~al.(2007)Haviland, Nagin, and
+  Rosenbaum]{haviland2007combining}
+Amelia Haviland, Daniel~S Nagin, and Paul~R Rosenbaum.
+\newblock Combining propensity score matching and group-based trajectory
+  analysis in an observational study.
+\newblock \emph{Psychological methods}, 12\penalty0 (3):\penalty0 247, 2007.
 
 \bibitem[HHS(2013)]{hhs_recovery}
 HHS.

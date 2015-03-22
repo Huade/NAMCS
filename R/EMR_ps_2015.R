@@ -97,6 +97,21 @@ physician.ps.mnps <- mnps(EMEDREC ~ OWNS + MSA + MANCAREC + SPECR+ SOLO+
                           sampw = physician_cc$PHYSWT,
                           verbose = F)
 
+# Generate diagnostic plots
+summary(physician.ps.mnps)
+pdf("Figures/psdiag1.pdf", width = 10, height =5)
+plot(physician.ps.mnps, plots=1)
+dev.off()
+
+pdf("Figures/psdiag2.pdf")
+plot(physician.ps.mnps, plots=2)
+dev.off()
+
+pdf("Figures/psdiag3.pdf", width = 10, height =5)
+plot(physician.ps.mnps, plots=3)
+dev.off()
+
+# Get propensity score weight
 physician_cc$psweight <- get.weights(physician.ps.mnps, stop.method="es.max")
 save(physician_cc,file="Data/physician_cc_w_psw.Rda")
 

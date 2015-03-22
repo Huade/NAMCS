@@ -1,0 +1,26 @@
+The goal of propensity score weighting is to have similar covariate distribution (or "balance") in the weighted treated and control groups. We relied on the absolute standardized mean difference (ASMD, also referred to as the absolute standardized bias or the Effect Size) to assess the balance. The ASMD $d_x$ was calculated as the absolute difference in means between two different groups, divided by the square root of the average sample variances for this two groups using the following formula \citep{haviland2007combining}:
+
+\begin{equation*}
+d_x =frac{|\Delta M_x|}{S_x}
+\end{equation*}
+
+where $\Delta M_x$ is the difference of means between two groups, $S_x$ is calculated by: 
+
+\begin{equation*}
+S_x=\sqrt{\frac{S^2_{xt}+S^2_{xp}}}{2}
+\end{equation*}
+
+where $S^2_{xt}$ and $S^2_{xp}$ denotes the standard deviations of variable $x$ in group $t$ and group $p$.
+
+In our analysis, each character has three ASMD statistics, including the difference between non-adopter and fully adaptor, the difference between non-adopter and partially adopted and the difference between partially adopted and fully adopted. We collapse these three statistics to covariate level for comparison propose. Hill et al. summarised that ASMDs less than 0.25 were considered acceptable, with values below 0.10 representing a more stringent standard \cite{hillm2015short}.
+
+To optimize the balance statistics of interest, ASMD, we need to make sure the propensity score estimation models run for a sufficiently large number of iterations. We do this by evaluating whether the maximum ASMD appears to be decreasing after 10,000 iterations. In this analysis, it appears that each of the maximum ASMD is optimized with substantially fewer than 10,000 iterations.
+
+Propensity score analyses assume that each experiment unit has a non-zero probability of receiving each treatment \citep{mnps2015}. We can examine the overlap of the empirical propensity score distribution in order to assess the plausibility of this assumption. As shown in the Figure \ref{fig:diag2}, the overlap assumption generally seems to be met. 
+
+Figure \ref{fig:diag3} and Table \ref{tab:psbalance} summarizes balance statistics from propensity score estimation with GBM model. Figure \ref{fig:diag3} provides comparisons of the ASMD between each groups, before and after weighting. As shown in the Figure \ref{fig:diag3}, the $ASMDs<0.25$ criterion is easily met for all pretreatment variables after propensity score weighting. 
+
+Table \ref{tab:psbalance} shows that few variables' ASMDs exceeds 0.10 threshold after weighting but non of them exceed 0.1260. 
+
+Although the observed covariates balanced relatively well, it is possible that unobserved differences between each two of three groups could still remain.
+

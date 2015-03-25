@@ -402,7 +402,8 @@ Weighted Counts                     & 480,645   & 314,233     & 159,030     \\
 
 
 \chapter{Propensity score balance}
-The goal of propensity score weighting is to have similar covariate distribution (or "balance") in the weighted treated and control groups. We relied on the absolute standardized mean difference (ASMD, also referred to as the absolute standardized bias or the Effect Size) to assess the balance. The ASMD $d_x$ was calculated as the absolute difference in means between two different groups, divided by the square root of the average sample variances for this two groups using the following formula \citep{haviland2007combining}:
+\section{Measuring propensity score balance}
+The goal of propensity score weighting is to have similar covariate distribution (or ``balance'') in the weighted treated and control groups. We relied on the absolute standardized mean difference (ASMD, also referred to as the absolute standardized bias or the Effect Size) to assess the balance. The ASMD $d_x$ was calculated as the absolute difference in means between two different groups, divided by the square root of the average sample variances for this two groups using the following formula \citep{haviland2007combining}:
 
 \begin{equation*}
 d_x =\frac{|\Delta M_x|}{S_x}
@@ -416,9 +417,11 @@ S_x=\sqrt{\frac{S^2_{xt}+S^2_{xp}}{2}}
 
 where $S^2_{xt}$ and $S^2_{xp}$ denotes the standard deviations of variable $x$ in group $t$ and group $p$.
 
-In our analysis, each character has three ASMD statistics, including the difference between non-adopter and fully adaptor, the difference between non-adopter and partially adopted and the difference between partially adopted and fully adopted. We collapse these three statistics to covariate level for comparison propose. Hill et al. summarised that ASMDs less than 0.25 were considered acceptable, with values below 0.10 representing a more stringent standard \citep{hillm2015short}.
+Hill et al. summarised that ASMDs less than 0.25 were considered acceptable, with values below 0.10 representing a more stringent standard \citep{hillm2015short}.
 
-To optimize the balance statistics of interest, ASMD, we need to make sure the propensity score estimation models run for a sufficiently large number of iterations. We do this by evaluating whether the maximum ASMD appears to be decreasing after 10,000 iterations. Figure \ref{fig:diag1} shows the relationship between number of iteration and balance measurement, maximum ASMD. In this analysis, it appears that each of the maximum ASMD is optimized with substantially fewer than 10,000 iterations.
+\section{Diagnostics of propensity score estimation and balance}
+
+As discussed in Chapter 4.3, we use the GBM model to balance pretreatment variables. To optimize the balance statistics of interest, ASMD, we need to make sure the propensity score estimation models run for a sufficiently large number of iterations. We can assess this optimization process by evaluating the relationship between number of iterations and the balance measurement, maximum ASMD, of weighted data. We can have an optimized-balance weighted data if and only if there are sufficient iterations to find global minimum point. In other words, the balance statistic should decrease initially, but should increase after reaching the global minimum point before the end of iteration. Figure \ref{fig:diag1} shows the relationship between number of iteration and balance measurement, maximum ASMD. As shown in Figure \ref{fig:diag1}, it appears that each of the maximum ASMD is optimized with substantially fewer than 10,000 iterations.
 
 \begin{figure}[!htb]
 \begin{center}
@@ -428,7 +431,7 @@ To optimize the balance statistics of interest, ASMD, we need to make sure the p
 \end{center}
 \end{figure}
 
-Propensity score analyses assume that each experiment unit has a non-zero probability of receiving each treatment \citep{mnps2015}. We can examine the overlap of the empirical propensity score distribution in order to assess the plausibility of this assumption. As shown in the Figure \ref{fig:diag2}, the overlap assumption generally seems to be met. 
+One key assumption of propensity score analysis is the overlapping assumption. Propensity score analyses assume that each experiment unit has a non-zero probability of receiving each treatment \citep{mnps2015}. We can examine the plausibility of this assumption by evaluating the overlap of the empirical propensity score distribution. As shown in the Figure \ref{fig:diag2}, the overlap assumption generally seems to be met for each treatment group. 
 
 \begin{figure}[!htb]
 \begin{center}
@@ -448,7 +451,7 @@ Figure \ref{fig:diag3} and Table \ref{tab:psbalance} summarizes balance statisti
 \end{center}
 \end{figure}
 
-Table \ref{tab:psbalance} shows that few variables' ASMDs exceeds 0.10 threshold after weighting but non of them exceed 0.1260. 
+In our analysis, each treatment variable of interest has three ASMD statistics, including the difference between non-adopter and fully adaptor, the difference between non-adopter and partially adopted and the difference between partially adopted and fully adopted. We collapse these three statistics to covariate level for comparison propose. Table \ref{tab:psbalance} shows that few variables' ASMDs exceeds 0.10 threshold after weighting but non of them exceed 0.1260. 
 
 Although the observed covariates balanced relatively well, it is possible that unobserved differences between each two of three groups could still remain.
 

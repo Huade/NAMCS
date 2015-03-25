@@ -111,6 +111,12 @@ pdf("Figures/psdiag3.pdf", width = 10, height =5)
 plot(physician.ps.mnps, plots=3)
 dev.off()
 
+source("R/plot.mnps.R")
+source("R/displayPlots.R")
+pdf("Figures/psdiag3_individual.pdf", width=10, height=16.8)
+plot.mnps(physician.ps.mnps,pairwiseMax=F, plots=3, figureRows=1)
+dev.off()
+
 # Get propensity score weight
 physician_cc$psweight <- get.weights(physician.ps.mnps, stop.method="es.max")
 save(physician_cc,file="Data/physician_cc_w_psw.Rda")

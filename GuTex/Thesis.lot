@@ -1,3 +1,5 @@
-\contentsline {table}{\numberline {5.1}{Descriptive Statistics (Nominal and Ordinal Variables)}}{19}
-\contentsline {table}{\numberline {5.2}{Descriptive Statistics (Continuous Variables)}}{24}
-\contentsline {table}{\numberline {6.1}{Propensity Score Balance Statistics}}{28}
+\contentsline {table}{\numberline {4.1}{Descriptive Statistics (Nominal and Ordinal Variables)}}{19}
+\contentsline {table}{\numberline {4.2}{Descriptive Statistics (Continuous Variables)}}{24}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Effective sample size by treatment group}}{31}
+\contentsline {table}{\numberline {5.2}{Propensity Score Balance Statistics}}{32}
+\contentsline {table}{\numberline {6.1}{\ignorespaces Estimated effect of EMR adoption with multinomial propensity score weighted OLS models}}{36}

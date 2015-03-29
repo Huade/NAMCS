@@ -1,7 +1,6 @@
 \contentsline {pseudochapter}{Acknowledgments}{v}
-\contentsline {pseudochapter}{Preface}{vi}
-\contentsline {pseudochapter}{List of Figures}{viii}
-\contentsline {pseudochapter}{List of Tables}{ix}
+\contentsline {pseudochapter}{List of Figures}{vii}
+\contentsline {pseudochapter}{List of Tables}{viii}
 \par \vspace {6\p@ }
 \noindent {\sc Chapter}
 \vspace {-3\p@ }
@@ -12,15 +11,24 @@
 \contentsline {section}{\numberline {2.3}Effect of EHR on healthcare efficiency and quality}{4}
 \contentsline {subsection}{\numberline {2.3.1}Physicians' financial incentives on EHR}{5}
 \contentsline {section}{\numberline {2.4}Contribution to literature}{6}
-\contentsline {chapter}{\numberline {3}Data source}{8}
-\contentsline {chapter}{\numberline {4}Analysis Plan}{10}
-\contentsline {section}{\numberline {4.1}Estimating treatment effect with observational data}{10}
-\contentsline {section}{\numberline {4.2}Assumption of causal inference}{10}
-\contentsline {section}{\numberline {4.3}Propensity score estimation}{12}
-\contentsline {section}{\numberline {4.4}Propensity score weighted regression model}{15}
-\contentsline {section}{\numberline {4.5}Sensitivity tests}{16}
-\contentsline {chapter}{\numberline {5}Descriptive Statistics}{17}
-\contentsline {section}{\numberline {5.1}Nominal and Ordinal Variables}{17}
-\contentsline {section}{\numberline {5.2}Continuous variables}{22}
-\contentsline {chapter}{\numberline {6}Propensity score balance}{25}
-\contentsline {pseudochapter}{Bibliography}{32}
+\contentsline {chapter}{\numberline {3}Analysis Plan}{8}
+\contentsline {section}{\numberline {3.1}Data}{8}
+\contentsline {section}{\numberline {3.2}Estimating treatment effect with observational data}{9}
+\contentsline {section}{\numberline {3.3}Assumption of causal inference}{10}
+\contentsline {section}{\numberline {3.4}Propensity score estimation}{12}
+\contentsline {section}{\numberline {3.5}Propensity score weighted regression model}{14}
+\contentsline {section}{\numberline {3.6}Sensitivity tests}{15}
+\contentsline {chapter}{\numberline {4}Descriptive Statistics}{17}
+\contentsline {section}{\numberline {4.1}Nominal and ordinal variables}{17}
+\contentsline {section}{\numberline {4.2}Continuous variables}{22}
+\contentsline {chapter}{\numberline {5}Propensity score balance}{25}
+\contentsline {section}{\numberline {5.1}Measuring propensity score balance}{25}
+\contentsline {section}{\numberline {5.2}Graphic diagnostics of propensity score estimation and balance}{26}
+\contentsline {subsection}{\numberline {5.2.1}Sufficient iterations of GBM model}{26}
+\contentsline {subsection}{\numberline {5.2.2}Overlapping assumption satisfied}{26}
+\contentsline {subsection}{\numberline {5.2.3}Propensity score balance achieved}{27}
+\contentsline {section}{\numberline {5.3}Tabular assessments of balance}{30}
+\contentsline {chapter}{\numberline {6}Regression results}{35}
+\contentsline {chapter}{\numberline {7}Appendix}{37}
+\contentsline {section}{\numberline {7.1}Sensitivity test results}{37}
+\contentsline {pseudochapter}{Bibliography}{38}

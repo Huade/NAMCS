@@ -1,4 +1,4 @@
-\begin{thebibliography}{38}
+\begin{thebibliography}{41}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -132,6 +132,10 @@ Amelia Haviland, Daniel~S Nagin, and Paul~R Rosenbaum.
   analysis in an observational study.
 \newblock \emph{Psychological methods}, 12\penalty0 (3):\penalty0 247, 2007.
 
+\bibitem[{Health Information Technology Resource Center}(2012)]{hitrc_edu}
+{Health Information Technology Resource Center}.
+\newblock Providing patients with patient-specific education resources, 2012.
+
 \bibitem[HHS(2013)]{hhs_recovery}
 HHS.
 \newblock Recovery act-funded programs, 2013.
@@ -189,6 +193,13 @@ Jared~K Lunceford and Marie Davidian.
 \newblock \emph{Statistics in medicine}, 23\penalty0 (19):\penalty0 2937--2960,
   2004.
 
+\bibitem[Makoul et~al.(2001)Makoul, Curry, and Tang]{makoul2001use}
+Gregory Makoul, Raymond~H Curry, and Paul~C Tang.
+\newblock The use of electronic medical records communication patterns in
+  outpatient encounters.
+\newblock \emph{Journal of the American Medical Informatics Association},
+  8\penalty0 (6):\penalty0 610--615, 2001.
+
 \bibitem[McCaffrey et~al.(2004)McCaffrey, Ridgeway, and
   Morral]{mccaffrey2004propensity}
 Daniel~F McCaffrey, Greg Ridgeway, and Andrew~R Morral.
@@ -211,6 +222,15 @@ Esther~F Myers and Sharon~M Heffner.
   compliance.
 \newblock \emph{Journal of the American Dietetic Association}, 101\penalty0
   (8):\penalty0 935--939, 2001.
+
+\bibitem[Overhage et~al.(2001)Overhage, Perkins, Tierney, and
+  McDonald]{overhage2001controlled}
+J~Marc Overhage, Susan Perkins, William~M Tierney, and Clement~J McDonald.
+\newblock Controlled trial of direct physician order entry effects on
+  physicians' time utilization in ambulatory primary care internal medicine
+  practices.
+\newblock \emph{Journal of the American Medical Informatics Association},
+  8\penalty0 (4):\penalty0 361--371, 2001.
 
 \bibitem[Poissant et~al.(2005)Poissant, Pereira, Tamblyn, and
   Kawasumi]{poissant2005impact}

@@ -11,7 +11,7 @@
 \usepackage{cite}
 \usepackage{longtable}
 \usepackage{dcolumn}
-\usepackage{booktabs}
+\usepackage{siunitx}
 \usepackage{lscape}
 
 % If there are any other \usepackage commands, put them here.
@@ -216,6 +216,7 @@ Two common boost algorithms for propensity score estimation are Stata's \textit{
 To assess the quality of propensity score estimation, we used diagnostics to check the balance after propensity score weighting. The goal of propensity score estimation and weighting is to have similar covariate distributions in the matched treated and control groups. We use both numerical and graphic summaries of balance to evaluate the quality of propensity score weighting. We relied primarily on the absolute standardized mean difference (ASMD, also referred to as the Effect Size or the absolute standardized bias) to assess the balance after weighting. 
 
 \section{Propensity score weighted regression model}
+\label{sec:model}
 The essential feature of a propensity score weighting model is the treatment of estimated propensity scores as sampling weights to perform a weighted outcome analysis. Propensity score weighting has two advantages. On the one hand, propensity score weighting permits most types of multivariate outcome analysis and does not require an outcome variable that is continuous or normally distributed. On the other hand, unlike matching techniques, the weighting method maintains sample size \citep{guo2014propensity}.
 
 With propensity score weighting, the control of selection biases is achieved through weighting and counterfactuals are estimated through a regression model. When the dimension of pre-treatment variables $\textbf{X}$ is large, it is difficult to ensure both the regression model is correct, and a consistent estimator will be obtained \citep{rubin1997estimating}. Also, the estimated modeling leads to extrapolation if the distribution of some confounders do not overlap with each other, since the effect is primarily determined by treated subjects in one region of the $\textbf{X}$ space and by control subjects in another. In contrast, the regression model with propensity score weighting largely circumvents this since pretreatment variables $\textbf{X}$ and treatment group variable $W$ should be approximately independent after propensity score estimation. By adding covariates into the regression adjustment, we will obtain ``double robustness'' that further improves the precision of estimators \citep{lunceford2004stratification}. We used an estimate of the propensity score as weights, and used these weights in a weighted regression of the potential outcome on treatment and observed covariates.
@@ -223,7 +224,7 @@ With propensity score weighting, the control of selection biases is achieved thr
 We estimated a separate propensity score weighted regression model for each outcome. We included covariates that have maximum ASMD greater than 0.1. 
 
 \section{Sensitivity tests}
-
+\label{sec:spec}
 Finally, we conducted sensitivity tests for the following four cases.
 
 First, we tested the robustness of the result with different covariate controls in multinomial propensity score weighted regression models. We implemented this in two cases: (1) including only treatment variables with no covariates; (2) including all possible covariates and the treatment assignment variable.
@@ -250,11 +251,12 @@ Another characteristic of physician practices that is of interest is the number 
 Physician specialty has statistically significant relationship with the adoption of the EHR system ($p < 0.0001$). Among all physician specialties, general and family practices are the most likely to fully adopt the EHR system. 43.17\% of physicians who are in general or family practice reported they had fully adopted the EHR system. Ophthalmologists are least likely to adopt the EHR system. More than half of ophthalmologists reported they have not adopted the EHR. Among all other physician specialities, oncology (38.36\%), internal medicine (37.76\%), urology (37.57\%), and orthopedic surgery (37.09\%) also have a higher likelihood of full EHR adoption.
  
 Compared with group practice, solo practice is also less likely to fully adopt an EHR system. Over half of group practices fully or partially adopted the EHR system, while less than 40\% of solo practices adopted the EHR system. 
-{\footnotesize 
+{\footnotesize
 \begin{center}
 
 
 \LTcapwidth=\textwidth
+\renewcommand*{\arraystretch}{0.6}
 \begin{longtable}{lccc}
 \caption{Descriptive Statistics (Nominal and Ordinal Variables)}\\
 \label{tab:desc1}\\
@@ -351,7 +353,7 @@ Physician practices with different EHR adoption status tend to have different pa
 {\footnotesize
 \begin{center}
 \label{tab:desc2}
-
+\renewcommand*{\arraystretch}{0.6}
 \begin{longtable}{lccc}
 \caption{Descriptive Statistics (Continuous Variables)}\\
 
@@ -484,7 +486,8 @@ Although the observed covariates balanced relatively well, it is possible that u
 \begin{center}
 \label{tab:psbalance}
 
-\begin{longtable}{lcc}
+\renewcommand*{\arraystretch}{0.6}
+\begin{longtable}{lSS[table-format = 0.4]}
 \caption{Propensity Score Balance Statistics}\\
 
 \hline \hline
@@ -496,7 +499,7 @@ Variable                               & \multicolumn{1}{p{3cm}}{\centering Max 
 Variable                               & \multicolumn{1}{p{3cm}}{\centering Max Std. ES \\(UNW)} & \multicolumn{1}{p{3cm}}{\centering Max Std. ES \\(PSW)} \\  \hline \endhead
 
 \hline  \multicolumn{3}{r}{\textit{table continues}}\\ \endfoot
-\hline \hline  \textit{Note:} $^{*}$ Std. ES $>0.1000$ \endlastfoot
+\hline \hline  \textit{Note:} $^{*}$ Std. ES $>0.1000$, $^{***}$ Std. ES $>$0.2500 \endlastfoot
 
 
                                        &                          &                           \\
@@ -559,11 +562,38 @@ Self-pay                               & 0.1860$^{*}$               & 0.0727    
 \end{longtable}
 \end{center}}
 
-\chapter{Regression results}
+\chapter{Results and Discussion}
+\section{Model specification}
+In our analysis, we use 8 models to assess the effect of EHR adoption on patient-specific education prescription, time utilization, and returned appointment rate. As discussed in Chapter \ref{sec:model} and Chapter \ref{sec:spec}, we mainly focus on results in model (1). Model (1) is a generalized linear regression model weighted by multinomial propensity score and only controlled covariates with ASMD$>$0.1, of each outcome. Model (2) through model (8) serve as sensitivity test of Model (1). 
 
+\section{EHR adoption has a positive effect on health education prescription}
+Table \ref{tab:edu} illustrates the effect of EHR adoption on patient-specific education prescription rate. 
+
+As shown in Model (1), physician practices that have fully adopted the EHR system have statistically significant higher patient-specific health education prescription rate than their counterparts at 90\% confidence level. Physicians are expected to increase patient-specific education prescription by 3.4\% if they fully adopted the EHR system. This result is robust among different regression models with no substantial difference. However, there are no statistically significant relationship between partial EHR adoption and patient-specific education resource prescription. 
+
+Physicians can identify patient-specific education resources through integrated programs with certified EHR technology. The EHR system can use the patient?s demographic characteristics, diagnostics, and medications, or other patient information to suggest education resources that would be of value to the patient \citep{hitrc_edu}. 
+
+There are multiple plausible reasons can explain EHR's positive effect on health education prescription rate. First, certified EHR system automate the process for identifying appropriate education resources to avoid the need for manual searches during the consultation. Second, the EHR incentive program has set patient-specific education as a menu objective. It requires physicians to have at least 10 percent of all unique patients seen by the provider be provided patient-specific education resources in order to receive financial incentive. Third, physicians may use the EHR for shared decision-making and education to improve patient engagement. Physicians can easily share information with patients via patient portal or printouts and encourage patients to play an important role in optimizing their treatment outcomes.
+
+\section{EHR adoption has no effect on time utilization}
+Table \ref{tab:time} demonstrates the estimated effect of EHR adoption on physician-patient interaction time. As shown in Model (1), there are no statistically significant relationship between full or partial EHR adoption and time utilization. The sign of coefficients is mixed among different model specifications.
+
+Similar to physician practices that have fully adopted EHR system, physician practices that partially adopted EHR system also have no statistically significant effect on time utilization. Coefficients have mixed signs among different model specifications.
+
+Many other researchers also concluded the EHR system has a mixed outcome on time utilization \citep{makoul2001use,poissant2005impact}. Several factors contribute mixed time utilization outcome after EHR adoption. First, time efficiency could improve as physicians grew used to the EHR systems. Second, physicians continued to perform certain tasks using paper-based methods, even though, the computer was automatically performing those tasks for them \citep{overhage2001controlled}. Third, computerized order entry system may generate false alter, which further increase documentation and interaction time.
+
+\section{EHR adoption has no robust effect on returned appointment rate}
+
+Table \ref{tab:return} shows the estimated effect of EHR adoption on returned appointment rate. Physician practices that have fully adopted EHR system have fewer returned appointments. The returned appointment is expected to decrease 0.31\% if the physician practices have full EHR adoption. 
+
+There are no statistically significant relationship between physician practices that have partially adopted the EHR system and returned appointment rate. The sign of coefficients shows that partially EHR adoption in physician practices \textit{may} reduce returned appointment rate, but the coefficient is not statistically significant.
+
+Although Model (1) suggests there are statistically significant relationship between full EHR adoption and returned appointment rate, it is not robust with different model specifications.  As shown in Model (4) and Model (7), there are no statistically significant relationship between EHR adoption and returned appointment rate with different model specification.
+
+% More discussion here
 \begin{landscape}
 \begin{table}[p] \centering 
-  \caption{Estimated effect of EMR adoption on patient-specific education prescription rate} 
+  \caption{Estimated effect of EHR adoption on patient-specific education prescription rate} 
   \label{tab:edu} 
 \footnotesize 
 \begin{tabular}{@{\extracolsep{-15pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
@@ -598,7 +628,7 @@ F Statistic &  &  &  &  &  &  & \multicolumn{1}{c}{2.942$^{***}$ } & \multicolum
 &  &  &  &  &  &  & \multicolumn{1}{c}{(df = 13; 2278)} & \multicolumn{1}{c}{(df = 13; 1226)} \\ 
 \hline 
 \hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{8}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+ \multicolumn{9}{l}{\textit{Note:Standard errors are reported in parentheses.} $^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
 \end{tabular} 
 \end{table} 
 \end{landscape}
@@ -608,7 +638,7 @@ F Statistic &  &  &  &  &  &  & \multicolumn{1}{c}{2.942$^{***}$ } & \multicolum
 % Requires LaTeX packages: dcolumn
 \begin{landscape} 
 \begin{table}[p] \centering 
-  \caption{Estimated effect of EMR adoption on patient-physician interaction time} 
+  \caption{Estimated effect of EHR adoption on patient-physician interaction time} 
   \label{tab:time} 
 \footnotesize 
 \begin{tabular}{@{\extracolsep{-15pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
@@ -643,7 +673,8 @@ F Statistic &  &  &  &  &  &  & \multicolumn{1}{c}{9.895$^{***}$} & \multicolumn
  &  &  &  &  &  &  & \multicolumn{1}{c}{(df = 13; 2278)} & \multicolumn{1}{c}{(df = 13; 1226)} \\ 
 \hline 
 \hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{8}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+ \multicolumn{9}{l}{\textit{Note:Standard errors are reported in parentheses.} $^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+
 \end{tabular} 
 \end{table}
 \end{landscape}
@@ -653,7 +684,7 @@ F Statistic &  &  &  &  &  &  & \multicolumn{1}{c}{9.895$^{***}$} & \multicolumn
 % Requires LaTeX packages: dcolumn 
 \begin{landscape} 
 \begin{table}[p] \centering 
-  \caption{Estimated effect of EMR adoption on returned appointment rate} 
+  \caption{Estimated effect of EHR adoption on returned appointment rate} 
   \label{tab:return} 
 \footnotesize 
 \begin{tabular}{@{\extracolsep{-15pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
@@ -661,7 +692,6 @@ F Statistic &  &  &  &  &  &  & \multicolumn{1}{c}{9.895$^{***}$} & \multicolumn
 \hline \\[-1.8ex] 
  & \multicolumn{8}{c}{\textit{Dependent variable: returned appointment rate}} \\ 
 \cline{2-9} 
- & \multicolumn{1}{c}{\textit{normal}} & \multicolumn{1}{c}{\textit{logistic}} & \multicolumn{4}{c}{\textit{normal}} & \multicolumn{2}{c}{\textit{}} \\ 
 \\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} & \multicolumn{1}{c}{(5)} & \multicolumn{1}{c}{(6)} & \multicolumn{1}{c}{(7)} & \multicolumn{1}{c}{(8)}\\ 
 \hline \\[-1.8ex] 
 Full EHR & -0.031^{**} & -0.150^{**} & -0.035^{**} & -0.020 & -0.030^{**} &  & -0.011 &  \\ 
@@ -689,13 +719,18 @@ F Statistic &  &  &  &  &  &  & \multicolumn{1}{c}{3.251$^{***}$} & \multicolumn
 F Statistic &  &  &  &  &  &  & \multicolumn{1}{c}{(df = 13; 2278)} & \multicolumn{1}{c}{(df = 13; 1226)} \\ 
 \hline 
 \hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{8}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+ \multicolumn{9}{l}{\textit{Note:Standard errors are reported in parentheses.} $^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+
 \end{tabular} 
 \end{table} 
 \end{landscape}
 
+\chapter{Policy Implications}
+Good quality information materials, both printed and electronic, can improve patients' knowledge and understanding of their condition, including those with low health literacy.
 
+\chapter{Limitations}
 
+\chapter{Conclusions}
 
 \newpage
 \bibliographystyle{plainnat}

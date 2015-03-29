@@ -3,44 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Thesis.aux
 The style file: plainnat.bst
 Database file #1: EHR.bib
-You've used 38 entries,
+You've used 41 entries,
             2773 wiz_defined-function locations,
-            821 strings with 12772 characters,
-and the built_in function-call counts, 18594 in all, are:
-= -- 1568
-> -- 1307
-< -- 17
-+ -- 446
-- -- 405
-* -- 1641
-:= -- 2924
-add.period$ -- 116
-call.type$ -- 38
-change.case$ -- 248
-chr.to.int$ -- 35
-cite$ -- 76
-duplicate$ -- 724
-empty$ -- 1408
-format.name$ -- 453
-if$ -- 3813
+            833 strings with 13303 characters,
+and the built_in function-call counts, 19939 in all, are:
+= -- 1686
+> -- 1386
+< -- 18
++ -- 473
+- -- 429
+* -- 1756
+:= -- 3129
+add.period$ -- 124
+call.type$ -- 41
+change.case$ -- 265
+chr.to.int$ -- 38
+cite$ -- 82
+duplicate$ -- 781
+empty$ -- 1522
+format.name$ -- 480
+if$ -- 4091
 int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 29
-newline$ -- 200
-num.names$ -- 152
-pop$ -- 491
+missing$ -- 31
+newline$ -- 214
+num.names$ -- 164
+pop$ -- 526
 preamble$ -- 1
-purify$ -- 211
+purify$ -- 225
 quote$ -- 0
-skip$ -- 604
+skip$ -- 649
 stack$ -- 0
-substring$ -- 592
-swap$ -- 43
+substring$ -- 648
+swap$ -- 46
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 408
+type$ -- 441
 warning$ -- 0
-while$ -- 145
+while$ -- 158
 width$ -- 0
-write$ -- 493
+write$ -- 529

@@ -1,0 +1,33 @@
+\contentsline {pseudochapter}{Acknowledgments}{v}
+\contentsline {pseudochapter}{List of Figures}{vii}
+\contentsline {pseudochapter}{List of Tables}{viii}
+\par \vspace {6\p@ }
+\noindent {\sc Chapter}
+\vspace {-3\p@ }
+\contentsline {chapter}{\numberline {1}Introduction (working)}{1}
+\contentsline {chapter}{\numberline {2}Literature review}{2}
+\contentsline {section}{\numberline {2.1}Background}{2}
+\contentsline {section}{\numberline {2.2}Effect of EHR on health expenditure}{3}
+\contentsline {section}{\numberline {2.3}Effect of EHR on healthcare efficiency and quality}{4}
+\contentsline {subsection}{\numberline {2.3.1}Physicians' financial incentives on EHR}{5}
+\contentsline {section}{\numberline {2.4}Contribution to literature}{6}
+\contentsline {chapter}{\numberline {3}Analysis Plan}{7}
+\contentsline {section}{\numberline {3.1}Data}{7}
+\contentsline {section}{\numberline {3.2}Estimating treatment effect with observational data}{8}
+\contentsline {section}{\numberline {3.3}Assumption of causal inference}{9}
+\contentsline {section}{\numberline {3.4}Propensity score estimation}{11}
+\contentsline {section}{\numberline {3.5}Propensity score weighted regression model}{13}
+\contentsline {section}{\numberline {3.6}Sensitivity tests}{14}
+\contentsline {chapter}{\numberline {4}Descriptive Statistics}{15}
+\contentsline {section}{\numberline {4.1}Nominal and ordinal variables}{15}
+\contentsline {section}{\numberline {4.2}Continuous variables}{19}
+\contentsline {chapter}{\numberline {5}Propensity score balance}{22}
+\contentsline {section}{\numberline {5.1}Measuring propensity score balance}{22}
+\contentsline {section}{\numberline {5.2}Graphic diagnostics of propensity score estimation and balance}{23}
+\contentsline {subsection}{\numberline {5.2.1}Sufficient iterations of GBM model}{23}
+\contentsline {subsection}{\numberline {5.2.2}Overlapping assumption satisfied}{24}
+\contentsline {subsection}{\numberline {5.2.3}Propensity score balance achieved}{24}
+\contentsline {section}{\numberline {5.3}Tabular assessments of balance}{27}
+\contentsline {chapter}{\numberline {6}Regression results}{31}
+\contentsline {section}{\numberline {6.1}Model specification}{31}
+\contentsline {section}{\numberline {6.2}EHR has positive effect on health education prescription}{31}

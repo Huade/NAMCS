@@ -1,6 +1,6 @@
 \contentsline {pseudochapter}{Acknowledgments}{v}
-\contentsline {pseudochapter}{List of Figures}{vii}
-\contentsline {pseudochapter}{List of Tables}{viii}
+\contentsline {pseudochapter}{List of Figures}{viii}
+\contentsline {pseudochapter}{List of Tables}{ix}
 \par \vspace {6\p@ }
 \noindent {\sc Chapter}
 \vspace {-3\p@ }
@@ -20,13 +20,20 @@
 \contentsline {section}{\numberline {3.6}Sensitivity tests}{15}
 \contentsline {chapter}{\numberline {4}Descriptive Statistics}{17}
 \contentsline {section}{\numberline {4.1}Nominal and ordinal variables}{17}
-\contentsline {section}{\numberline {4.2}Continuous variables}{22}
-\contentsline {chapter}{\numberline {5}Propensity score balance}{25}
-\contentsline {section}{\numberline {5.1}Measuring propensity score balance}{25}
-\contentsline {section}{\numberline {5.2}Graphic diagnostics of propensity score estimation and balance}{26}
-\contentsline {subsection}{\numberline {5.2.1}Sufficient iterations of GBM model}{26}
-\contentsline {subsection}{\numberline {5.2.2}Overlapping assumption satisfied}{26}
-\contentsline {subsection}{\numberline {5.2.3}Propensity score balance achieved}{27}
-\contentsline {section}{\numberline {5.3}Tabular assessments of balance}{30}
-\contentsline {chapter}{\numberline {6}Regression results}{35}
-\contentsline {pseudochapter}{Bibliography}{39}
+\contentsline {section}{\numberline {4.2}Continuous variables}{21}
+\contentsline {chapter}{\numberline {5}Propensity score balance}{24}
+\contentsline {section}{\numberline {5.1}Measuring propensity score balance}{24}
+\contentsline {section}{\numberline {5.2}Graphic diagnostics of propensity score estimation and balance}{25}
+\contentsline {subsection}{\numberline {5.2.1}Sufficient iterations of GBM model}{25}
+\contentsline {subsection}{\numberline {5.2.2}Overlapping assumption satisfied}{25}
+\contentsline {subsection}{\numberline {5.2.3}Propensity score balance achieved}{26}
+\contentsline {section}{\numberline {5.3}Tabular assessments of balance}{29}
+\contentsline {chapter}{\numberline {6}Results and Discussion}{33}
+\contentsline {section}{\numberline {6.1}Model specification}{33}
+\contentsline {section}{\numberline {6.2}EHR adoption has a positive effect on health education prescription}{33}
+\contentsline {section}{\numberline {6.3}EHR adoption has no effect on time utilization}{34}
+\contentsline {section}{\numberline {6.4}EHR adoption has no robust effect on returned appointment rate}{35}
+\contentsline {chapter}{\numberline {7}Policy Implications}{39}
+\contentsline {chapter}{\numberline {8}Limitations}{40}
+\contentsline {chapter}{\numberline {9}Conclusions}{41}
+\contentsline {pseudochapter}{Bibliography}{42}

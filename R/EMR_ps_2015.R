@@ -113,6 +113,7 @@ dev.off()
 
 source("R/plot.mnps.R")
 source("R/displayPlots.R")
+source("R/makePlotDat.R")
 pdf("Figures/psdiag3_individual.pdf", width=10, height=16.8)
 plot.mnps(physician.ps.mnps,pairwiseMax=F, plots=3, figureRows=1)
 dev.off()
@@ -373,6 +374,36 @@ tableContinuous(vars = physician_tableContinuous,
                 font.size = "footnotesize",
                 longtable = F)
 close(desc_cont)
+
+
+## All results
+stargazer(glm_HealthEdu_pct_mnps,glm_HealthEdu_pct_mnps_binomial,
+          glm_HealthEdu_pct_mnps_nocontrol,glm_HealthEdu_pct_mnps_allcontrols,
+          glm_HealthEdu_pct_full,glm_HealthEdu_pct_part,lm_HealthEdu_pct_matched_f,
+          lm_HealthEdu_pct_matched_p,
+          title="Estimated effect of EMR adoption on patient-specific education prescription rate",
+          align=T,
+          no.space = T,
+          font.size = "footnotesize",
+          label = "tab:edu")
+
+stargazer(glm_TIMEMD_mnps,glm_TIMEMD_mnps_poisson,glm_TIMEMD_mnps_nocontrol,
+          glm_TIMEMD_mnps_allcontrols,glm_TIMEMD_full,glm_TIMEMD_part,lm_TIMEMD_matched_f,
+          lm_TIMEMD_matched_p,
+          title="Estimated effect of EMR adoption on patient-physician interaction time",
+          align=T,
+          no.space = T,
+          font.size = "footnotesize",
+          label = "tab:time")
+
+stargazer(glm_RETAPPT_pct_mnps,glm_RETAPPT_pct_mnps_binomial,glm_RETAPPT_pct_mnps_nocontrol,
+          glm_RETAPPT_pct_mnps_allcontrols,glm_RETAPPT_pct_full,glm_RETAPPT_pct_part,
+          lm_RETAPPT_pct_matched_f,lm_RETAPPT_pct_matched_p,
+          title="Estimated effect of EMR adoption on returned appointment rate",
+          align=T,
+          no.space = T,
+          font.size = "footnotesize",
+          label = "tab:return")
 
 ## mnps result
 dep_label_mnps <- c("Health Education","Time Spent with MD",

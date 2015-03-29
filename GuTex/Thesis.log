@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  28 MAR 2015 22:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  29 MAR 2015 11:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -190,6 +190,9 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \@lastruleclass=\count110
 \@thisrulewidth=\dimen129
 )
+(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
 (./guthesis.sty
 Package: guthesis 2010/12/14 Georgetown University thesis style sheet
  (/usr/local/texlive/2014/texmf-dist/tex/latex/base/fontenc.sty
@@ -209,18 +212,18 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
  (./Thesis.aux)
 \openout1 = `Thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
 
 (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -286,25 +289,25 @@ e
 [1
 
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 58.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 59.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 58.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 59.
  [2]
-LaTeX Font Info:    Try loading font information for U+msa on input line 69.
+LaTeX Font Info:    Try loading font information for U+msa on input line 70.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 69.
+LaTeX Font Info:    Try loading font information for U+msb on input line 70.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [3]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 88.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 89.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
@@ -354,41 +357,53 @@ Chapter 5.
 ] <psdiag1.pdf, id=129, 715.08255pt x 368.37325pt>
 File: psdiag1.pdf Graphic file (type pdf)
  <use psdiag1.pdf>
-Package pdftex.def Info: psdiag1.pdf used on input line 413.
+Package pdftex.def Info: psdiag1.pdf used on input line 414.
 (pdftex.def)             Requested size: 433.62pt x 223.3808pt.
 
 <psdiag2.pdf, id=130, 499.58945pt x 483.57764pt>
 File: psdiag2.pdf Graphic file (type pdf)
  <use psdiag2.pdf>
-Package pdftex.def Info: psdiag2.pdf used on input line 424.
+Package pdftex.def Info: psdiag2.pdf used on input line 425.
 (pdftex.def)             Requested size: 433.62pt x 419.74252pt.
  [26]
 [27 <./psdiag1.pdf>] [28 <./psdiag2.pdf>]
 <psdiag3.pdf, id=189, 499.33049pt x 295.27814pt>
 File: psdiag3.pdf Graphic file (type pdf)
  <use psdiag3.pdf>
-Package pdftex.def Info: psdiag3.pdf used on input line 438.
+Package pdftex.def Info: psdiag3.pdf used on input line 439.
 (pdftex.def)             Requested size: 433.62pt x 256.42581pt.
  [29 <./psdiag3.pdf>] <psdiag4.pdf, id=210, 514.64574pt x 438.76321pt>
 File: psdiag4.pdf Graphic file (type pdf)
  <use psdiag4.pdf>
-Package pdftex.def Info: psdiag4.pdf used on input line 448.
+Package pdftex.def Info: psdiag4.pdf used on input line 449.
 (pdftex.def)             Requested size: 433.62pt x 369.69673pt.
 
 [30 <./psdiag4.pdf>] [31] [32] [33] [34]
 Chapter 6.
+[35
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 571--618
+]
+Overfull \hbox (18.19127pt too wide) in paragraph at lines 569--603
  [][] 
  []
 
-[35
+[36]
+Overfull \hbox (18.19127pt too wide) in paragraph at lines 614--648
+ [][] 
+ []
 
-] [36]
-Chapter 7.
-[37
+[37]
+Overfull \hbox (18.19127pt too wide) in paragraph at lines 659--694
+ [][] 
+ []
 
-] (./Thesis.bbl [38
+[38] (./Thesis.bbl [39
+
+
+
+
+
+
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 96--100
@@ -402,18 +417,18 @@ Underfull \hbox (badness 7308) in paragraph at lines 102--106
 ions
  []
 
-[39] [40]
+[40] [41]
 Underfull \hbox (badness 1142) in paragraph at lines 167--176
 \T1/cmr/m/n/12 and David Blu-men-thal.  Use of elec-tronic health records in u.
 s. hos-pi-
  []
 
-[41] [42]) [43] (./Thesis.aux) ) 
+[42] [43]) [44] (./Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 3592 strings out of 493117
- 46769 string characters out of 6135433
- 118281 words of memory out of 5000000
- 6957 multiletter control sequences out of 15000+600000
+ 3608 strings out of 493117
+ 47059 string characters out of 6135433
+ 120471 words of memory out of 5000000
+ 6970 multiletter control sequences out of 15000+600000
  22531 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,15n,26p,1388b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -441,10 +456,10 @@ fb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb><
 /usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb></u
 sr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfxc1200.pfb>
-Output written on Thesis.pdf (51 pages, 969914 bytes).
+Output written on Thesis.pdf (52 pages, 972758 bytes).
 PDF statistics:
- 355 PDF objects out of 1000 (max. 8388607)
- 235 compressed objects within 3 object streams
+ 358 PDF objects out of 1000 (max. 8388607)
+ 237 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -2,4 +2,6 @@
 \contentsline {table}{\numberline {4.2}{Descriptive Statistics (Continuous Variables)}}{24}
 \contentsline {table}{\numberline {5.1}{\ignorespaces Effective sample size by treatment group}}{31}
 \contentsline {table}{\numberline {5.2}{Propensity Score Balance Statistics}}{32}
-\contentsline {table}{\numberline {6.1}{\ignorespaces Estimated effect of EMR adoption with multinomial propensity score weighted OLS models}}{36}
+\contentsline {table}{\numberline {6.1}{\ignorespaces Estimated effect of EMR adoption on patient-specific education prescription rate}}{36}
+\contentsline {table}{\numberline {6.2}{\ignorespaces Estimated effect of EMR adoption on patient-physician interaction time}}{37}
+\contentsline {table}{\numberline {6.3}{\ignorespaces Estimated effect of EMR adoption on returned appointment rate}}{38}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  29 MAR 2015 16:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  30 MAR 2015 12:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -706,24 +706,24 @@ $[]$
 Chapter 6.
 [33
 
-] [34] [35]
-Overfull \hbox (18.19127pt too wide) in paragraph at lines 599--633
- [][] 
- []
-
-[36]
-Overfull \hbox (18.19127pt too wide) in paragraph at lines 644--679
+] [34] [35] [36]
+Overfull \hbox (18.19127pt too wide) in paragraph at lines 602--636
  [][] 
  []
 
 [37]
-Overfull \hbox (18.19127pt too wide) in paragraph at lines 690--725
+Overfull \hbox (18.19127pt too wide) in paragraph at lines 647--682
  [][] 
  []
 
 [38]
+Overfull \hbox (18.19127pt too wide) in paragraph at lines 693--728
+ [][] 
+ []
+
+[39]
 Chapter 7.
-[39
+[40
 
 
 
@@ -733,13 +733,13 @@ Chapter 7.
 
 ]
 Chapter 8.
-[40
+[41
 
 ]
 Chapter 9.
-[41
+[42
 
-] (./Thesis.bbl [42
+] (./Thesis.bbl [43
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 96--100
@@ -753,13 +753,13 @@ Underfull \hbox (badness 7308) in paragraph at lines 102--106
 ions
  []
 
-[43] [44]
+[44] [45]
 Underfull \hbox (badness 1142) in paragraph at lines 171--180
 \T1/cmr/m/n/12 and David Blu-men-thal.  Use of elec-tronic health records in u.
 s. hos-pi-
  []
 
-[45] [46]) [47] (./Thesis.aux) ) 
+[46] [47]) [48] (./Thesis.aux) ) 
 Here is how much of TeX's memory you used:
  11401 strings out of 493117
  233163 string characters out of 6135433
@@ -792,10 +792,10 @@ fb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb><
 /usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb></u
 sr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfxc1200.pfb>
-Output written on Thesis.pdf (56 pages, 978898 bytes).
+Output written on Thesis.pdf (57 pages, 980309 bytes).
 PDF statistics:
- 371 PDF objects out of 1000 (max. 8388607)
- 246 compressed objects within 3 object streams
+ 374 PDF objects out of 1000 (max. 8388607)
+ 248 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

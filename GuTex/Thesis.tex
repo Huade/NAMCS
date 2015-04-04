@@ -39,7 +39,7 @@ on Patient-specific Health Education Prescription, Time Utilization, and Returne
 \thesistype{Thesis}     % or Dissertation
 
 % defense or approval date, not today's date...
-\thesisday{11}
+\thesisday{10}
 \thesismonth{April}
 \thesisyear{2015}
 
@@ -83,35 +83,18 @@ index words so that people doing related work will know about yours.
 \end{abstract}
 
 
-\chapter*{Dedication}
-The Dedication is optional, but if it is included, it should have
-a roman numeral page number but not be included in the table of
-contents.  To achieve that, we declare it as a \verb"\chapter*" in \LaTeX.
-
-
 \pseudochapter{Acknowledgments}
+First I offer my sincerest gratitude to my thesis advisor, Dr. Yuriy Pylypchuk, who has supported me throughout my thesis for his patience, optimistic, enthusiasm, and immense knowledge. I thank him for the systematic guidance and great effort he put into training me in the health policy research field. Without his guidance, mentoring, and support, this study would not have been completed. One could not wish for a better or friendlier thesis advisor.
 
-In a real thesis, this section would contain acknowledgments such
-as, ``This work was funded by National Science Foundation Grant
-Number AAA-00-00000 (Benjamin Franklin, Principal Investigator),''
-and ``I would like to thank John Doe for helping me proofread my
-thesis and Mary Roe for drawing my graphs.''
+I am thankful to Dr. Willian Gormley, Dr. Deborah Phillips, Dr. Sara Anderson, and other outstanding colleagues at the Center for Research on Children in the United States (CROCUS). They have provided generous support on my thesis with their expertise, flexibility, and encouragements. I also thank Dr. Elizabeth Stuart from Johns Hopkins University for her excellent workshop on propensity score techniques at the CROCUS. Her detail-oriented guidance on my thesis has made this a thoughtful and rewarding journey.
 
-The acknowledgments are included in the table of contents but do
-not have a chapter number.  To achieve that, we
-declare them to be a \verb"\pseudochapter" (which is defined only in
-\verb"guthesis.sty").
+I thank Dr. Barbara Schone, Dr. Carolyn Hill, and Dr. Michael Bailey for their incredible lectures that introducing intermediate econometrics methodologies. They have support me academically and emotionally through the journey at the McCourt School. I thank Dr. Ali Arab from Department of Mathematics and Statistics for enrolling me in his mathematical statistical class with waived prerequisites and providing detailed advices on statistics. The completion of this thesis is not possible without their support.
 
-I (Mark Maloof) would like to thank Michael Covington for developing
-this \LaTeX\ style sheet for the University of Georgia.
-Zachary Hunter deserves special thanks for revising the UGA style
-file to work with the new version of \LaTeX\ (2e) as well as the
-previous version (2.09).
-The revisions in
-Version 3.0 of \verb"guthesis.sty" are
-largely the work of Isidor Ruderfer.
-Other credits appear in the style sheet itself.
+In my daily work I have been blessed with friendly and cheerful friends and McCourt staffs, classmates, and alumni. Thank you for all that you have taught me.
 
+I would also like to thank my parents. They were always supporting me and encouraging me with their best wishes.
+
+Finally, I would like to thank Huanjun Zhang. She was always there cheering me up and stood by me through the good times and bad.
 
 \tableofcontents
 
@@ -130,7 +113,7 @@ Given the increasing adoption of EHR, and the implementation of EHR incentive pr
 
 \section{Background}
 
-In 2009, the US Congress passed the American Recovery and Reinvestment Act (ARRA), which appropriates funds to promote the adoption and use of health information technology (HIT). The American Recovery and Reinvestment Act has set aside \$2 billion which will go towards programs developed by the National Coordinator and Secretary to help health care providers implement HIT and provide technical assistance through various regional centers \citep{hhs_recovery}.
+In 2009, the US Congress passed the American Recovery and Reinvestment Act (ARRA), which appropriates funds to promote the adoption and use of health information technology (HIT). To promote the adoption and meaningful use of electronic health records among health care providers, ARRA authorized that ``\$1,500,000,000 shall be available for grants for construction, renovation and equipment, and for the acquisition of health information technology systems'' \citep{AARALaw}.
 
 The Centers for Medicare \& Medicaid Services launched the Medicare and Medicaid Electronic Health Care Record (EHR) Incentive Programs after the passage of ARRA in 2009. These programs provide incentive payments to eligible professionals, eligible hospitals, and critical access hospitals (CAHs) as they adopt, implement, upgrade or demonstrate meaningful use of certified EHR technology. In order to receive the EHR stimulus money, the HITECH act (ARRA) requires eligible physicians to show "meaningful use" of an EHR system.
 
@@ -146,11 +129,11 @@ EHR also provides a platform for predictive analysis, saving health care spendin
 
 The effect of EHR on efficiency is mixed. A systematic literature review suggested that 92 percent of the recent articles on health information technology show measurable benefits emerging from its adoption \citep{Buntin2011}. For example, a study found that hospitals with more advanced health IT had fewer complications, lower mortality, and lower costs than their counterparts \citep{amarasingham2009clinical}. Others suggest that simply adopting electronic health records is likely to be insufficient to drive substantial gains in quality or efficiency \citep{DesRoches2010}. 
 
-Time efficiency is one of the possible outcomes of EHR adoption. Physicians spend time on patient interactions and the documentation of clinical information. Clinicians hope that an EHR could increase patient interaction time, which improves the quality of health care, while reducing documentation time \citep{leung2003incentives}. However, EHR is unlikely to reduce documentation time \citep{poissant2005impact} and the effect of EHR system adoption on time efficiency is mixed and varies among different institutions \citep{Chaudhry2006}.
+Patient-centered education, which is provided by an EHR-based system, allows patients to understand their health better and make informed lifestyle adjustments. CMS requires eligible physicians to provide patient-specific education resources to more than 10 percent of all unique patients in order to obtain the EHR incentive program funding \citep{healthit05}. Very limited literature evaluated the effect of EHR on the utilization of patient-specific education resources. 
 
-Another important factor in healthcare efficiency and quality is the likelihood of follow-up health care appointments. Low ``kept appointment'' rates adversely affect continuity of care and lead to inefficient clinic scheduling processes \citep{myers2001strategies}. Although the CMS listed ``send reminders to patients per patient preference for preventive/follow-up care'' as an objective in measuring the meaningful use of the EHR system \citep{cmsincentive14}, evaluations of the effect of EHR on patient follow-up rate are limited.
+Time efficiency is one of the possible outcomes of EHR adoption. Physicians spend time on patient interactions and the documentation of clinical information. Clinicians hope that an EHR could increase patient interaction time, which improves the quality of health care, while reducing documentation time \citep{leung2003incentives}. However, EHR is unlikely to reduce documentation time \citep{poissant2005impact}. The effect of EHR system adoption on time efficiency is mixed and varies among different institutions \citep{makoul2001use, Chaudhry2006}. 
 
-Patient-centered education, which is provided by an EHR-based system, allows patients to understand their health better and make informed lifestyle adjustments. CMS requires eligible physicians to provide patient-specific education resources to more than 10 percent of all unique patients in order to obtain the EHR incentive program funding \citep{healthit05}. Very limited literature evaluated the effect of EHR on the utilisation of patient-specific education resources. 
+Follow-up health care appointments plays an important role in healthcare efficiency and quality. Low ``kept appointment'' rates adversely affect continuity of care and lead to inefficient clinic scheduling processes \citep{myers2001strategies}. The CMS listed ``send reminders to patients for preventive/follow-up care'' as a menu object in its EHR incentive program \citep{cmsincentive14}. Physicians will need to send an appropriate reminder during the EHR reporting period to more than 20 percent of all patients between the ages of 5 and 65. Physicians can decide as to the information contained in the reminder, as well as the format of the reminder (phone call, email, mail). Evaluations of the effect of EHR on patient follow-up rate are limited.
 
 \subsection{Physicians' financial incentives on EHR}
 On the micro level, EHR has a mixed effect on cost-saving in physician practices.
@@ -158,6 +141,8 @@ On the micro level, EHR has a mixed effect on cost-saving in physician practices
 Some scholars claimed that the long-term return on adoption of EHR is positive. For example, Wang et al. estimated that a provider could gain \$86,400 in net benefits from using an electronic medical record for a 5-year period, resulting in a positive financial return on investment to the health care organization \citep{Wang2003}. Bell and Thornton claimed that, based on the size of a health system and the scope of implementation, the benefits of HITs for large hospitals can range from \$37M to \$59M over a five-year period in addition to incentive payments \citep{Bell2011}.
 
 However, more researchers have argued that physicians have an insufficient financial incentive to implement EHR in the first place. Gans et al. surveyed a nationally representative sample of medical group practices and suggested that the adoption of EHR is progressing slowly, at least in smaller practices \citep{Gans2005}. Jha et al. found a similar result, on the basis of responses from 63.1\% of hospitals surveyed, only 1.5\% of U.S. hospitals have a comprehensive electronic-records system \citep{Jha2009}. Using survey data from 49 community practices, Adler-Milstein et al. found electronic health records will yield revenue gains for some practices and losses for many others. Practices encountered greater-than-expected barriers to adopting an EHR system \citep{Adler-Milstein2012}.
+
+The Medicaid and Medicare EHR incentive program provides financial incentive for the EHR adoption and ``meaningful use''. Beginning in fiscal year 2015, institutions that bill the Medicare program and fail to meet that standard by the end of the current fiscal year will be subject to a penalty. 
 
 \section{Contribution to literature}
 
@@ -258,12 +243,12 @@ Compared with group practice, solo practice is also less likely to fully adopt a
 \LTcapwidth=\textwidth
 \renewcommand*{\arraystretch}{0.6}
 \begin{longtable}{lccc}
-\caption{Descriptive Statistics (Nominal and Ordinal Variables)}\\
+\caption{Descriptive statistics (nominal and ordinal variables)}\\
 \label{tab:desc1}\\
 
 \hline \hline Variable & $P_{No}$ & $P_{Full}$ & $P_{Part}$ \\ \hline \endfirsthead
 
-\caption*{Descriptive Statistics (Nominal and Ordinal Variables, Cont'd) }\\
+\caption*{Descriptive statistics (nominal and ordinal variables, Cont'd) }\\
 
 \hline  Variable & $P_{No}$ & $P_{Full}$ & $P_{Part}$ \\ \hline \endhead
 
@@ -355,12 +340,12 @@ Physician practices with different EHR adoption status tend to have different pa
 \label{tab:desc2}
 \renewcommand*{\arraystretch}{0.6}
 \begin{longtable}{lccc}
-\caption{Descriptive Statistics (Continuous Variables)}\\
+\caption{Descriptive statistics (continuous variables)}\\
 
 \hline \hline
 Variable   & $Mean_{No}$ & $Mean_{Full}$ & $Mean_{Part}$ \\ \hline \endfirsthead
 
-\caption*{Descriptive Statistics (Continuous Variables, Cont'd)}\\
+\caption*{Descriptive statistics (continuous variables, Cont'd)}\\
 
 \hline \hline
 Variable   & $Mean_{No}$ & $Mean_{Full}$ & $Mean_{Part}$ \\ \hline \endhead
@@ -390,26 +375,26 @@ Weighted Counts                     & 480,645   & 314,233     & 159,030     \\
 
 \chapter{Propensity score balance}
 \section{Measuring propensity score balance}
-The goal of propensity score weighting is to have similar covariate distribution (or ``balance'') in the weighted treated and control groups. We relied on the absolute standardized mean difference (ASMD, also referred to as the absolute standardized bias or the Effect Size) to assess the balance. The ASMD $d_x$ was calculated as the absolute difference in means between two different groups, divided by the square root of the average sample variances for this two groups using the following formula \citep{haviland2007combining}:
+The goal of propensity score weighting is to have similar covariate distribution (or ``balance'') in the weighted treated and control groups. We relied on the absolute standardized mean difference (ASMD, also referred to as the absolute standardized bias or the effect size) to assess the balance. The ASMD $d_x$ was calculated as the absolute difference in means between two different groups, divided by the square root of the average sample variances for these two groups using the following formula \citep{haviland2007combining}:
 
 \begin{equation*}
 d_x =\frac{|\Delta M_x|}{S_x}
 \end{equation*}
 
-where $\Delta M_x$ is the difference of means between two groups, $S_x$ is calculated by: 
+where $\Delta M_x$ is the difference of means between two groups. $S_x$ is calculated by: 
 
 \begin{equation*}
 S_x=\sqrt{\frac{S^2_{xt}+S^2_{xp}}{2}}
 \end{equation*}
 
-where $S^2_{xt}$ and $S^2_{xp}$ denotes the standard deviations of variable $x$ in group $t$ and group $p$.
+where $S^2_{xt}$ and $S^2_{xp}$ denote the standard deviations of variable $x$ in group $t$ and group $p$.
 
-Hill et al. summarised that ASMDs less than 0.25 were considered acceptable, with values below 0.10 representing a more stringent standard \citep{hillm2015short}.
+Hill et al. have summarized that ASMDs less than 0.25 were considered acceptable, with values below 0.10 representing a more stringent standard \citep{hillm2015short}.
 
 \section{Graphic diagnostics of propensity score estimation and balance}
 
 \subsection{Sufficient iterations of GBM model}
-As discussed in Chapter \ref{place:gbm}, we use the GBM model to balance pretreatment variables. To optimize the balance statistics of interest, ASMD, we need to make sure the propensity score estimation models run for a sufficiently large number of iterations. We can assess this optimization process by evaluating the relationship between number of iterations and the balance measurement, maximum ASMD, of weighted data. We can have an optimized-balance weighted data if and only if there are sufficient iterations to find global minimum point. In other words, the balance statistic should decrease initially, but should increase after reaching the global minimum point before the end of iteration. Figure \ref{fig:diag1} shows the relationship between number of iteration and balance measurement, maximum ASMD. As shown in Figure \ref{fig:diag1}, it appears that each of the maximum ASMD is optimized with substantially fewer than 10,000 iterations.
+As discussed in Chapter \ref{place:gbm}, we use the GBM model to balance pretreatment variables. To optimize the balance statistics of interest, ASMD, we need to make sure the propensity score estimation models run for a sufficiently large number of iterations. We can assess this optimization process by evaluating the relationship between number of iterations and the balance measurement, maximum ASMD, of weighted data. We can have optimized-balance weighted data if and only if there are sufficient iterations to find the global minimum point. In other words, the balance statistic should decrease initially but should increase after reaching the global minimum point before the end of iteration. Figure \ref{fig:diag1} shows the relationship between number of iterations and balance measurement, maximum ASMD. As shown in Figure \ref{fig:diag1}, it appears that each maximum ASMD is optimized with substantially fewer than 10,000 iterations.
 
 \begin{figure}[!htb]
 \begin{center}
@@ -420,7 +405,7 @@ As discussed in Chapter \ref{place:gbm}, we use the GBM model to balance pretrea
 \end{figure}
 
 \subsection{Overlapping assumption satisfied}
-One key assumption of propensity score analysis is the overlapping assumption. Propensity score analyses assume that each experiment unit has a non-zero probability of receiving each treatment \citep{mnps2015}. We can examine the plausibility of this assumption by evaluating the overlap of the empirical propensity score distribution. As shown in the Figure \ref{fig:diag2}, although physicians who fully adopted EHR have higher possibility to be in this treatment group, the overlap assumption generally seems to be met for each treatment group. 
+One key assumption of propensity score analysis is the overlapping assumption. Propensity score analyses assume that each experiment unit has a non-zero probability of receiving each treatment \citep{mnps2015}. We can examine the plausibility of this assumption by evaluating the overlap of the empirical propensity score distribution. As shown in the Figure \ref{fig:diag2}, although physicians who fully adopted EHR have a higher possibility of being in this treatment group, the overlap assumption generally seems to be met for each treatment group. 
 
 \begin{figure}[!htb]
 \begin{center}
@@ -431,9 +416,9 @@ One key assumption of propensity score analysis is the overlapping assumption. P
 \end{figure}
 
 \subsection{Propensity score balance achieved}
-Figure \ref{fig:diag3} and Figure \ref{fig:diag4} graphically summarize balance statistics from propensity score estimation with GBM model. In our analysis, each treatment variable of interest has three ASMD statistics, including the difference between non-adopter and fully adaptor, the difference between non-adopter and partially adopted and the difference between partially adopted and fully adopted. Figure \ref{fig:diag3} collapses these three statistics to covariate level and provides an overall comparison of the ASMD between each groups, before and after weighting. Figure \ref{fig:diag4} assesses the balance before and after weighting for each treatment group.The statistically significant difference is indicated by the solid circle.
+Figure \ref{fig:diag3} and Figure \ref{fig:diag4} graphically summarize balance statistics from propensity score estimated with a GBM model. In our analysis, each treatment variable of interest has three ASMD statistics, including the difference between non-adopted and fully adopted, the difference between non-adopted and partially adopted, and the difference between partially adopted and fully adopted. Figure \ref{fig:diag3} collapses these three statistics to covariate level and provides an overall comparison of the ASMD between each group before and after weighting. Figure \ref{fig:diag4} assesses the balance before and after weighting for each treatment group.The statistically significant difference is indicated by the solid circle.
 
-As shown in the Figure \ref{fig:diag3}, covariates in unbalanced data is highly unbalanced. After weighting, the maximum ASMDs significantly decrease for highly unbalanced variables. Some well-balanced variables have slightly worse balances after weighting because those variables do not predict treatment, led to relatively random matching on them. As shown in the figure, the $ASMDs<0.25$ criterion is easily met for all pretreatment variables after propensity score weighting. Some variates have an ASMD greater than 0.1, which will be included in regression analysis later to achieve ``double robustness''.
+As shown in Figure \ref{fig:diag3}, covariates in unbalanced data are highly unbalanced. After weighting, the maximum ASMDs significantly decrease for highly unbalanced variables. Some well-balanced variables have slightly worse balances after weighting because those variables do not predict treatment, leading to relatively random matching on them. As shown in the figure, the ASMDs$<0.25$ criterion is easily met for all pretreatment variables after propensity score weighting. Some variates have an ASMD greater than 0.1, which will be included in regression analysis later to achieve ``double robustness.''
 
 
 \begin{figure}[!htb]
@@ -444,7 +429,7 @@ As shown in the Figure \ref{fig:diag3}, covariates in unbalanced data is highly 
 \end{center}
 \end{figure}
 
-As shown in the Figure \ref{fig:diag4}, observed covariates are well-balanced between each possible pair of treatment in our analysis. Figure \ref{fig:diag4} illustrates the difference in maximum ASMDs by each treatment group before and after propensity score weighting. Physician practices in different treatment group have heterogeneous characterises before propensity score weighting procedure, especially between those who have fully adopted the EHR and those who have no EHR adoption (see left panel). Only one variable has not reached ASMD below 0.1 with statistical difference among all pairwise comparisons (see solid dot in weighted data, left panel). Although there are a few variables exceed 0.1 ASMD threshold in the middle and right penal, non of them are statistically significant. All variables in three treatment groups have less then 0.25 ASMD after propensity score weighting.
+As shown in Figure \ref{fig:diag4}, observed covariates are well balanced between each possible pair of treatments in our analysis. Figure \ref{fig:diag4} illustrates the difference in maximum ASMDs by treatment group before and after propensity score weighting. Physician practices in different treatment groups have heterogeneous characteristics before the propensity score weighting procedure, especially between those who have fully adopted the EHR and those who have no EHR adoption (see left panel). Only one variable has not reached an ASMD below 0.1 with statistical difference among all pairwise comparisons (see solid dot in weighted data, left panel). Although a few variables exceed the 0.1 ASMD threshold in the middle and right panel, non of them are statistically significant. All variables in three treatment groups have less than 0.25 ASMD after propensity score weighting.
 
 \begin{figure}[!htb]
 \begin{center}
@@ -455,7 +440,7 @@ As shown in the Figure \ref{fig:diag4}, observed covariates are well-balanced be
 \end{figure}
 
 \section{Tabular assessments of balance}
-Table \ref{tab:ess} shows the effective sample size (ESS) before and after propensity score weighting. The ESS is approximately the number of observations from a simple random sample that yields an estimate with sampling variation equal to the sampling variation obtained with the weighted comparison observations \citep{twangvignettes}.  Overall, the effective has reduced to 60.86\% of sample without propensity score weighting. While this may seem like a large loss of sample size, this indicates that many of the physicians were observably unlike their counterparts in different treatment group and, hence, were not useful for isolating the treatment effect of the EHR system.
+Table \ref{tab:ess} shows the effective sample size (ESS) before and after propensity score weighting. The ESS is approximately the number of observations from a simple random sample that yields an estimate with sampling variation equal to the sampling variation obtained with the weighted comparison observations \citep{twangvignettes}.  Overall, the effective sample size has reduced to 60.86\% of the sample without propensity score weighting. While this may seem like a large loss in sample size, this indicates that many of the physicians were observably unlike their counterparts in different treatment groups and, hence, were not useful for isolating the treatment effect of the EHR system.
 
 \begin{table}[h]
 \caption{Effective sample size by treatment group}
@@ -473,9 +458,9 @@ All       & 3619 & 2,202.3515 & 0.6086     \\ \hline \hline
 \end{tabular}
 \end{table}
 
-Table \ref{tab:psbalance} shows maximum ASMDs of each covariates before and after propensity score weighting. Before propensity score weighting, the maximum ASMDs is 0.4605, which exceeds the 0.25 threshold and be considered as unacceptable. Only a few characteristics of physician practices are well-balanced with maximum ASMDs less than 0.1, including MSA status and average patient age, etc. The ownership type, physician specialities, solo status, and year of visit are highly unbalanced with maximum ASMDs greater than 0.25. 
+Table \ref{tab:psbalance} shows the maximum ASMDs of each covariate before and after propensity score weighting. Before propensity score weighting, the maximum ASMDs is 0.4605, which exceeds the 0.25 threshold and is considered unacceptable. Only a few characteristics of physician practices are well balanced with maximum ASMDs less than 0.1, including MSA status and average patient age, etc. The ownership type, physician specialities, solo status, and year of visit are highly unbalanced with maximum ASMDs greater than 0.25. 
 
-The propensity score weighting procedure significantly improves the balance between each treatment groups. The maximum ASMDs in weighted sample is 0.1259, far below the 0.25 threshold. There are few variables have maximum ASMDs greater than 0.10 after weighting, including ownership type, managed care contracts, solo status, and visit year. MSA status, physician specialties, region, patient chronological conditions, physician age, and patient insurance type are considered as good balancing with ASMDs less than 0.1.
+The propensity score weighting procedure significantly improves the balance between each treatment group. The maximum ASMD in weighted sample is 0.1259, far below the 0.25 threshold. Few variables have maximum ASMDs greater than 0.10 after weighting, including ownership type, managed care contracts, solo status, and visit year. MSA status, physician specialties, region, patient chronological conditions, physician age, and patient insurance type are considered to be well balanced with ASMDs less than 0.1.
 
 
 
@@ -488,7 +473,7 @@ Although the observed covariates balanced relatively well, it is possible that u
 
 \renewcommand*{\arraystretch}{0.6}
 \begin{longtable}{lSS[table-format = 0.4]}
-\caption{Propensity Score Balance Statistics}\\
+\caption{Propensity score balance statistics}\\
 
 \hline \hline
 Variable                               & \multicolumn{1}{p{3cm}}{\centering Max Std. ES \\(UNW)} & \multicolumn{1}{p{3cm}}{\centering Max Std. ES \\(PSW)} \\  \hline \endfirsthead
@@ -519,7 +504,7 @@ Non-MSA                                & 0.0427                   & 0.0643      
 \textbf{Managed Care Contracts}        &                          &                           \\
 None                                   & 0.2372$^{*}$               & 0.1006$^{*}$                \\
 Less than 3                            & 0.0111                   & 0.0285                    \\
-3-10                                   & 0.1209$^{*}$               & 0.0235                    \\
+3 - 10                                 & 0.1209$^{*}$               & 0.0235                    \\
 Greater than 10                        & 0.2452$^{*}$               & 0.0853                    \\
                                        &                          &                           \\
 \textbf{Physician specialties}         &                          &                           \\
@@ -562,37 +547,33 @@ Self-pay                               & 0.1860$^{*}$               & 0.0727    
 \end{longtable}
 \end{center}}
 
-\chapter{Results and Discussion}
+\chapter{Regression results}
 \section{Model specification}
-In our analysis, we use 8 models to assess the effect of EHR adoption on patient-specific education prescription, time utilization, and returned appointment rate. As discussed in Chapter \ref{sec:model} and Chapter \ref{sec:spec}, we mainly focus on results in model (1) in Table \ref{tab:edu}, Table \ref{tab:time}, and Table \ref{tab:return}. Model (1) is a generalized linear regression model weighted by multinomial propensity score and only controlled covariates with ASMD$>$0.1, of each outcome. 
+In our analysis, we use eight models to assess the effect of EHR adoption on patient-specific education prescription rate, time utilization, and returned appointment rate. As discussed in Chapter \ref{sec:model} and Chapter \ref{sec:spec}, we mainly focus on results in Model (1) in Table \ref{tab:edu}, Table \ref{tab:time}, and Table \ref{tab:return}. Model (1) is a generalized linear regression model weighted by a multinomial propensity score and only controlled covariates with ASMD$>$0.1, of each outcome. 
 
-Model (2) through model (8) in Table \ref{tab:edu}, Table \ref{tab:time}, and Table \ref{tab:return} serve as sensitivity tests of Model (1). Model (2) has the same model specification with Model (1), but use Binomial or Poisson regression depending on dependent variable's distribution. Model (3) and Model (4) have the same multinomial propensity score with the Model (1) while Model (3) includes no covariates and Model (4) includes all covariates. Model (5) through Model (8) use binary treatment assignment instead of multiple treatment assignments in propensity score estimation and regression adjustment. Model (5) and Model (6) estimates the treatment effect of full EHR adoption and partial EHR adoption with propensity score weighting. Model (7) and Model (8) analyzed that with propensity score matching. 
+Models (2) through (8) in Table \ref{tab:edu}, Table \ref{tab:time}, and Table \ref{tab:return} serve as sensitivity tests of Model (1). Model (2) has the same model specification with Model (1), but use binomial or poisson regression depending on the dependent variable's distribution. Model (3) and Model (4) have the same multinomial propensity score with Model (1) while Model (3) includes no covariates and Model (4) includes all covariates. Model (5) through Model (8) use binary treatment assignment instead of multiple treatment assignments in propensity score estimation and regression adjustment. Model (5) and Model (6) estimate the treatment effect of full EHR adoption and partial EHR adoption with propensity score weighting. Model (7) and Model (8) analyze that with propensity score matching. 
 
 \section{EHR adoption has a positive effect on health education prescription}
-Table \ref{tab:edu} illustrates the effect of EHR adoption on patient-specific education prescription rate. 
+Table \ref{tab:edu} illustrates the effect of EHR adoption on patient-specific education prescription rates. 
 
-As shown in Model (1), physician practices that have fully adopted the EHR system have statistically significant higher patient-specific health education prescription rate than their counterparts at 90\% confidence level. Physicians are expected to increase patient-specific education prescription by 3.4\% if they fully adopted the EHR system. This result is robust among different regression models with no substantial difference. However, there are no statistically significant relationship between partial EHR adoption and patient-specific education resource prescription. 
+As shown in Model (1), physician practices that have fully adopted the EHR system have statistically significant higher patient-specific health education prescription rates than their counterparts at a 90\% confidence level. Physicians are expected to increase patient-specific education prescription rates by 3.4\% if they fully adopt the EHR system. This result is robust among different regression models, with no substantial difference. However, there are no statistically significant relationships between partial EHR adoption and patient-specific education resource prescription. 
 
-Physicians can identify patient-specific education resources through integrated programs with certified EHR technology. The EHR system can use the patient?s demographic characteristics, diagnostics, and medications, or other patient information to suggest education resources that would be of value to the patient \citep{hitrc_edu}. 
-
-There are multiple plausible reasons can explain EHR's positive effect on health education prescription rate. First, patient-specific education resource is easy to prescribe. Certified EHR system automate the process for identifying appropriate education resources. Physicians no longer need to search manually during the consultation. Second, the EHR incentive program has set patient-specific education as a menu objective. To meet this menu objective, health care providers must provide at least 10 percent of patients patient-specific education resources. There is no exemption of this menu object. Third, physicians may use the EHR for shared decision-making and education to improve patient engagement. Physicians can easily share information with patients via patient portal or printouts and encourage patients to play an important role in optimizing their treatment outcomes.
+Physicians can identify patient-specific education resources through integrated programs with certified EHR technology. The EHR system can use the patient's demographic characteristics, diagnostics and medications, or other patient information to suggest education resources that would be of value to the patient \citep{hitrc_edu}. 
 
 \section{EHR adoption has no effect on time utilization}
-Table \ref{tab:time} demonstrates the estimated effect of EHR adoption on physician-patient interaction time. As shown in Model (1), there are no statistically significant relationship between full or partial EHR adoption and time utilization. The sign of coefficients is mixed among different model specifications.
+Table \ref{tab:time} demonstrates the estimated effect of EHR adoption on physician-patient interaction time. As shown in Model (1), there are no statistically significant relationships between full or partial EHR adoption and time utilization. The sign of coefficients is mixed among different model specifications.
 
-Similar to physician practices that have fully adopted EHR system, physician practices that partially adopted EHR system also have no statistically significant effect on time utilization. Coefficients have mixed signs among different model specifications.
+Similar to physician practices that have fully adopted the EHR system, physician practices that have partially adopted the EHR system also have no statistically significant effects on time utilization. Coefficients have mixed signs among different model specifications.
 
-Many other researchers also concluded the EHR system has a mixed outcome on time utilization \citep{makoul2001use,poissant2005impact}. Several factors contribute mixed time utilization outcome after EHR adoption. First, time efficiency could improve as physicians grew used to the EHR systems. Second, physicians continued to perform certain tasks using paper-based methods, even though, the computer was automatically performing those tasks for them \citep{overhage2001controlled}. Third, computerized order entry system may generate false alter, which further increase documentation and interaction time.
+
 
 \section{EHR adoption has no robust effect on returned appointment rate}
 
-Table \ref{tab:return} shows the estimated effect of EHR adoption on returned appointment rate. Physician practices that have fully adopted EHR system have fewer returned appointments. The returned appointment is expected to decrease 0.31\% if the physician practices have full EHR adoption. 
+Table \ref{tab:return} shows the estimated effect of EHR adoption on the returned appointment rate. Physician practices that have fully adopted the EHR system have fewer returned appointments. The returned appointment is expected to decrease by 0.31\% if the physician practices have the full EHR adoption. 
 
-There are no statistically significant relationship between physician practices that have partially adopted the EHR system and returned appointment rate. The sign of coefficients shows that partially EHR adoption in physician practices \textit{may} reduce returned appointment rate, but the coefficient is not statistically significant.
+There are no statistically significant relationships between physician practices that have partially adopted the EHR system and returned appointment rate. The sign of coefficients shows that partial EHR adoption in physician practices \textit{may} reduce the returned appointment rate, but the coefficient is not statistically significant.
 
-Although Model (1) suggests there are statistically significant relationship between full EHR adoption and returned appointment rate, it is not robust with different model specifications.  As shown in Model (4) and Model (7), there are no statistically significant relationship between EHR adoption and returned appointment rate with different model specification.
-
-The CMS listed ``Send reminders to patients for preventive/follow-up care'' as a menu object in its EHR incentive program. Physicians need to send an appropriate reminder during the EHR reporting period to more than 20 percent of all patients between age 5 and age 65. Physicians can decide the information in the reminder and the format of reminder (phone call, email, or mail).There are a few hypothetical explanations of the negative, although not robust, effect of EHR system on returned appointment rate. First, the EHR system may improve the quality of treatment, and thus, there is no need to revisit. Second, patient may disregard the automatic reminder generated by EHR system. Third, alert fatigue of physicians. Physicians ignore alerts routinely due to high volume of alerts generated by EHR system. However, testing the plausibleness of these hypothetical explanations with our data is difficult.
+Although Model (1) suggests that there are statistically significant relationships between full EHR adoption and the returned appointment rate; it is not robust with different model specifications.  As shown in Model (4) and Model (7), there are no statistically significant relationships between EHR adoption and returned appointment rate with different model specifications.
 
 \begin{landscape}
 \begin{table}[p] \centering 
@@ -728,12 +709,34 @@ F Statistic &  &  &  &  &  &  & \multicolumn{1}{c}{(df = 13; 2278)} & \multicolu
 \end{table} 
 \end{landscape}
 
-\chapter{Policy Implications}
-Good quality information materials, both printed and electronic, can improve patients' knowledge and understanding of their condition, including those with low health literacy.
+\chapter{Discussion}
+
+The federal government has authorized an more than \$1.5 billion to provide financial incentive for EHR adoption. The rationale for this level of expenditure comes from an expectation that the EHR will improve healthcare quality and efficiency in the United States. In this analysis, we estimated the effect of EHR adoption on patient-specific education resources prescription rate, time utilization, and returned appointment rates. We find effect of the full EHR adoption on patient-specific education prescription rates is statistically significant. Physician practice that have the full EHR adoption are more likely to prescribe patient-specific health education resources. We do not find statistically significant and robust effect of the EHR adoption on time utilization or returned appointment rates.
+
+There are multiple plausible reasons that can explain the EHR's positive effect on the health education prescription rate. First, patient-specific education resources are easy to prescribe with the EHR system. The certified EHR system automate the process for identifying appropriate education resources. Physicians no longer need to search manually during the consultation. Second, the EHR incentive program has set patient-specific education as a menu objective. To meet this menu objective, healthcare providers must provide at least ten percent of patients' patient-specific education resources. There is no exemption for this menu object. Third, physicians may intentionally use the EHR for shared decision-making and education to improve patient engagement. Physicians can easily share information with patients via the patient portal or printouts--encouraging patients to play an important role in optimizing their treatment outcomes.
+
+Several factors contributed to a mixed-time utilization outcome after EHR adoption. On the one hand, time efficiency could have improved as physicians grew used to the EHR systems. For example, physicians could check a patient's lab test results or medical histories instantly with the EHR system. On the other hand, certain EHR systems have poor usability. Overwhelming false alters and time-consuming data entry, could further increase documentation time. Also, physicians could have continued to perform certain tasks using paper-based methods, even though, the computer automatically performed those tasks for them \citep{overhage2001controlled}. 
+
+EHR adoption has negative (although not robust) effect on returned appointment rates. There are a few hypothetical explanations. First, the EHR system may improve the quality of treatment, and thus, there would be no need to revisit. Second, the patient may disregard the automatic reminder generated by the EHR system. Third, alert fatigue experienced by physicians; they routinely ignore alerts due to a high volume of alerts generated by the EHR system. However, testing the plausibility of these hypothetical explanations with our data is difficult.
 
 \chapter{Limitations}
+There are limitations to our study that must be considered when interpreting our results.
 
-\chapter{Conclusions}
+First, the NAMCS data comes provide information about individual health care encounters. A specific patient who have multiple encounters at the survey site in a certain year has heavier weight than a counterfactual patient who use health care less frequently. Individuals without any contact with health care providers are not included in the survey. Similarly, physicians who had not interacted with patients are not included in this survey. These may lead to possible selection bias of this analysis.
+
+Second, our casual inference method is based on strong assumptions due to the limitation of observational data. Although NAMCS data provided extensive information about patient demographical and medical information, as well as physician practice information, It is still difficult to satisfy both SUTVA assumption and unconfoundedness assumption perfectly. Violations of these assumptions may lead to overestimated or underestimated results.
+
+Third, empirical research on the casual relationship between studied outcomes and health quality is still limited. For example, further analysis is required to detail the effect of received patient-specific education resources on patient compliance.
+
+\chapter{Policy implications}
+Patients, physicians, administrative agencies, and EHR suppliers all have an interest in improving the usability of EHRs and integrating them into clinical workflows that improve the efficiency and quality of healthcare. This analysis leads to the following policy implications. 
+
+First, Linking patient education with quality improvement efforts. In the effort to improve quality, one goal for health policy should be to ensure a health-literate environment. In such environment, patients seek health care earlier because they recognize their symptoms; they ask for preventive cares to reduce health risk; they understand and follow their doctors' recommendations and they are not afraid to ask questions if they do not understand. Educating patients with the EHR generated health education materials and physicians' personalized advice are both essential in this process. 
+
+Second, the CMS should work with physicians and venders to improve the usability of the EHR systems. Many physicians believe that practice work flow efficiency can be improved by more user-friendly system design. Physicians are looking for an easy to use electronic healthcare record system, such that physicians can record their encounter better, easier and faster than they could on paper. Together with physicians and EHR vendors, health policy practitioners should facilitate appropriate certification criteria of the EHR systems, which make physician clinical practice more efficient, more effective, and easier. 
+
+\chapter{Conclusion}
+In summary, we used the National Ambulatory Medical Care Survey data to assess whether ambulatory electronic healthcare record system is associated with changes in the patient-specific education prescription rate, patient-physician interaction time, and the returned appointment rate. We estimated the treatment effect of full EHR adoption and partial EHR adoption with multinomial propensity score weighting. We found evidence to suggest that full EHR adoption positively affect patient-specific health education prescription rate. There is no robust evidence to show effect of EHR system on time utilization or returned appointment rate. Linking patient education with quality improvement efforts and improving the usability of the EHR systems are both essential to improve healthcare quality.
 
 \newpage
 \bibliographystyle{plainnat}

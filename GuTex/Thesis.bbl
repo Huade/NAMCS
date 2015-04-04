@@ -136,10 +136,11 @@ Amelia Haviland, Daniel~S Nagin, and Paul~R Rosenbaum.
 {Health Information Technology Resource Center}.
 \newblock Providing patients with patient-specific education resources, 2012.
 
-\bibitem[HHS(2013)]{hhs_recovery}
-HHS.
-\newblock Recovery act-funded programs, 2013.
-\newblock URL \url{http://www.hhs.gov/recovery/programs/}.
+\bibitem[Hill et~al.(2015)Hill, Gormley, and Adelstein]{hillm2015short}
+Carolyn~J Hill, William~T Gormley, and Shirley Adelstein.
+\newblock Do the short-term effects of a high-quality preschool program
+  persist?
+\newblock \emph{Early Childhood Research Quarterly}, 2015.
 
 \bibitem[Hillestad et~al.(2005)Hillestad, Bigelow, Bower, Girosi, Meili,
   Scoville, and Taylor]{Hillestad2005}
@@ -148,12 +149,6 @@ Richard Hillestad, James Bigelow, Anthony Bower, Federico Girosi, Robin Meili,
 \newblock Can electronic medical record systems transform health care?
   potential health benefits, savings, and costs.
 \newblock \emph{Health Affairs}, 24\penalty0 (5):\penalty0 1103--1117, 2005.
-
-\bibitem[Hillm et~al.(2015)Hillm, Gormley, and Adelstein]{hillm2015short}
-Carolyn~J Hillm, William~T Gormley, and Shirley Adelstein.
-\newblock Do the short-term effects of a high-quality preschool program
-  persist?
-\newblock \emph{Early Childhood Research Quarterly}, 2015.
 
 \bibitem[Hirano et~al.(2003)Hirano, Imbens, and Ridder]{hirano2003efficient}
 Keisuke Hirano, Guido~W Imbens, and Geert Ridder.
@@ -239,6 +234,10 @@ Lise Poissant, Jennifer Pereira, Robyn Tamblyn, and Yuko Kawasumi.
   physicians and nurses: a systematic review.
 \newblock \emph{Journal of the American Medical Informatics Association},
   12\penalty0 (5):\penalty0 505--516, 2005.
+
+\bibitem[{Public Law 111--5}(2009)]{AARALaw}
+{Public Law 111--5}.
+\newblock American recovery and reinvestment act of 2009, 2009.
 
 \bibitem[{R Core Team}(2014)]{rbase}
 {R Core Team}.

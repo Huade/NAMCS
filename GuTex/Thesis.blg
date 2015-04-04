@@ -5,16 +5,16 @@ The style file: plainnat.bst
 Database file #1: EHR.bib
 You've used 41 entries,
             2773 wiz_defined-function locations,
-            833 strings with 13303 characters,
-and the built_in function-call counts, 19939 in all, are:
-= -- 1686
+            833 strings with 13301 characters,
+and the built_in function-call counts, 19925 in all, are:
+= -- 1683
 > -- 1386
 < -- 18
 + -- 473
 - -- 429
-* -- 1756
-:= -- 3129
-add.period$ -- 124
+* -- 1754
+:= -- 3126
+add.period$ -- 123
 call.type$ -- 41
 change.case$ -- 265
 chr.to.int$ -- 38
@@ -22,13 +22,13 @@ cite$ -- 82
 duplicate$ -- 781
 empty$ -- 1522
 format.name$ -- 480
-if$ -- 4091
+if$ -- 4088
 int.to.chr$ -- 4
 int.to.str$ -- 1
 missing$ -- 31
-newline$ -- 214
+newline$ -- 213
 num.names$ -- 164
-pop$ -- 526
+pop$ -- 527
 preamble$ -- 1
 purify$ -- 225
 quote$ -- 0
@@ -43,4 +43,4 @@ type$ -- 441
 warning$ -- 0
 while$ -- 158
 width$ -- 0
-write$ -- 529
+write$ -- 527

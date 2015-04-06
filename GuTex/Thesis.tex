@@ -59,27 +59,7 @@ on Patient-specific Health Education Prescription, Time Utilization, and Returne
 \maketitle    % Creates title page, copyright page if any, and approval page.
 
 \begin{abstract}
-This is the abstract, a brief summary of the contents of the entire thesis.
-It is limited to 350 words.
-
-The abstract page(s) are not numbered and are not necessarily included
-in the bound copies.  Likewise, the signature page is not counted in
-page numbering because not all copies contain it.
-
-Throughout this sample thesis, {\bf please note
-that the layout obtained with \LaTeX\ is not meant to be a
-perfect duplicate of the Microsoft Word examples in the \emph{Graduate
-School Style Manual.}}  \LaTeX\ has additional typographic tools at its
-disposal, such as {\sc small capitals} and various subtle adjustments
-of spacing, which are used by the Georgetown \LaTeX\ style sheet in
-accordance with the standard practices of the book-printing industry.
-
-The index words at the bottom of the abstract should be chosen carefully,
-preferably with the help of one or two of your colleagues.
-They are the words by which people will find your thesis when searching
-the scientific literature.
-If you want to get credit for your ideas, be sure to choose a good set of
-index words so that people doing related work will know about yours.
+In this analysis, we use the National Ambulatory Medical Care Survey data to investigate whether the adoption of ambulatory electronic healthcare record system is associated with changes in the patient-specific education prescription rates, patient-physician interaction time, and the returned appointment rates. We estimate the treatment effect of EHR adoption with multinomial propensity score weighting adjusted regressions. We find evidence to suggest that full EHR adoption positively affect patient-specific health education prescription rates. We find no robust evidence to show significant effect of EHR system on time utilization or returned appointment rates. We discuss possible reasons for our findings. We recommend to link patient education with quality improvement efforts and improve the usability of the EHR systems.
 \end{abstract}
 
 
@@ -88,13 +68,11 @@ First I offer my sincerest gratitude to my thesis advisor, Dr. Yuriy Pylypchuk, 
 
 I am thankful to Dr. Willian Gormley, Dr. Deborah Phillips, Dr. Sara Anderson, and other outstanding colleagues at the Center for Research on Children in the United States (CROCUS). They have provided generous support on my thesis with their expertise, flexibility, and encouragements. I also thank Dr. Elizabeth Stuart from Johns Hopkins University for her excellent workshop on propensity score techniques at the CROCUS. Her detail-oriented guidance on my thesis has made this a thoughtful and rewarding journey.
 
-I thank Dr. Barbara Schone, Dr. Carolyn Hill, and Dr. Michael Bailey for their incredible lectures that introducing intermediate econometrics methodologies. They have support me academically and emotionally through the journey at the McCourt School. I thank Dr. Ali Arab from Department of Mathematics and Statistics for enrolling me in his mathematical statistical class with waived prerequisites and providing detailed advices on statistics. The completion of this thesis is not possible without their support.
+I thank Dr. Barbara Schone, Dr. Carolyn Hill, and Dr. Michael Bailey for their incredible lectures that introducing intermediate econometrics methodologies. They have support me academically and emotionally through the journey at the McCourt School. I thank Dr. Ali Arab from Department of Mathematics and Statistics for enrolling me in his mathematical statistical class with waived prerequisites and providing detailed advices on statistical methods. The completion of this thesis is not possible without their support.
 
-In my daily work I have been blessed with friendly and cheerful friends and McCourt staffs, classmates, and alumni. Thank you for all that you have taught me.
+In my daily work I have been blessed with friendly and cheerful McCourt faculties, staffs, classmates, and alumni. Thank you for all that you have taught me. I thank my friends for keeping giving even when I had nothing to give in return.
 
-I would also like to thank my parents. They were always supporting me and encouraging me with their best wishes.
-
-Finally, I would like to thank Huanjun Zhang. She was always there cheering me up and stood by me through the good times and bad.
+Last but not least, I would like to thank Huanjun. She was always there cheering me up and stood by me through the good times and bad. I would also like to thank my parents. They were always supporting me and encouraging me with their best wishes. Without all their love, I would not be able to do anything.
 
 \tableofcontents
 
@@ -104,16 +82,24 @@ Finally, I would like to thank Huanjun Zhang. She was always there cheering me u
 \newpage
 
 \pagenumbering{arabic}  % Ordinary pages have Arabic numerals.
-\chapter{Introduction (working)}
-The US spend 17.9\% of GDP on health expenditure in 2013, according to the World Bank, and it is continuing to growth. Some scholars proposed that one way to reduce health care spending and improve health care efficiency is to adopt the Electronic Healthcare Record (EHR). The Obama Administration has prioritized the improvement of quality and efficiency of the health care system. President Obama signed the American Recovery and Reinvestment Act of 2009 which provides financial incentive for adoption and meaningful use of electronic health records. The adoption of EHR increased rapidly [CITATION NEEDED].
+\chapter{Introduction}
+The US spend 17.9\% of GDP on health expenditure in 2012 \citep{wbgHealthGDP}, and it is continuing to growth. Some scholars proposed that one way to improve healthcare efficiency and quality is to adopt the Electronic Healthcare Record (EHR) system. The Obama Administration has prioritized the improvement of quality and efficiency of the health care system with the EHR system and launched the Medicare and Medicaid EHR incentives for the adoption and use of EHR system. The adoption rate of EHR system increased rapidly. In 2013, ``more than half of eligible providers -- doctors, dentists and other eligible providers -- have qualified for and received incentive payments for adoption of certified electronic health records.'' \citep{whitehouseblogintro}
 
-Given the increasing adoption of EHR, and the implementation of EHR incentive programs, the effect of electronic health care record on health outcomes are of interest. Empirically measured effect of adopting EHR on cost is still very limited, and the results are mixed.
+However, empirically measured effect of adopting EHR on quality or efficiency improvement is still very limited. Limited research evaluated the effect of EHR adoption on quality or efficiency improvement at the national level. Even less analysis provided investigation on the adoption of EHR system on patient-specific health education prescription or returned appointment with national data. Given the increasing adoption of EHR, and the implementation of EHR incentive programs, the effect of electronic health care record on health outcomes are of interest.
+
+In this analysis, we use the National Ambulatory Medical Care Survey (NAMCS) data to investigate the effect of EHR adoption on three outcomes, including patient-specific education prescription rates, patient-physician interaction time, and the returned appointment rates. The NAMCS is a national survey with extensive information at visit-level or physician-level, including whether the physician practice has an Electronic Healthcare Record (EHR) system, health education prescription status, the breakdown of patients by different payment type, time spent with physician for each visit, and whether the visit is a returned appointment, etc. .
+
+We estimate the treatment effect of EHR adoption with multinomial propensity score weighting adjusted regressions. 
+
+We find evidence to suggest that full EHR adoption positively affect patient-specific health education prescription rates. We find no robust evidence to show significant effect of EHR system on time utilization or returned appointment rates. We discuss possible reasons for our findings. We recommend to link patient education with quality improvement efforts and improve the usability of the EHR systems.
+
+In this paper, Chapter \ref{chapter:lit} reviews policy background and literatures; Chapter \ref{chapter:analysisplan} details the analysis plan of this research; Chapter \ref{chapter: desc} provides descriptive statistics of NAMCS data used in this analysis; Chapter \ref{chapter:psb} assesses propensity score balance and assumptions graphically and numerically; Chapter \ref{chapter: reg} provides regression results; Chapter \ref{chapter:discussion} discussed possible reasons for the pattern of findings; Chapter \ref{chapter:limitations} summarized limitations of this research; Chapter \ref{chapter:policyimplications} gives policy implications; Chapter \ref{chapter:conclusion} concludes. 
 
 \chapter{Literature review}
-
+\label{chapter:lit}
 \section{Background}
 
-In 2009, the US Congress passed the American Recovery and Reinvestment Act (ARRA), which appropriates funds to promote the adoption and use of health information technology (HIT). To promote the adoption and meaningful use of electronic health records among health care providers, ARRA authorized that ``\$1,500,000,000 shall be available for grants for construction, renovation and equipment, and for the acquisition of health information technology systems'' \citep{AARALaw}.
+In 2009, the US Congress passed the American Recovery and Reinvestment Act (ARRA), which appropriates funds to promote the adoption and use of health information technology (HIT). To promote the adoption and meaningful use of electronic health records among health care providers, ARRA authorized that ``\$1,500,000,000 shall be available for grants for construction, renovation and equipment, and for the acquisition of health information technology systems'' \citep{AARALaw}. 
 
 The Centers for Medicare \& Medicaid Services launched the Medicare and Medicaid Electronic Health Care Record (EHR) Incentive Programs after the passage of ARRA in 2009. These programs provide incentive payments to eligible professionals, eligible hospitals, and critical access hospitals (CAHs) as they adopt, implement, upgrade or demonstrate meaningful use of certified EHR technology. In order to receive the EHR stimulus money, the HITECH act (ARRA) requires eligible physicians to show "meaningful use" of an EHR system.
 
@@ -155,6 +141,7 @@ Another major limitation of the literature is its generalization. Insufficient r
 
 
 \chapter{Analysis Plan}
+\label{chapter:analysisplan}
 \section{Data}
 The data source for this study was the National Ambulatory Medical Care Survey (NAMCS) public use micro-data files. NAMCS is a national probability sample survey of visits to office-based physicians conducted by the National Center for Health Statistics, Centers for Disease Control and Prevention. NAMCS has information at visit level, including whether the physician practice has an Electronic Healthcare Record (EHR) system, health education prescription, the breakdown of patients by different payment type, time spent with physician for each visit, and whether the visit is a returned appointment, etc. The sample size for the 2008, 2009, and 2010 public use micro-data files, which include information about adopting EMR, are 28,741, 32,281, and 31,229 respectively.
 
@@ -222,7 +209,7 @@ Fourth, we tested the robustness of the result with a propensity score matching 
 
 
 \chapter{Descriptive Statistics}
-
+\label{chapter: desc}
 \section{Nominal and ordinal variables}
 
 As shown in Table \ref{tab:desc1}, more physician practices fully adopted the EHR system since 2008. While 54.21\% of physicians reported that they had not adopted an EHR system in 2008, 5.75\% percentage points fewer physicians reported that they had not adopted an EHR system in 2010, a reduction of 10.6\% compared to 2008. Meanwhile, 38.8\% of physicians reported they had fully adopted an EHR system in 2010, while only 27.49\% of physicians reported that they had fully adopted an EHR system in 2008. Compared with 2008 (18.3\%), fewer physicians had partially adopted an EHR system in 2010 (12.73\%). The result suggests that the adoption rate of the EHR system is grew rapidly after the implementation of the EHR incentive program.
@@ -374,6 +361,7 @@ Weighted Counts                     & 480,645   & 314,233     & 159,030     \\
 
 
 \chapter{Propensity score balance}
+\label{chapter:psb}
 \section{Measuring propensity score balance}
 The goal of propensity score weighting is to have similar covariate distribution (or ``balance'') in the weighted treated and control groups. We relied on the absolute standardized mean difference (ASMD, also referred to as the absolute standardized bias or the effect size) to assess the balance. The ASMD $d_x$ was calculated as the absolute difference in means between two different groups, divided by the square root of the average sample variances for these two groups using the following formula \citep{haviland2007combining}:
 
@@ -548,6 +536,8 @@ Self-pay                               & 0.1860$^{*}$               & 0.0727    
 \end{center}}
 
 \chapter{Regression results}
+\label{chapter: reg}
+
 \section{Model specification}
 In our analysis, we use eight models to assess the effect of EHR adoption on patient-specific education prescription rate, time utilization, and returned appointment rate. As discussed in Chapter \ref{sec:model} and Chapter \ref{sec:spec}, we mainly focus on results in Model (1) in Table \ref{tab:edu}, Table \ref{tab:time}, and Table \ref{tab:return}. Model (1) is a generalized linear regression model weighted by a multinomial propensity score and only controlled covariates with ASMD$>$0.1, of each outcome. 
 
@@ -711,6 +701,7 @@ F Statistic &  &  &  &  &  &  & \multicolumn{1}{c}{(df = 13; 2278)} & \multicolu
 
 \chapter{Discussion}
 
+\label{chapter:discussion}
 The federal government has authorized an more than \$1.5 billion to provide financial incentive for EHR adoption. The rationale for this level of expenditure comes from an expectation that the EHR will improve healthcare quality and efficiency in the United States. In this analysis, we estimated the effect of EHR adoption on patient-specific education resources prescription rate, time utilization, and returned appointment rates. We find effect of the full EHR adoption on patient-specific education prescription rates is statistically significant. Physician practice that have the full EHR adoption are more likely to prescribe patient-specific health education resources. We do not find statistically significant and robust effect of the EHR adoption on time utilization or returned appointment rates.
 
 There are multiple plausible reasons that can explain the EHR's positive effect on the health education prescription rate. First, patient-specific education resources are easy to prescribe with the EHR system. The certified EHR system automate the process for identifying appropriate education resources. Physicians no longer need to search manually during the consultation. Second, the EHR incentive program has set patient-specific education as a menu objective. To meet this menu objective, healthcare providers must provide at least ten percent of patients' patient-specific education resources. There is no exemption for this menu object. Third, physicians may intentionally use the EHR for shared decision-making and education to improve patient engagement. Physicians can easily share information with patients via the patient portal or printouts--encouraging patients to play an important role in optimizing their treatment outcomes.
@@ -720,6 +711,7 @@ Several factors contributed to a mixed-time utilization outcome after EHR adopti
 EHR adoption has negative (although not robust) effect on returned appointment rates. There are a few hypothetical explanations. First, the EHR system may improve the quality of treatment, and thus, there would be no need to revisit. Second, the patient may disregard the automatic reminder generated by the EHR system. Third, alert fatigue experienced by physicians; they routinely ignore alerts due to a high volume of alerts generated by the EHR system. However, testing the plausibility of these hypothetical explanations with our data is difficult.
 
 \chapter{Limitations}
+\label{chapter:limitations}
 There are limitations to our study that must be considered when interpreting our results.
 
 First, the NAMCS data comes provide information about individual health care encounters. A specific patient who have multiple encounters at the survey site in a certain year has heavier weight than a counterfactual patient who use health care less frequently. Individuals without any contact with health care providers are not included in the survey. Similarly, physicians who had not interacted with patients are not included in this survey. These may lead to possible selection bias of this analysis.
@@ -729,6 +721,7 @@ Second, our casual inference method is based on strong assumptions due to the li
 Third, empirical research on the casual relationship between studied outcomes and health quality is still limited. For example, further analysis is required to detail the effect of received patient-specific education resources on patient compliance.
 
 \chapter{Policy implications}
+\label{chapter:policyimplications}
 Patients, physicians, administrative agencies, and EHR suppliers all have an interest in improving the usability of EHRs and integrating them into clinical workflows that improve the efficiency and quality of healthcare. This analysis leads to the following policy implications. 
 
 First, Linking patient education with quality improvement efforts. In the effort to improve quality, one goal for health policy should be to ensure a health-literate environment. In such environment, patients seek health care earlier because they recognize their symptoms; they ask for preventive cares to reduce health risk; they understand and follow their doctors' recommendations and they are not afraid to ask questions if they do not understand. Educating patients with the EHR generated health education materials and physicians' personalized advice are both essential in this process. 
@@ -736,6 +729,7 @@ First, Linking patient education with quality improvement efforts. In the effort
 Second, the CMS should work with physicians and venders to improve the usability of the EHR systems. Many physicians believe that practice work flow efficiency can be improved by more user-friendly system design. Physicians are looking for an easy to use electronic healthcare record system, such that physicians can record their encounter better, easier and faster than they could on paper. Together with physicians and EHR vendors, health policy practitioners should facilitate appropriate certification criteria of the EHR systems, which make physician clinical practice more efficient, more effective, and easier. 
 
 \chapter{Conclusion}
+\label{chapter:conclusion}
 In summary, we used the National Ambulatory Medical Care Survey data to assess whether ambulatory electronic healthcare record system is associated with changes in the patient-specific education prescription rate, patient-physician interaction time, and the returned appointment rate. We estimated the treatment effect of full EHR adoption and partial EHR adoption with multinomial propensity score weighting. We found evidence to suggest that full EHR adoption positively affect patient-specific health education prescription rate. There is no robust evidence to show effect of EHR system on time utilization or returned appointment rate. Linking patient education with quality improvement efforts and improving the usability of the EHR systems are both essential to improve healthcare quality.
 
 \newpage

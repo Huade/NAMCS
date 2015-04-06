@@ -4,37 +4,37 @@
 \par \vspace {6\p@ }
 \noindent {\sc Chapter}
 \vspace {-3\p@ }
-\contentsline {chapter}{\numberline {1}Introduction (working)}{1}
-\contentsline {chapter}{\numberline {2}Literature review}{2}
-\contentsline {section}{\numberline {2.1}Background}{2}
-\contentsline {section}{\numberline {2.2}Effect of EHR on health expenditure}{3}
-\contentsline {section}{\numberline {2.3}Effect of EHR on healthcare efficiency and quality}{4}
-\contentsline {subsection}{\numberline {2.3.1}Physicians' financial incentives on EHR}{5}
-\contentsline {section}{\numberline {2.4}Contribution to literature}{6}
-\contentsline {chapter}{\numberline {3}Analysis Plan}{8}
-\contentsline {section}{\numberline {3.1}Data}{8}
-\contentsline {section}{\numberline {3.2}Estimating treatment effect with observational data}{9}
-\contentsline {section}{\numberline {3.3}Assumption of causal inference}{10}
-\contentsline {section}{\numberline {3.4}Propensity score estimation}{12}
-\contentsline {section}{\numberline {3.5}Propensity score weighted regression model}{14}
-\contentsline {section}{\numberline {3.6}Sensitivity tests}{15}
-\contentsline {chapter}{\numberline {4}Descriptive Statistics}{17}
-\contentsline {section}{\numberline {4.1}Nominal and ordinal variables}{17}
-\contentsline {section}{\numberline {4.2}Continuous variables}{21}
-\contentsline {chapter}{\numberline {5}Propensity score balance}{24}
-\contentsline {section}{\numberline {5.1}Measuring propensity score balance}{24}
-\contentsline {section}{\numberline {5.2}Graphic diagnostics of propensity score estimation and balance}{25}
-\contentsline {subsection}{\numberline {5.2.1}Sufficient iterations of GBM model}{25}
-\contentsline {subsection}{\numberline {5.2.2}Overlapping assumption satisfied}{25}
-\contentsline {subsection}{\numberline {5.2.3}Propensity score balance achieved}{26}
-\contentsline {section}{\numberline {5.3}Tabular assessments of balance}{29}
-\contentsline {chapter}{\numberline {6}Regression results}{33}
-\contentsline {section}{\numberline {6.1}Model specification}{33}
-\contentsline {section}{\numberline {6.2}EHR adoption has a positive effect on health education prescription}{34}
-\contentsline {section}{\numberline {6.3}EHR adoption has no effect on time utilization}{34}
-\contentsline {section}{\numberline {6.4}EHR adoption has no robust effect on returned appointment rate}{35}
-\contentsline {chapter}{\numberline {7}Discussion}{39}
-\contentsline {chapter}{\numberline {8}Limitations}{41}
-\contentsline {chapter}{\numberline {9}Policy implications}{42}
-\contentsline {chapter}{\numberline {10}Conclusion}{43}
-\contentsline {pseudochapter}{Bibliography}{44}
+\contentsline {chapter}{\numberline {1}Introduction}{1}
+\contentsline {chapter}{\numberline {2}Literature review}{3}
+\contentsline {section}{\numberline {2.1}Background}{3}
+\contentsline {section}{\numberline {2.2}Effect of EHR on health expenditure}{4}
+\contentsline {section}{\numberline {2.3}Effect of EHR on healthcare efficiency and quality}{5}
+\contentsline {subsection}{\numberline {2.3.1}Physicians' financial incentives on EHR}{6}
+\contentsline {section}{\numberline {2.4}Contribution to literature}{7}
+\contentsline {chapter}{\numberline {3}Analysis Plan}{9}
+\contentsline {section}{\numberline {3.1}Data}{9}
+\contentsline {section}{\numberline {3.2}Estimating treatment effect with observational data}{10}
+\contentsline {section}{\numberline {3.3}Assumption of causal inference}{11}
+\contentsline {section}{\numberline {3.4}Propensity score estimation}{13}
+\contentsline {section}{\numberline {3.5}Propensity score weighted regression model}{15}
+\contentsline {section}{\numberline {3.6}Sensitivity tests}{16}
+\contentsline {chapter}{\numberline {4}Descriptive Statistics}{18}
+\contentsline {section}{\numberline {4.1}Nominal and ordinal variables}{18}
+\contentsline {section}{\numberline {4.2}Continuous variables}{22}
+\contentsline {chapter}{\numberline {5}Propensity score balance}{25}
+\contentsline {section}{\numberline {5.1}Measuring propensity score balance}{25}
+\contentsline {section}{\numberline {5.2}Graphic diagnostics of propensity score estimation and balance}{26}
+\contentsline {subsection}{\numberline {5.2.1}Sufficient iterations of GBM model}{26}
+\contentsline {subsection}{\numberline {5.2.2}Overlapping assumption satisfied}{26}
+\contentsline {subsection}{\numberline {5.2.3}Propensity score balance achieved}{27}
+\contentsline {section}{\numberline {5.3}Tabular assessments of balance}{30}
+\contentsline {chapter}{\numberline {6}Regression results}{34}
+\contentsline {section}{\numberline {6.1}Model specification}{34}
+\contentsline {section}{\numberline {6.2}EHR adoption has a positive effect on health education prescription}{35}
+\contentsline {section}{\numberline {6.3}EHR adoption has no effect on time utilization}{35}
+\contentsline {section}{\numberline {6.4}EHR adoption has no robust effect on returned appointment rate}{36}
+\contentsline {chapter}{\numberline {7}Discussion}{40}
+\contentsline {chapter}{\numberline {8}Limitations}{42}
+\contentsline {chapter}{\numberline {9}Policy implications}{43}
+\contentsline {chapter}{\numberline {10}Conclusion}{44}
+\contentsline {pseudochapter}{Bibliography}{45}

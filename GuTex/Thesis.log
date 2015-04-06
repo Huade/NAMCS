@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  6 APR 2015 13:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  6 APR 2015 18:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -646,52 +646,52 @@ Chapter 4.
 Chapter 5.
 [26
 
-] <psdiag1.pdf, id=131, 715.08255pt x 368.37325pt>
+] <psdiag1.pdf, id=130, 715.08255pt x 368.37325pt>
 File: psdiag1.pdf Graphic file (type pdf)
  <use psdiag1.pdf>
-Package pdftex.def Info: psdiag1.pdf used on input line 393.
+Package pdftex.def Info: psdiag1.pdf used on input line 401.
 (pdftex.def)             Requested size: 433.62pt x 223.3808pt.
 
-<psdiag2.pdf, id=132, 499.58945pt x 483.57764pt>
+<psdiag2.pdf, id=131, 499.58945pt x 483.57764pt>
 File: psdiag2.pdf Graphic file (type pdf)
  <use psdiag2.pdf>
-Package pdftex.def Info: psdiag2.pdf used on input line 404.
+Package pdftex.def Info: psdiag2.pdf used on input line 412.
 (pdftex.def)             Requested size: 433.62pt x 419.74252pt.
  [27]
 [28 <./psdiag1.pdf>] [29 <./psdiag2.pdf>]
-<psdiag3.pdf, id=193, 499.33049pt x 295.27814pt>
+<psdiag3.pdf, id=192, 499.33049pt x 295.27814pt>
 File: psdiag3.pdf Graphic file (type pdf)
  <use psdiag3.pdf>
-Package pdftex.def Info: psdiag3.pdf used on input line 418.
+Package pdftex.def Info: psdiag3.pdf used on input line 426.
 (pdftex.def)             Requested size: 433.62pt x 256.42581pt.
- [30 <./psdiag3.pdf>] <psdiag4.pdf, id=212, 514.64574pt x 438.76321pt>
+ [30 <./psdiag3.pdf>] <psdiag4.pdf, id=211, 514.64574pt x 438.76321pt>
 File: psdiag4.pdf Graphic file (type pdf)
  <use psdiag4.pdf>
-Package pdftex.def Info: psdiag4.pdf used on input line 428.
+Package pdftex.def Info: psdiag4.pdf used on input line 436.
 (pdftex.def)             Requested size: 433.62pt x 369.69673pt.
 
 [31 <./psdiag4.pdf>] [32]
-Overfull \hbox (4.75006pt too wide) detected at line 484
+Overfull \hbox (4.75006pt too wide) detected at line 492
 $[]$ 
  []
 
 
-Overfull \hbox (4.75006pt too wide) detected at line 485
+Overfull \hbox (4.75006pt too wide) detected at line 493
 $[]$ 
  []
 
 
-Overfull \hbox (4.75006pt too wide) detected at line 497
+Overfull \hbox (4.75006pt too wide) detected at line 505
 $[]$ 
  []
 
 
-Overfull \hbox (4.75006pt too wide) detected at line 519
+Overfull \hbox (4.75006pt too wide) detected at line 527
 $[]$ 
  []
 
 
-Overfull \hbox (4.75006pt too wide) detected at line 537
+Overfull \hbox (4.75006pt too wide) detected at line 545
 $[]$ 
  []
 
@@ -700,17 +700,17 @@ Chapter 6.
 [35
 
 ] [36] [37]
-Overfull \hbox (18.19127pt too wide) in paragraph at lines 577--611
+Overfull \hbox (18.19127pt too wide) in paragraph at lines 585--619
  [][] 
  []
 
 [38]
-Overfull \hbox (18.19127pt too wide) in paragraph at lines 622--657
+Overfull \hbox (18.19127pt too wide) in paragraph at lines 630--665
  [][] 
  []
 
 [39]
-Overfull \hbox (18.19127pt too wide) in paragraph at lines 668--703
+Overfull \hbox (18.19127pt too wide) in paragraph at lines 676--711
  [][] 
  []
 
@@ -762,39 +762,38 @@ s. hos-pi-
 
 [49] [50] [51]) [52] (./Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 11414 strings out of 493117
- 233432 string characters out of 6135433
- 264560 words of memory out of 5000000
- 14737 multiletter control sequences out of 15000+600000
- 23717 words of font info for 68 fonts, out of 8000000 for 9000
+ 11404 strings out of 493117
+ 233332 string characters out of 6135433
+ 264551 words of memory out of 5000000
+ 14732 multiletter control sequences out of 15000+600000
+ 22184 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,15n,35p,10392b,570s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/
 enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2014/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2014/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/p
-ublic/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2014/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/
-cm-super/sfbx1095.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm
--super/sfbx1200.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-s
-uper/sfcc1200.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-sup
-er/sfrm1095.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super
-/sfrm1200.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/s
-fti1095.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sft
-i1200.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sftt1
-200.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfxc120
-0.pfb>
-Output written on Thesis.pdf (61 pages, 952498 bytes).
+pe1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2014/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-su
+per/sfbx1095.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-supe
+r/sfbx1200.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/
+sfcc1200.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sf
+rm1095.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfrm
+1200.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfti10
+95.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfti1200
+.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sftt1200.p
+fb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfxc1200.pfb
+>
+Output written on Thesis.pdf (61 pages, 947885 bytes).
 PDF statistics:
- 375 PDF objects out of 1000 (max. 8388607)
- 248 compressed objects within 3 object streams
+ 371 PDF objects out of 1000 (max. 8388607)
+ 245 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

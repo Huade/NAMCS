@@ -30,9 +30,9 @@
 \contentsline {section}{\numberline {5.3}Tabular assessments of balance}{31}
 \contentsline {chapter}{\numberline {6}Regression results}{35}
 \contentsline {section}{\numberline {6.1}Model specification}{35}
-\contentsline {section}{\numberline {6.2}EHR adoption has a positive effect on health education prescription}{36}
+\contentsline {section}{\numberline {6.2}EHR adoption has a positive effect on patient-specific health education prescription rates}{36}
 \contentsline {section}{\numberline {6.3}EHR adoption has no effect on time utilization}{36}
-\contentsline {section}{\numberline {6.4}EHR adoption has no robust effect on returned appointment rate}{37}
+\contentsline {section}{\numberline {6.4}EHR adoption has no robust effect on returned appointment rates}{37}
 \contentsline {chapter}{\numberline {7}Discussion}{41}
 \contentsline {chapter}{\numberline {8}Limitations}{43}
 \contentsline {chapter}{\numberline {9}Policy implications}{44}

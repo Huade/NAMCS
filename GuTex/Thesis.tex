@@ -555,10 +555,10 @@ In our analysis, we use eight models to assess the effect of EHR adoption on pat
 
 Models (2) through (8) in Table \ref{tab:edu}, Table \ref{tab:time}, and Table \ref{tab:return} serve as sensitivity tests of Model (1). Model (2) has the same model specification with Model (1), but use binomial or poisson regression depending on the dependent variable's distribution. Model (3) and Model (4) have the same multinomial propensity score with Model (1) while Model (3) includes no covariates and Model (4) includes all covariates. Model (5) through Model (8) use binary treatment assignment instead of multiple treatment assignments in propensity score estimation and regression adjustment. Model (5) and Model (6) estimate the treatment effect of full EHR adoption and partial EHR adoption with propensity score weighting. Model (7) and Model (8) analyze that with propensity score matching. 
 
-\section{EHR adoption has a positive effect on health education prescription}
+\section{EHR adoption has a positive effect on patient-specific health education prescription rates}
 Table \ref{tab:edu} illustrates the effect of EHR adoption on patient-specific health education prescription rates. 
 
-As shown in Model (1), physician practices that have fully adopted the EHR system have statistically significant higher patient-specific health education prescription rates than their counterparts at a 90\% confidence level. Physicians are expected to increase patient-specific health education prescription rates by 3.4\% if they fully adopt the EHR system. This result is robust among different regression models, with no substantial difference. However, there are no statistically significant relationships between partial EHR adoption and patient-specific education resource prescription. 
+As shown in Model (1), physician practices that have fully adopted the EHR system have statistically significant higher patient-specific health education prescription rates than their counterparts at a 90\% confidence level. Physicians are expected to increase patient-specific health education prescription rates by 3.4\% if they fully adopt the EHR system. This result is robust among different regression models, with no substantial difference. However, there are no statistically significant relationships between partial EHR adoption and patient-specific health education prescription rates. 
 
 Physicians can identify patient-specific education resources through integrated programs with certified EHR technology. The EHR system can use the patient's demographic characteristics, diagnostics and medications, or other patient information to suggest education resources that would be of value to the patient \citep{hitrc_edu}. 
 
@@ -569,7 +569,7 @@ Similar to physician practices that have fully adopted the EHR system, physician
 
 
 
-\section{EHR adoption has no robust effect on returned appointment rate}
+\section{EHR adoption has no robust effect on returned appointment rates}
 
 Table \ref{tab:return} shows the estimated effect of EHR adoption on the returned appointment rate. Physician practices that have fully adopted the EHR system have fewer returned appointments. The returned appointment is expected to decrease by 0.31\% if the physician practices have the full EHR adoption. 
 
@@ -579,13 +579,13 @@ Although Model (1) suggests that there are statistically significant relationshi
 
 \begin{landscape}
 \begin{table}[p] \centering 
-  \caption{Estimated effect of EHR adoption on patient-specific health education prescription rate} 
+  \caption{Estimated effect of EHR adoption on patient-specific health education prescription rates} 
   \label{tab:edu} 
 \footnotesize 
 \begin{tabular}{@{\extracolsep{-15pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
- & \multicolumn{8}{c}{\textit{Dependent variable: patient-specific health education prescription rate}} \\ 
+ & \multicolumn{8}{c}{\textit{Dependent variable: patient-specific health education prescription rates}} \\ 
 \cline{2-9} 
 \\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} & \multicolumn{1}{c}{(5)} & \multicolumn{1}{c}{(6)} & \multicolumn{1}{c}{(7)} & \multicolumn{1}{c}{(8)}\\ 
 \hline \\[-1.8ex] 
@@ -670,13 +670,13 @@ F Statistic &  &  &  &  &  &  & \multicolumn{1}{c}{9.895$^{***}$} & \multicolumn
 % Requires LaTeX packages: dcolumn 
 \begin{landscape} 
 \begin{table}[p] \centering 
-  \caption{Estimated effect of EHR adoption on returned appointment rate} 
+  \caption{Estimated effect of EHR adoption on returned appointment rates} 
   \label{tab:return} 
 \footnotesize 
 \begin{tabular}{@{\extracolsep{-15pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
- & \multicolumn{8}{c}{\textit{Dependent variable: returned appointment rate}} \\ 
+ & \multicolumn{8}{c}{\textit{Dependent variable: returned appointment rates}} \\ 
 \cline{2-9} 
 \\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} & \multicolumn{1}{c}{(5)} & \multicolumn{1}{c}{(6)} & \multicolumn{1}{c}{(7)} & \multicolumn{1}{c}{(8)}\\ 
 \hline \\[-1.8ex] 
@@ -716,7 +716,7 @@ F Statistic &  &  &  &  &  &  & \multicolumn{1}{c}{(df = 13; 2278)} & \multicolu
 \label{chapter:discussion}
 The federal government has authorized more than \$1.5 billion to provide a financial incentive for EHR adoption. The rationale for this level of expenditure comes from an expectation that the EHR will improve health care quality and efficiency in the United States. In this analysis, we estimate the effect of EHR adoption on the patient-specific education resources prescription rate, time utilization, and returned appointment rates. We find the effect of full EHR adoption on patient-specific health education prescription rates is statistically significant. Physician practices that have full EHR adoption are more likely to prescribe patient-specific health education resources. We do not find statistically significant and robust effects of EHR adoption on time utilization or returned appointment rates.
 
-There are multiple plausible reasons that can explain the EHR's positive effect on the health education prescription rate. First, patient-specific education resources are easy to prescribe with the EHR system. The certified EHR system automates the process for identifying appropriate education resources. Physicians no longer need to search manually during the consultation. Second, the EHR incentive program has set patient-specific education as a menu objective. To meet this objective, health care providers must provide at least 10\% of  patient-specific education resources for patients. There is no exemption for this menu objective. Third, physicians may intentionally use the EHR for shared decision-making and education to improve patient engagement. Physicians can easily share information with patients via the patient portal or printouts, encouraging patients to play an important role in optimizing their treatment outcomes.
+There are multiple plausible reasons that can explain the EHR's positive effect on patient-specific health education prescription rates. First, patient-specific education resources are easy to prescribe with the EHR system. The certified EHR system automates the process for identifying appropriate education resources. Physicians no longer need to search manually during the consultation. Second, the EHR incentive program has set patient-specific education as a menu objective. To meet this objective, health care providers must provide at least 10\% of  patient-specific education resources for patients. There is no exemption for this menu objective. Third, physicians may intentionally use the EHR for shared decision-making and education to improve patient engagement. Physicians can easily share information with patients via the patient portal or printouts, encouraging patients to play an important role in optimizing their treatment outcomes.
 
 Several factors contributed to a mixed-time utilization outcome after EHR adoption. On the one hand, time efficiency could have improved as physicians became familiar with EHR systems. For example, physicians could check a patient's lab test results or medical histories instantly with the EHR system. On the other hand, certain EHR systems have poor usability. Overwhelming false alert messages and time-consuming data entry could further increase documentation time. Additionally, physicians could have continued to perform certain tasks using paper-based methods, even though the computer automatically performed these tasks for them \citep{overhage2001controlled}.
 
